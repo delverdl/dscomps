@@ -1,0 +1,18 @@
+include(./dscfgbase.pri)
+
+dsAddLibrary($$DSLIBS, dsssh)
+
+QT            *=  network
+
+# Botan needs this
+unix: LIBS    +=  -ldl
+
+# For callback C++ class
+CONFIG        +=  dscallback c++11
+
+# Include paths
+contains(DSSYSTEM, HASFRAMEWORK) {
+  INCLUDEPATH *=  $$DSLIBS/dsssh.framework/Headers
+} else {
+  INCLUDEPATH *=  $$DSHEADERS/dsssh
+}

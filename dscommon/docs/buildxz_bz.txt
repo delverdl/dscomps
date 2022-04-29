@@ -1,0 +1,68 @@
+Steps for building XZ
+=======================
+
+You can download XZ from its git repo by running this:
+
+    git clone https://git.tukaani.org/xz.git
+
+The next is useful when building for various architectures; thus you can run (within source root directory):
+
+    git clean -dfx
+    ./autogen.sh
+
+I have my NDK in */home/osboxes/dev/android-ndk-r16b*, thus I separated it into 3 architectures, by running the following:
+
+    cd /home/osboxes/dev
+    ~/dev/android-ndk-r16b/build/tools/make-standalone-toolchain.sh --use-llvm --arch=arm --install-dir=android-ndk-arm --force
+    ~/dev/android-ndk-r16b/build/tools/make-standalone-toolchain.sh --use-llvm --arch=x86 --install-dir=android-ndk-x86 --force
+    ~/dev/android-ndk-r16b/build/tools/make-standalone-toolchain.sh --use-llvm --arch=arm64 --install-dir=android-ndk-arm64 --force
+
+For ARM
+=========
+
+    CC=~/dev/android-ndk-arm/bin/clang ./configure --prefix=/home/osboxes/dev/libs/arm --host=arm-linux-androideabi --target=arm-linux-androideabi --enable-static --with-pic --disable-xz --disable-xzdec --disable-lzmainfo --disable-scripts --disable-lzmadec --disable-shared
+
+For ARM64
+=========
+
+    CC=~/dev/android-ndk-arm64/bin/clang ./configure --prefix=/home/osboxes/dev/libs/arm64 --host=aarch64-linux-android --target=aarch64-linux-android --enable-static --with-pic --disable-xz --disable-xzdec --disable-lzmainfo --disable-scripts --disable-lzmadec --disable-shared
+
+For x86
+=========
+
+    CC=~/dev/android-ndk-x86/bin/clang ./configure --prefix=/home/osboxes/dev/libs/x86 --host=i686-linux-android --target=i686-linux-android --enable-static --with-pic --disable-xz --disable-xzdec --disable-lzmainfo --disable-scripts --disable-lzmadec --disable-shared
+
+
+After each configuration you must run:
+
+    make -j2
+
+Option "*-j2*" make use of 2 CPUs for building process. You can change the number of CPUs you want to use, or even remove this option. To install compiled sources then run:
+
+    make install
+
+
+Steps for building BZIP2
+========================
+
+To download bzip2 source code you can do:
+
+    git clone https://gitlab.com/bzip/bzip2.git
+    
+And thus command *git clean -dfx* will ensure new build for the library. Next edit Makefile and set it up according to each architecture; I've chosen, as for XZ, ~/dev/libs/<arch> the base path for libraries installation, so variables in such Makefile should be modified like the following.
+
+    CC=~/dev/android-ndk-arm/bin/arm-linux-androideabi-clang
+    AR=~/dev/android-ndk-arm/bin/arm-linux-androideabi-ar
+    RANLIB=~/dev/android-ndk-arm/bin/arm-linux-androideabi-ranlib
+    LDFLAGS=-pie
+
+    CFLAGS=-Wall -Winline -O2 -g $(BIGFILES) -fPIE
+
+    PREFIX=~/dev/libs/arm
+
+PIE options in both compiler and linker ensure binaries to run properly. After you modify the Makefile you run
+
+    make && make install
+    
+And aftewards you should only modify CC, AR and RANLIB variables.
+

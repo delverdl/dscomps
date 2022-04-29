@@ -1,0 +1,12 @@
+include(dscfgbase.pri)
+
+dsAddLibrary($$DSLIBS, wwwidgets)
+
+QT            *=  gui widgets
+
+# Include paths
+contains(DSSYSTEM, HASFRAMEWORK) {
+  INCLUDEPATH *=  $$[QT_INSTALL_LIBS]/wwwidgets.framework/Headers
+} else {
+  INCLUDEPATH *=  $$[QT_INSTALL_HEADERS]/wwwidgets
+}

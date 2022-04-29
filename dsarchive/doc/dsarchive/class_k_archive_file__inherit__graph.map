@@ -1,0 +1,5 @@
+<map id="KArchiveFile" name="KArchiveFile">
+<area shape="rect" id="node1" title="A file in an archive." alt="" coords="10,80,101,107"/>
+<area shape="rect" id="node3" href="$class_k_zip_file_entry.html" title=" " alt="" coords="8,155,103,181"/>
+<area shape="rect" id="node2" href="$class_k_archive_entry.html" title="Base class for the archive&#45;file&#39;s directory structure." alt="" coords="5,5,105,32"/>
+</map>

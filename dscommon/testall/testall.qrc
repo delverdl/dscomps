@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>help-about.png</file>
+        <file>cipher.png</file>
+        <file>ds.png</file>
+    </qresource>
+</RCC>

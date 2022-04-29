@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+  <namespace>org.doxygen.dsapplogger</namespace>
+  <virtualFolder>doc</virtualFolder>
+  <filterSection>
+    <filterAttribute>doxygen</filterAttribute>
+    <toc>
+      <section title="DSAppLogger 1.0" ref="index.html">
+        <section title="Classes" ref="annotated.html">
+          <section title="Class List" ref="annotated.html">
+            <section title="CAppLogger" ref="class_c_app_logger.html">
+              <section title="CAppLogger" ref="class_c_app_logger.html#a89de54a6e0fc4b01ed970b597c5fa8d5" />
+              <section title="~ CAppLogger" ref="class_c_app_logger.html#ab50fadf7d5a4b7ec131a152b621a4ad8" />
+              <section title="activate" ref="class_c_app_logger.html#ae0dfb61731e4ebf4b4ea7195573e31b4" />
+              <section title="messageHandler" ref="class_c_app_logger.html#acc7094fe1b7a2d2b1e0f5e633d48e218" />
+              <section title="fLog" ref="class_c_app_logger.html#a706bebba760173f7eebaa774380e0afe" />
+            </section>
+          </section>
+          <section title="Class Index" ref="classes.html" />
+          <section title="Class Members" ref="functions.html">
+            <section title="All" ref="functions.html" />
+            <section title="Functions" ref="functions_func.html" />
+            <section title="Variables" ref="functions_vars.html" />
+          </section>
+        </section>
+        <section title="Files" ref="files.html">
+          <section title="File List" ref="files.html">
+            <section title="include" ref="dir_d44c64559bbebec7f509842c48db8b23.html">
+              <section title="CAppLogger.h" ref="_c_app_logger_8h.html">
+                <section title="CAppLogger" ref="class_c_app_logger.html">
+                  <section title="CAppLogger" ref="class_c_app_logger.html#a89de54a6e0fc4b01ed970b597c5fa8d5" />
+                  <section title="~ CAppLogger" ref="class_c_app_logger.html#ab50fadf7d5a4b7ec131a152b621a4ad8" />
+                  <section title="activate" ref="class_c_app_logger.html#ae0dfb61731e4ebf4b4ea7195573e31b4" />
+                  <section title="messageHandler" ref="class_c_app_logger.html#acc7094fe1b7a2d2b1e0f5e633d48e218" />
+                  <section title="fLog" ref="class_c_app_logger.html#a706bebba760173f7eebaa774380e0afe" />
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
+    </toc>
+    <keywords>
+      <keyword name="CAppLogger" id="CAppLogger" ref="class_c_app_logger.html" />
+      <keyword name="CAppLogger" id="CAppLogger::CAppLogger" ref="class_c_app_logger.html#a89de54a6e0fc4b01ed970b597c5fa8d5" />
+      <keyword name="~ CAppLogger" id="CAppLogger::~ CAppLogger" ref="class_c_app_logger.html#ab50fadf7d5a4b7ec131a152b621a4ad8" />
+      <keyword name="activate" id="CAppLogger::activate" ref="class_c_app_logger.html#ae0dfb61731e4ebf4b4ea7195573e31b4" />
+      <keyword name="messageHandler" id="CAppLogger::messageHandler" ref="class_c_app_logger.html#acc7094fe1b7a2d2b1e0f5e633d48e218" />
+      <keyword name="fLog" id="CAppLogger::fLog" ref="class_c_app_logger.html#a706bebba760173f7eebaa774380e0afe" />
+    </keywords>
+    <files>
+      <file>tabs.css</file>
+      <file>tab_a.png</file>
+      <file>tab_b.png</file>
+      <file>tab_h.png</file>
+      <file>tab_s.png</file>
+      <file>nav_h.png</file>
+      <file>nav_f.png</file>
+      <file>bc_s.png</file>
+      <file>doxygen.png</file>
+      <file>closed.png</file>
+      <file>open.png</file>
+      <file>bdwn.png</file>
+      <file>sync_on.png</file>
+      <file>sync_off.png</file>
+      <file>doxygen.css</file>
+      <file>jquery.js</file>
+      <file>dynsections.js</file>
+      <file>search/search_l.png</file>
+      <file>search/search_m.png</file>
+      <file>search/search_r.png</file>
+      <file>search/close.png</file>
+      <file>search/mag_sel.png</file>
+      <file>search/search.css</file>
+      <file>search/search.js</file>
+      <file>_c_app_logger_8h_source.html</file>
+      <file>_c_app_logger_8h.html</file>
+      <file>_c_app_logger_8h__incl.png</file>
+      <file>class_c_app_logger.html</file>
+      <file>class_c_app_logger-members.html</file>
+      <file>graph_legend.png</file>
+      <file>graph_legend.html</file>
+      <file>dir_d44c64559bbebec7f509842c48db8b23.html</file>
+      <file>index.html</file>
+      <file>annotated.html</file>
+      <file>classes.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_vars.html</file>
+      <file>files.html</file>
+    </files>
+  </filterSection>
+</QtHelpProject>

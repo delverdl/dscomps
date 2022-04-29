@@ -1,0 +1,8 @@
+<map id="KArchive" name="KArchive">
+<area shape="rect" id="node1" title="generic class for reading/writing archives" alt="" coords="139,5,210,32"/>
+<area shape="rect" id="node2" href="$class_k7_zip.html" title=" " alt="" coords="5,80,59,107"/>
+<area shape="rect" id="node3" href="$class_k_ar.html" title="A class for reading ar archives." alt="" coords="83,80,125,107"/>
+<area shape="rect" id="node4" href="$class_k_rcc.html" title="A class for reading rcc resources." alt="" coords="150,80,199,107"/>
+<area shape="rect" id="node5" href="$class_k_tar.html" title=" " alt="" coords="223,80,273,107"/>
+<area shape="rect" id="node6" href="$class_k_zip.html" title=" " alt="" coords="297,80,343,107"/>
+</map>

@@ -1,0 +1,10 @@
+include(./dscfgbase.pri)
+
+dsAddLibrary($$DSLIBS, dsarchive)
+
+# Include paths
+contains(DSSYSTEM, HASFRAMEWORK) {
+  INCLUDEPATH *=  $$DSLIBS/dsarchive.framework/Headers
+} else {
+  INCLUDEPATH *=  $$DSHEADERS/dsarchive
+}

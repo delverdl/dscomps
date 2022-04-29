@@ -1,0 +1,15 @@
+include(./dscfgbase.pri)
+
+dsAddLibrary($$DSLIBS, qtsgui)
+
+QT            *=  gui widgets network
+
+# Include paths
+contains(DSSYSTEM, HASFRAMEWORK) {
+  INCLUDEPATH *=  $$DSLIBS/qtsgui.framework/Headers
+} else {
+  INCLUDEPATH *=  $$DSHEADERS/qtsgui
+}
+
+DEFINES       +=  QT_QTPROPERTYBROWSER_IMPORT QT_QTSINGLEAPPLICATION_IMPORT
+CONFIG        +=  qtscore

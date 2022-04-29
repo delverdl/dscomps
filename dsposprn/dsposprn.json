@@ -1,0 +1,7 @@
+{
+    "Keys": ["printer", "driver", "posprn"],
+    "Provider": "Delsoft",
+    "Device": "POS printer diver",
+    "PowerManaged": false,
+    "Version": "1.0"
+}

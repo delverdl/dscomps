@@ -1,0 +1,4 @@
+include(./dscfgbase.pri)
+
+INCLUDEPATH *=  $$DSHEADERS/dsutils
+CONFIG      *=  dscallbak

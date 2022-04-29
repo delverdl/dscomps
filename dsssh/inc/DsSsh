@@ -1,0 +1,7 @@
+#include "sftpchannel.h"
+#include "sshconnectionmanager.h"
+#include "sshdirecttcpiptunnel.h"
+#include "sshkeygenerator.h"
+#include "sshpseudoterminal.h"
+#include "sshremoteprocessrunner.h"
+#include "sshtcpipforwardserver.h"

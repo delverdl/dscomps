@@ -1,0 +1,1191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+  <namespace>org.doxygen.dsarchive</namespace>
+  <virtualFolder>doc</virtualFolder>
+  <filterSection>
+    <filterAttribute>doxygen</filterAttribute>
+    <toc>
+      <section title="DSArchive 5.37.0" ref="index.html">
+        <section title="Deprecated List" ref="deprecated.html" />
+        <section title="Classes" ref="annotated.html">
+          <section title="Class List" ref="annotated.html">
+            <section title="K7Zip" ref="class_k7_zip.html">
+              <section title="K7Zip" ref="class_k7_zip.html#ae631f40a58dcb35d4dddf75dec9f6e72" />
+              <section title="K7Zip" ref="class_k7_zip.html#a46251247fccaf4f1498fd356f08748dc" />
+              <section title="~K7Zip" ref="class_k7_zip.html#a4454278620ea3eb791d205383b290a39" />
+              <section title="K7Zip" ref="class_k7_zip.html#a85afb33ca83fc62d7333a5e69ec70d29" />
+              <section title="K7Zip" ref="class_k7_zip.html#abd06c5021d64df25f5743338984f84bf" />
+              <section title="closeArchive" ref="class_k7_zip.html#a44e7c936b5613c61729ee23b34f25d9a" />
+              <section title="doFinishWriting" ref="class_k7_zip.html#a34c6b2faa847ea99e08839ff186e75cc" />
+              <section title="doPrepareWriting" ref="class_k7_zip.html#af5509064e8d15a5f879deb8e3c690164" />
+              <section title="doWriteDir" ref="class_k7_zip.html#a0ae007127015e6c87bfb6dfd11f4377f" />
+              <section title="doWriteSymLink" ref="class_k7_zip.html#a5a9a0325d0646630a2612bc157923cac" />
+              <section title="openArchive" ref="class_k7_zip.html#a390f17f49925c41c6997a4ebf83bdfd3" />
+              <section title="virtual_hook" ref="class_k7_zip.html#a75f948bf16c4b8f484d8372bd81381ea" />
+              <section title="writeData" ref="class_k7_zip.html#aa83781241d632dd22c4f30cff68a42f8" />
+              <section title="d" ref="class_k7_zip.html#acc5f1a4b8b789f4bb401d391d7b8c4ee" />
+            </section>
+            <section title="KAr" ref="class_k_ar.html">
+              <section title="KAr" ref="class_k_ar.html#a39d760ebc3bfdb6b640bd8db8661a605" />
+              <section title="KAr" ref="class_k_ar.html#ab7031223b09f587dd23ca571880fce42" />
+              <section title="~KAr" ref="class_k_ar.html#aeb8cea52d4e997d2e6a6c3eb2853a693" />
+              <section title="KAr" ref="class_k_ar.html#aaaf931829ce6507891a4f0a82e544b8b" />
+              <section title="KAr" ref="class_k_ar.html#a35ff2b53abfbc6d422a50a3678338dd9" />
+              <section title="closeArchive" ref="class_k_ar.html#abe954c7a9f94be4038255e056f2c1573" />
+              <section title="doFinishWriting" ref="class_k_ar.html#af0537ec98d8c4fcc9c04b689360a22d3" />
+              <section title="doPrepareWriting" ref="class_k_ar.html#ac2c892eda0beb9cc94d61ae0b9337755" />
+              <section title="doWriteDir" ref="class_k_ar.html#acbe42c2c913f4b89e8a596c1dd78f312" />
+              <section title="doWriteSymLink" ref="class_k_ar.html#a1f669857985f78d67e9d4e83666fd21e" />
+              <section title="openArchive" ref="class_k_ar.html#a8d994e724271f25c34edfb2237d61399" />
+              <section title="virtual_hook" ref="class_k_ar.html#a6a153b6fb0f3153e934b7ac247394034" />
+              <section title="d" ref="class_k_ar.html#a5ae231e2538c0523ed7ef4924cdedc12" />
+            </section>
+            <section title="KArchive" ref="class_k_archive.html">
+              <section title="KArchive" ref="class_k_archive.html#a4386c6e12dc034c0687aa8bb738bf25d" />
+              <section title="KArchive" ref="class_k_archive.html#a3efbb71ada0630d90c5af53fedce9b19" />
+              <section title="~KArchive" ref="class_k_archive.html#ad26fb249b1ab51c13feabfbadb9fe2c5" />
+              <section title="KArchive" ref="class_k_archive.html#a374bace829e1665fa7948bf3e30463fa" />
+              <section title="KArchive" ref="class_k_archive.html#a5c3ef8ff047d3fd2fbd8e46a28b9cb29" />
+              <section title="addLocalDirectory" ref="class_k_archive.html#ab5a2f90d4003664127e744d078162c34" />
+              <section title="addLocalFile" ref="class_k_archive.html#a1e3b4d361c4b57fe8cb956a9b49a85e4" />
+              <section title="close" ref="class_k_archive.html#a7107c4f9e0fd9635cb1b5e89ba408f38" />
+              <section title="closeArchive" ref="class_k_archive.html#a52fa0982c4acaf9dcca8df09749e99a0" />
+              <section title="createDevice" ref="class_k_archive.html#a1754cd565a19adca197d5b5d1a193a16" />
+              <section title="device" ref="class_k_archive.html#acb2ae35e23f33dd078dc9cdd10fa25a0" />
+              <section title="directory" ref="class_k_archive.html#a674b6afdff3069d23cd67189d865881a" />
+              <section title="doFinishWriting" ref="class_k_archive.html#a181381217cda7b1d32abd7422b3de4ff" />
+              <section title="doPrepareWriting" ref="class_k_archive.html#a719ec1a1c62c015e993dee72ecb5fce7" />
+              <section title="doWriteDir" ref="class_k_archive.html#a4423297991d66579ea9fbf070f91ff48" />
+              <section title="doWriteSymLink" ref="class_k_archive.html#a4d818a6892534b4f559d3f4612a18dd5" />
+              <section title="errorString" ref="class_k_archive.html#a0570604738a465326bd0c8d3925e24ee" />
+              <section title="fileName" ref="class_k_archive.html#adb8c517921d59a7f48f7090cbcf5efcc" />
+              <section title="findOrCreate" ref="class_k_archive.html#a558f460621225a20397995462d1de464" />
+              <section title="finishWriting" ref="class_k_archive.html#a28478783281e5f729210ef7ecac9c225" />
+              <section title="isOpen" ref="class_k_archive.html#aec27152dc3cc0fa3df28daa8707d968d" />
+              <section title="mode" ref="class_k_archive.html#ac4aa377c4f4fefe55f840aa6ffcb3400" />
+              <section title="open" ref="class_k_archive.html#a3e1dce09e2cb5008667d022a8d3fefa1" />
+              <section title="openArchive" ref="class_k_archive.html#a868eecf661cda9b0fd26b6c9a1319555" />
+              <section title="prepareWriting" ref="class_k_archive.html#a7e50420630c3bb44f617ad812b673332" />
+              <section title="rootDir" ref="class_k_archive.html#a6c70834fc162c00000b95c7af95de18e" />
+              <section title="setDevice" ref="class_k_archive.html#af39343456c9c458230546b64ffc66a31" />
+              <section title="setErrorString" ref="class_k_archive.html#afc0721d4b4a941bf083f887b148a78f4" />
+              <section title="setRootDir" ref="class_k_archive.html#ae12a8b556703e189b9e2ebc886a18319" />
+              <section title="virtual_hook" ref="class_k_archive.html#a0ad9f36a9ee3e19b6662e8f59ebc4f4c" />
+              <section title="writeData" ref="class_k_archive.html#acf9dc1761d9af65dcc44231c59fdb020" />
+              <section title="writeDir" ref="class_k_archive.html#a8e8dad1251bf8b2303b677445dcb86c0" />
+              <section title="writeFile" ref="class_k_archive.html#aeb615bb1d33578f57f69af2b1e72029d" />
+              <section title="writeFile" ref="class_k_archive.html#aa6cf0bf8afebd3681b62e52d417b20bf" />
+              <section title="writeSymLink" ref="class_k_archive.html#a5625944353172a5dbd229bf1a08d8a91" />
+              <section title="d" ref="class_k_archive.html#a64a8c553f095adaf226441cde2b355e7" />
+            </section>
+            <section title="KArchiveDirectory" ref="class_k_archive_directory.html">
+              <section title="KArchiveDirectory" ref="class_k_archive_directory.html#a52719e2e8628d139f5454146cb9d41cb" />
+              <section title="~KArchiveDirectory" ref="class_k_archive_directory.html#a28c3f2fc97cf147fb024ed41f406c9b9" />
+              <section title="addEntry" ref="class_k_archive_directory.html#a0f5967950552c9e1fb6858fc1c627c19" />
+              <section title="copyTo" ref="class_k_archive_directory.html#a69a28476a3c50c9a12b214abf3d5a41a" />
+              <section title="entries" ref="class_k_archive_directory.html#a583309dbae0b387c7af46a4dad6dfeca" />
+              <section title="entry" ref="class_k_archive_directory.html#ac803cda8f9d7d2b9dbe1b7ac801ef310" />
+              <section title="file" ref="class_k_archive_directory.html#aa2a51a9fb0bdefe5ecbc7918f7d64983" />
+              <section title="isDirectory" ref="class_k_archive_directory.html#ab0c1a491aed663a566f5cac4ddb3cea1" />
+              <section title="removeEntry" ref="class_k_archive_directory.html#a717ab9abd24a82779b38e981c4fc1f39" />
+              <section title="virtual_hook" ref="class_k_archive_directory.html#a205362e312028a0a07a56b4ca3d814c7" />
+              <section title="d" ref="class_k_archive_directory.html#ad07cb5a59edd736c57f3f38f582a7f6c" />
+            </section>
+            <section title="KArchiveEntry" ref="class_k_archive_entry.html">
+              <section title="KArchiveEntry" ref="class_k_archive_entry.html#a5c0e3e538520cf9d05d4d3e12ae4594b" />
+              <section title="~KArchiveEntry" ref="class_k_archive_entry.html#aff83a50f2a99b45ab2f3715e932bab9e" />
+              <section title="archive" ref="class_k_archive_entry.html#a7cd83225c05fec686f629e30ebc6956e" />
+              <section title="date" ref="class_k_archive_entry.html#a5e2fd48f561980ecf22e6b69c91fc5e6" />
+              <section title="group" ref="class_k_archive_entry.html#a6bb1dcb1549695273205c2f0068cb942" />
+              <section title="isDirectory" ref="class_k_archive_entry.html#a02e41de0cc54c9d53c3090bf1f00bd1d" />
+              <section title="isFile" ref="class_k_archive_entry.html#a376387d6d496cdd3a5327dc568ae03bc" />
+              <section title="name" ref="class_k_archive_entry.html#a7a3fb99efe15847ef6cb3766d3588fc7" />
+              <section title="permissions" ref="class_k_archive_entry.html#a2356d6ed02a40c7dae6e9101087c232d" />
+              <section title="symLinkTarget" ref="class_k_archive_entry.html#aa0e86e5f1fa8c993463f8dd1ae605d4d" />
+              <section title="user" ref="class_k_archive_entry.html#a2c36d4e2b4f6ef3dc97cc0d69b7c910f" />
+              <section title="virtual_hook" ref="class_k_archive_entry.html#aed9768f6c6912e2b6f3bac7182ff8957" />
+              <section title="d" ref="class_k_archive_entry.html#a89ac4f5f26bb32448d121351843d2cae" />
+            </section>
+            <section title="KArchiveFile" ref="class_k_archive_file.html">
+              <section title="KArchiveFile" ref="class_k_archive_file.html#a0b5589f87f70f4b1a3922040d3b63111" />
+              <section title="~KArchiveFile" ref="class_k_archive_file.html#ac98cf5553640eb81f644e36f95f91569" />
+              <section title="copyTo" ref="class_k_archive_file.html#a0d25262342c7e71a4d13f578959dedae" />
+              <section title="createDevice" ref="class_k_archive_file.html#a3a7ac2dd4e4922d171e178bd02abb57f" />
+              <section title="data" ref="class_k_archive_file.html#a5ba08d90bc2bba1f1b1c155bc93f3235" />
+              <section title="isFile" ref="class_k_archive_file.html#ab4e8989d6c9e363b60fd633224991307" />
+              <section title="position" ref="class_k_archive_file.html#ab45ce3c099691954fefeffe773b742c5" />
+              <section title="setSize" ref="class_k_archive_file.html#a46ab3c77fb21b1ca095ba4a155f7d47e" />
+              <section title="size" ref="class_k_archive_file.html#a2006219e1cb0503dbbf0bc96b1f9f80d" />
+              <section title="virtual_hook" ref="class_k_archive_file.html#a1907f6c4ace08324cb6c26e61c20cd7d" />
+              <section title="d" ref="class_k_archive_file.html#aa03c7884476973cdcfdaaac976c6cabd" />
+            </section>
+            <section title="KCompressionDevice" ref="class_k_compression_device.html">
+              <section title="CompressionType" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4b">
+                <section title="GZip" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4bae39d092286a1ccb7e81613cde20e1249" />
+                <section title="BZip2" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4ba64f85eee3af9065f816637a806d01d6f" />
+                <section title="Xz" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4ba22224acd80963c8c1d36c7ed61844353" />
+                <section title="None" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4ba4251e625a7ebdc4d2bee5f6241c149d5" />
+              </section>
+              <section title="KCompressionDevice" ref="class_k_compression_device.html#a19d90470f86e14433eb2f21a7135c856" />
+              <section title="KCompressionDevice" ref="class_k_compression_device.html#a134baa7d6ad968471719755f58cea1e5" />
+              <section title="~KCompressionDevice" ref="class_k_compression_device.html#afa5ab317f7c7f0cc6ce3f128ab0bc7a4" />
+              <section title="atEnd" ref="class_k_compression_device.html#af88be6ed4e18af4156ec5e8478fae4c6" />
+              <section title="close" ref="class_k_compression_device.html#a984fa31855f47612817a22e5d25b4181" />
+              <section title="compressionType" ref="class_k_compression_device.html#a2c956ed814bf05b02a62d9ffb5e6d56e" />
+              <section title="error" ref="class_k_compression_device.html#a47659cc4cc6c370222f59b26eee973db" />
+              <section title="filterBase" ref="class_k_compression_device.html#a320fd225ffb444b661a98446f17ca9a5" />
+              <section title="filterForCompressionType" ref="class_k_compression_device.html#a8b63bbaf4b332dce4d152cde3d31fed8" />
+              <section title="open" ref="class_k_compression_device.html#ae40ec51fa25dfe0b8844d0cfc143ceb2" />
+              <section title="readData" ref="class_k_compression_device.html#a2e060cef47f4f9e0add371dba75409bb" />
+              <section title="seek" ref="class_k_compression_device.html#a4d8ab175fe4cd856bebf20d412a172d6" />
+              <section title="setOrigFileName" ref="class_k_compression_device.html#a16f277ab56f2d99aceffc698625a8254" />
+              <section title="setSkipHeaders" ref="class_k_compression_device.html#ac798a1e99382a3bbb39da72bd80c9335" />
+              <section title="writeData" ref="class_k_compression_device.html#a21e7b4de09bdfee1d5722dfcba999d5b" />
+              <section title="K7Zip" ref="class_k_compression_device.html#a75824a549d3aa1458428fa4663d1cd5f" />
+              <section title="d" ref="class_k_compression_device.html#ae7b1c97a30012362e50571c07a79dc74" />
+              <section title="KCompressionDevicePrivate" ref="class_k_compression_device.html#ad6fb214b6835a61020d47cd32dff8078" />
+            </section>
+            <section title="KFilterBase" ref="class_k_filter_base.html">
+              <section title="FilterFlags" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70f">
+                <section title="NoHeaders" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70fa753930e73c3e2e3fee72ba40e9dac131" />
+                <section title="WithHeaders" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70fa0b0c2f0f3fd2ddec8ab0a1b6318aef02" />
+                <section title="ZlibHeaders" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70faf58b16a4808ea5faee3112e912674868" />
+              </section>
+              <section title="Result" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6">
+                <section title="Ok" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6a764c61a081554c696859749260e6130d" />
+                <section title="End" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6a622a8ff7541664e371b8edce937672fd" />
+                <section title="Error" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6a131cc8b7a631609afba0427edac4c761" />
+              </section>
+              <section title="KFilterBase" ref="class_k_filter_base.html#a2140a1f803471c237cd201d2a8c6be81" />
+              <section title="~KFilterBase" ref="class_k_filter_base.html#acaa18afce13a591c36b399c0f76511a7" />
+              <section title="compress" ref="class_k_filter_base.html#a9640e78ba2da5e4aa34e928b426e16b8" />
+              <section title="device" ref="class_k_filter_base.html#af1fd3c777945555ec77ec6a74eb1d418" />
+              <section title="filterFlags" ref="class_k_filter_base.html#a29d7a5621658ff81a0fe9485a7898e62" />
+              <section title="inBufferAvailable" ref="class_k_filter_base.html#acef9fa1b419198bde5f9d8a433d7cd8e" />
+              <section title="inBufferEmpty" ref="class_k_filter_base.html#aa4c82c09040e1a1e29052d0e24112305" />
+              <section title="init" ref="class_k_filter_base.html#a5957e0e8fb8a376f3011e05284b1cb70" />
+              <section title="mode" ref="class_k_filter_base.html#aea4a8777dfad1fb83e7785194b12b680" />
+              <section title="outBufferAvailable" ref="class_k_filter_base.html#a0a0bfb0a10281beeec6e2a2a65d32c22" />
+              <section title="outBufferFull" ref="class_k_filter_base.html#a2f66df46355385a68fa41f5e3c04c8b3" />
+              <section title="readHeader" ref="class_k_filter_base.html#ad7b7580531a444442caf0daaaa27a283" />
+              <section title="reset" ref="class_k_filter_base.html#a72c70657fafeca5b310cfb1eb7b40e8c" />
+              <section title="setDevice" ref="class_k_filter_base.html#ae0b5719aa1ebe3b43507f45828acfb31" />
+              <section title="setFilterFlags" ref="class_k_filter_base.html#a741ff7aadcdad956684df276b690582b" />
+              <section title="setInBuffer" ref="class_k_filter_base.html#a332c5aba58f0c01f588de41bb337e15c" />
+              <section title="setOutBuffer" ref="class_k_filter_base.html#a5e284cc9076c690c5e0969e09ac0df1d" />
+              <section title="terminate" ref="class_k_filter_base.html#a60085d6ad0497b3a375f393c00f33b20" />
+              <section title="uncompress" ref="class_k_filter_base.html#a6f29466c181fbf910a75b4775488b62e" />
+              <section title="virtual_hook" ref="class_k_filter_base.html#a0255d11e86d779c7c15f532ea59c1912" />
+              <section title="writeHeader" ref="class_k_filter_base.html#a7672777b39bdd42c5f2c7121fff34848" />
+              <section title="d" ref="class_k_filter_base.html#adf19e3790ed2cdbda974c84b839e87ae" />
+            </section>
+            <section title="KFilterDev" ref="class_k_filter_dev.html">
+              <section title="KFilterDev" ref="class_k_filter_dev.html#a7822f81287541a1952b04305273c9131" />
+              <section title="compressionTypeForMimeType" ref="class_k_filter_dev.html#a98bdb4c8715618856c4102c7f8b2a09f" />
+              <section title="device" ref="class_k_filter_dev.html#a15b5dc4093e405e8af6f021095464ee2" />
+              <section title="deviceForFile" ref="class_k_filter_dev.html#a4714ddacbcfe6d57702505f7e07da141" />
+            </section>
+            <section title="KRcc" ref="class_k_rcc.html">
+              <section title="KRcc" ref="class_k_rcc.html#a7882b7b0e86c126a611144757fc862e2" />
+              <section title="~KRcc" ref="class_k_rcc.html#a6650a818cd87ff96f51582974f2dc411" />
+              <section title="closeArchive" ref="class_k_rcc.html#a7d32b3a4e283ba7a66d30c76069c3f33" />
+              <section title="doFinishWriting" ref="class_k_rcc.html#a4f34239a914071605e4a8b3a67a59c85" />
+              <section title="doPrepareWriting" ref="class_k_rcc.html#a9568adce115ae3efacc4d6c3928d0aaf" />
+              <section title="doWriteDir" ref="class_k_rcc.html#a01d52e7e4b887813507382a870d66e0b" />
+              <section title="doWriteSymLink" ref="class_k_rcc.html#a8822cbee0507ca869254b2b18c32f17d" />
+              <section title="openArchive" ref="class_k_rcc.html#a99aa0df3a18ec989d3633549a2e95368" />
+              <section title="virtual_hook" ref="class_k_rcc.html#a6d1c21b63b87c9263d96106218e270bd" />
+              <section title="d" ref="class_k_rcc.html#a9d7c35c49efaa12cc83cae9c8a88882b" />
+            </section>
+            <section title="KTar" ref="class_k_tar.html">
+              <section title="KTar" ref="class_k_tar.html#a44b9ab8fd30f0c7ffcf6a4a5c8f2443a" />
+              <section title="KTar" ref="class_k_tar.html#a93e7ce44e3438619e7cfb91bc879f688" />
+              <section title="~KTar" ref="class_k_tar.html#ae67454919d98cf7c6575f24485c10746" />
+              <section title="closeArchive" ref="class_k_tar.html#a963f2c3fc94e0a44c1f24846a8db7a20" />
+              <section title="createDevice" ref="class_k_tar.html#a595e1d5daed28aa53a185f260ce8b629" />
+              <section title="doFinishWriting" ref="class_k_tar.html#a3402a798f13eb00692901885c66b503c" />
+              <section title="doPrepareWriting" ref="class_k_tar.html#ac83bfdbafb791894f791e33e3f5e48b7" />
+              <section title="doWriteDir" ref="class_k_tar.html#ab7e296bf9ad349e68b00b3a5755b0bcd" />
+              <section title="doWriteSymLink" ref="class_k_tar.html#a397a1617c71924cb2bc57122d409f4bd" />
+              <section title="openArchive" ref="class_k_tar.html#a85ce841ac81b8dbce228e152cda5d555" />
+              <section title="setOrigFileName" ref="class_k_tar.html#a6f104d8a72f38fcc1f5984a7f40a4d59" />
+              <section title="virtual_hook" ref="class_k_tar.html#a59e263166217cb81ed68e77c2ddba642" />
+              <section title="d" ref="class_k_tar.html#a75b22cbe503843f8ce5f66ceee9458a8" />
+            </section>
+            <section title="KZip" ref="class_k_zip.html">
+              <section title="Compression" ref="class_k_zip.html#ab0654dff75d0f8747b0d90ad39bc2ace">
+                <section title="NoCompression" ref="class_k_zip.html#ab0654dff75d0f8747b0d90ad39bc2aceabf73c42b9987176459a29f393baf4e6a" />
+                <section title="DeflateCompression" ref="class_k_zip.html#ab0654dff75d0f8747b0d90ad39bc2acea4a8ddbf17f28e126c1e5a297876ada80" />
+              </section>
+              <section title="ExtraField" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04">
+                <section title="NoExtraField" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04ad5e053e8f68fe61489583558268ed660" />
+                <section title="ModificationTime" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04a7b5b655b17f10dfe213d3b2323e601a0" />
+                <section title="DefaultExtraField" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04a0f5e128a601b320fd529f0d2b8be2805" />
+              </section>
+              <section title="KZip" ref="class_k_zip.html#a62f0a5753d4ef02f5611b1f8dd7caf50" />
+              <section title="KZip" ref="class_k_zip.html#a4e07b57c827771e453a9aa3f6df2102b" />
+              <section title="~KZip" ref="class_k_zip.html#a92c0e985a12696ab8074ace2172a94ec" />
+              <section title="closeArchive" ref="class_k_zip.html#a8b732f0df8e83658cabb7eff226941c8" />
+              <section title="compression" ref="class_k_zip.html#aec74daa3340b3943a354877ae57e5dcf" />
+              <section title="doFinishWriting" ref="class_k_zip.html#a779b54eddb092d2e97503a276b9fddfc" />
+              <section title="doPrepareWriting" ref="class_k_zip.html#a5c41f2268fe0ab47b463ea41b9dc4d71" />
+              <section title="doWriteDir" ref="class_k_zip.html#a1c872c7826c50ccd5b9fc6247dab3923" />
+              <section title="doWriteSymLink" ref="class_k_zip.html#ace30d108e4428e06f33fa7c26eae4cc1" />
+              <section title="extraField" ref="class_k_zip.html#ad119cbf990d218ab3374c52699338a3a" />
+              <section title="openArchive" ref="class_k_zip.html#a18c321438e2c8f44c5e2dcf69fbdbc5a" />
+              <section title="setCompression" ref="class_k_zip.html#a286095b519b20b3a82449f7b5b50e039" />
+              <section title="setExtraField" ref="class_k_zip.html#a5e9a9365ce56a6d1124be7ee8fae360d" />
+              <section title="virtual_hook" ref="class_k_zip.html#aac35511dc09ff3eab5128b2f42a79ed9" />
+              <section title="writeData" ref="class_k_zip.html#aaa3425245096f000f5a82d5e572ce4f9" />
+              <section title="d" ref="class_k_zip.html#a08028db66596de7161247739dddd1f1d" />
+            </section>
+            <section title="KZipFileEntry" ref="class_k_zip_file_entry.html">
+              <section title="KZipFileEntry" ref="class_k_zip_file_entry.html#a033d81c2d025339f668b3155277e7657" />
+              <section title="~KZipFileEntry" ref="class_k_zip_file_entry.html#afcc1fa146426aa46ce1d2bd716bc40db" />
+              <section title="compressedSize" ref="class_k_zip_file_entry.html#a30300d7e30b9f707d0ae244adaecb324" />
+              <section title="crc32" ref="class_k_zip_file_entry.html#a6a298ae6d8c2ef6db7e31b04d6a10162" />
+              <section title="createDevice" ref="class_k_zip_file_entry.html#a3e762e6c16acb364f3aae55ddeec6cb2" />
+              <section title="data" ref="class_k_zip_file_entry.html#ab51e1c6ece127c3140318389cd4293be" />
+              <section title="encoding" ref="class_k_zip_file_entry.html#aa5975c49ff36a9413c5e557d552cc828" />
+              <section title="headerStart" ref="class_k_zip_file_entry.html#add73f6a10bd54a5372a308d5b7cc1971" />
+              <section title="path" ref="class_k_zip_file_entry.html#a349cd4448c356b23fc569fd5d29792e0" />
+              <section title="setCompressedSize" ref="class_k_zip_file_entry.html#a32ce307aacdabb7b6258e6c47f537823" />
+              <section title="setCRC32" ref="class_k_zip_file_entry.html#a35e54e7ea4a6aad5cc5caa6059121589" />
+              <section title="setHeaderStart" ref="class_k_zip_file_entry.html#afa03f8127ff0da1acb6f52056a8c5679" />
+              <section title="d" ref="class_k_zip_file_entry.html#a052462a62263e14f21370890a50fecd7" />
+            </section>
+          </section>
+          <section title="Class Index" ref="classes.html" />
+          <section title="Class Hierarchy" ref="hierarchy.html">
+            <section title="KArchive" ref="class_k_archive.html">
+              <section title="K7Zip" ref="class_k7_zip.html" />
+              <section title="KAr" ref="class_k_ar.html" />
+              <section title="KRcc" ref="class_k_rcc.html" />
+              <section title="KTar" ref="class_k_tar.html" />
+              <section title="KZip" ref="class_k_zip.html" />
+            </section>
+            <section title="KArchiveEntry" ref="class_k_archive_entry.html">
+              <section title="KArchiveDirectory" ref="class_k_archive_directory.html" />
+              <section title="KArchiveFile" ref="class_k_archive_file.html">
+                <section title="KZipFileEntry" ref="class_k_zip_file_entry.html" />
+              </section>
+            </section>
+            <section title="KFilterBase" ref="class_k_filter_base.html" />
+            <section title="QIODevice">
+              <section title="KCompressionDevice" ref="class_k_compression_device.html">
+                <section title="KFilterDev" ref="class_k_filter_dev.html" />
+              </section>
+            </section>
+          </section>
+          <section title="Class Members" ref="functions.html">
+            <section title="All" ref="functions.html">
+              <section title="a" ref="functions.html" />
+              <section title="b" ref="functions_b.html" />
+              <section title="c" ref="functions_c.html" />
+              <section title="d" ref="functions_d.html" />
+              <section title="e" ref="functions_e.html" />
+              <section title="f" ref="functions_f.html" />
+              <section title="g" ref="functions_g.html" />
+              <section title="h" ref="functions_h.html" />
+              <section title="i" ref="functions_i.html" />
+              <section title="k" ref="functions_k.html" />
+              <section title="m" ref="functions_m.html" />
+              <section title="n" ref="functions_n.html" />
+              <section title="o" ref="functions_o.html" />
+              <section title="p" ref="functions_p.html" />
+              <section title="r" ref="functions_r.html" />
+              <section title="s" ref="functions_s.html" />
+              <section title="t" ref="functions_t.html" />
+              <section title="u" ref="functions_u.html" />
+              <section title="v" ref="functions_v.html" />
+              <section title="w" ref="functions_w.html" />
+              <section title="x" ref="functions_x.html" />
+              <section title="z" ref="functions_z.html" />
+              <section title="~" ref="functions_~.html" />
+            </section>
+            <section title="Functions" ref="functions_func.html" />
+            <section title="Variables" ref="functions_vars.html" />
+            <section title="Enumerations" ref="functions_enum.html" />
+            <section title="Enumerator" ref="functions_eval.html" />
+            <section title="Related Functions" ref="functions_rela.html" />
+          </section>
+        </section>
+        <section title="Files" ref="files.html">
+          <section title="File List" ref="files.html">
+            <section title="src" ref="dir_68267d1309a1af8e8297ef4c3efbcdba.html">
+              <section title="k7zip.h" ref="k7zip_8h.html">
+                <section title="K7Zip" ref="class_k7_zip.html">
+                  <section title="K7Zip" ref="class_k7_zip.html#ae631f40a58dcb35d4dddf75dec9f6e72" />
+                  <section title="K7Zip" ref="class_k7_zip.html#a46251247fccaf4f1498fd356f08748dc" />
+                  <section title="~K7Zip" ref="class_k7_zip.html#a4454278620ea3eb791d205383b290a39" />
+                  <section title="K7Zip" ref="class_k7_zip.html#a85afb33ca83fc62d7333a5e69ec70d29" />
+                  <section title="K7Zip" ref="class_k7_zip.html#abd06c5021d64df25f5743338984f84bf" />
+                  <section title="closeArchive" ref="class_k7_zip.html#a44e7c936b5613c61729ee23b34f25d9a" />
+                  <section title="doFinishWriting" ref="class_k7_zip.html#a34c6b2faa847ea99e08839ff186e75cc" />
+                  <section title="doPrepareWriting" ref="class_k7_zip.html#af5509064e8d15a5f879deb8e3c690164" />
+                  <section title="doWriteDir" ref="class_k7_zip.html#a0ae007127015e6c87bfb6dfd11f4377f" />
+                  <section title="doWriteSymLink" ref="class_k7_zip.html#a5a9a0325d0646630a2612bc157923cac" />
+                  <section title="openArchive" ref="class_k7_zip.html#a390f17f49925c41c6997a4ebf83bdfd3" />
+                  <section title="virtual_hook" ref="class_k7_zip.html#a75f948bf16c4b8f484d8372bd81381ea" />
+                  <section title="writeData" ref="class_k7_zip.html#aa83781241d632dd22c4f30cff68a42f8" />
+                  <section title="d" ref="class_k7_zip.html#acc5f1a4b8b789f4bb401d391d7b8c4ee" />
+                </section>
+              </section>
+              <section title="kar.h" ref="kar_8h.html">
+                <section title="KAr" ref="class_k_ar.html">
+                  <section title="KAr" ref="class_k_ar.html#a39d760ebc3bfdb6b640bd8db8661a605" />
+                  <section title="KAr" ref="class_k_ar.html#ab7031223b09f587dd23ca571880fce42" />
+                  <section title="~KAr" ref="class_k_ar.html#aeb8cea52d4e997d2e6a6c3eb2853a693" />
+                  <section title="KAr" ref="class_k_ar.html#aaaf931829ce6507891a4f0a82e544b8b" />
+                  <section title="KAr" ref="class_k_ar.html#a35ff2b53abfbc6d422a50a3678338dd9" />
+                  <section title="closeArchive" ref="class_k_ar.html#abe954c7a9f94be4038255e056f2c1573" />
+                  <section title="doFinishWriting" ref="class_k_ar.html#af0537ec98d8c4fcc9c04b689360a22d3" />
+                  <section title="doPrepareWriting" ref="class_k_ar.html#ac2c892eda0beb9cc94d61ae0b9337755" />
+                  <section title="doWriteDir" ref="class_k_ar.html#acbe42c2c913f4b89e8a596c1dd78f312" />
+                  <section title="doWriteSymLink" ref="class_k_ar.html#a1f669857985f78d67e9d4e83666fd21e" />
+                  <section title="openArchive" ref="class_k_ar.html#a8d994e724271f25c34edfb2237d61399" />
+                  <section title="virtual_hook" ref="class_k_ar.html#a6a153b6fb0f3153e934b7ac247394034" />
+                  <section title="d" ref="class_k_ar.html#a5ae231e2538c0523ed7ef4924cdedc12" />
+                </section>
+              </section>
+              <section title="karchive.h" ref="karchive_8h.html">
+                <section title="KArchive" ref="class_k_archive.html">
+                  <section title="KArchive" ref="class_k_archive.html#a4386c6e12dc034c0687aa8bb738bf25d" />
+                  <section title="KArchive" ref="class_k_archive.html#a3efbb71ada0630d90c5af53fedce9b19" />
+                  <section title="~KArchive" ref="class_k_archive.html#ad26fb249b1ab51c13feabfbadb9fe2c5" />
+                  <section title="KArchive" ref="class_k_archive.html#a374bace829e1665fa7948bf3e30463fa" />
+                  <section title="KArchive" ref="class_k_archive.html#a5c3ef8ff047d3fd2fbd8e46a28b9cb29" />
+                  <section title="addLocalDirectory" ref="class_k_archive.html#ab5a2f90d4003664127e744d078162c34" />
+                  <section title="addLocalFile" ref="class_k_archive.html#a1e3b4d361c4b57fe8cb956a9b49a85e4" />
+                  <section title="close" ref="class_k_archive.html#a7107c4f9e0fd9635cb1b5e89ba408f38" />
+                  <section title="closeArchive" ref="class_k_archive.html#a52fa0982c4acaf9dcca8df09749e99a0" />
+                  <section title="createDevice" ref="class_k_archive.html#a1754cd565a19adca197d5b5d1a193a16" />
+                  <section title="device" ref="class_k_archive.html#acb2ae35e23f33dd078dc9cdd10fa25a0" />
+                  <section title="directory" ref="class_k_archive.html#a674b6afdff3069d23cd67189d865881a" />
+                  <section title="doFinishWriting" ref="class_k_archive.html#a181381217cda7b1d32abd7422b3de4ff" />
+                  <section title="doPrepareWriting" ref="class_k_archive.html#a719ec1a1c62c015e993dee72ecb5fce7" />
+                  <section title="doWriteDir" ref="class_k_archive.html#a4423297991d66579ea9fbf070f91ff48" />
+                  <section title="doWriteSymLink" ref="class_k_archive.html#a4d818a6892534b4f559d3f4612a18dd5" />
+                  <section title="errorString" ref="class_k_archive.html#a0570604738a465326bd0c8d3925e24ee" />
+                  <section title="fileName" ref="class_k_archive.html#adb8c517921d59a7f48f7090cbcf5efcc" />
+                  <section title="findOrCreate" ref="class_k_archive.html#a558f460621225a20397995462d1de464" />
+                  <section title="finishWriting" ref="class_k_archive.html#a28478783281e5f729210ef7ecac9c225" />
+                  <section title="isOpen" ref="class_k_archive.html#aec27152dc3cc0fa3df28daa8707d968d" />
+                  <section title="mode" ref="class_k_archive.html#ac4aa377c4f4fefe55f840aa6ffcb3400" />
+                  <section title="open" ref="class_k_archive.html#a3e1dce09e2cb5008667d022a8d3fefa1" />
+                  <section title="openArchive" ref="class_k_archive.html#a868eecf661cda9b0fd26b6c9a1319555" />
+                  <section title="prepareWriting" ref="class_k_archive.html#a7e50420630c3bb44f617ad812b673332" />
+                  <section title="rootDir" ref="class_k_archive.html#a6c70834fc162c00000b95c7af95de18e" />
+                  <section title="setDevice" ref="class_k_archive.html#af39343456c9c458230546b64ffc66a31" />
+                  <section title="setErrorString" ref="class_k_archive.html#afc0721d4b4a941bf083f887b148a78f4" />
+                  <section title="setRootDir" ref="class_k_archive.html#ae12a8b556703e189b9e2ebc886a18319" />
+                  <section title="virtual_hook" ref="class_k_archive.html#a0ad9f36a9ee3e19b6662e8f59ebc4f4c" />
+                  <section title="writeData" ref="class_k_archive.html#acf9dc1761d9af65dcc44231c59fdb020" />
+                  <section title="writeDir" ref="class_k_archive.html#a8e8dad1251bf8b2303b677445dcb86c0" />
+                  <section title="writeFile" ref="class_k_archive.html#aeb615bb1d33578f57f69af2b1e72029d" />
+                  <section title="writeFile" ref="class_k_archive.html#aa6cf0bf8afebd3681b62e52d417b20bf" />
+                  <section title="writeSymLink" ref="class_k_archive.html#a5625944353172a5dbd229bf1a08d8a91" />
+                  <section title="d" ref="class_k_archive.html#a64a8c553f095adaf226441cde2b355e7" />
+                </section>
+              </section>
+              <section title="karchivedirectory.h" ref="karchivedirectory_8h.html">
+                <section title="KArchiveDirectory" ref="class_k_archive_directory.html">
+                  <section title="KArchiveDirectory" ref="class_k_archive_directory.html#a52719e2e8628d139f5454146cb9d41cb" />
+                  <section title="~KArchiveDirectory" ref="class_k_archive_directory.html#a28c3f2fc97cf147fb024ed41f406c9b9" />
+                  <section title="addEntry" ref="class_k_archive_directory.html#a0f5967950552c9e1fb6858fc1c627c19" />
+                  <section title="copyTo" ref="class_k_archive_directory.html#a69a28476a3c50c9a12b214abf3d5a41a" />
+                  <section title="entries" ref="class_k_archive_directory.html#a583309dbae0b387c7af46a4dad6dfeca" />
+                  <section title="entry" ref="class_k_archive_directory.html#ac803cda8f9d7d2b9dbe1b7ac801ef310" />
+                  <section title="file" ref="class_k_archive_directory.html#aa2a51a9fb0bdefe5ecbc7918f7d64983" />
+                  <section title="isDirectory" ref="class_k_archive_directory.html#ab0c1a491aed663a566f5cac4ddb3cea1" />
+                  <section title="removeEntry" ref="class_k_archive_directory.html#a717ab9abd24a82779b38e981c4fc1f39" />
+                  <section title="virtual_hook" ref="class_k_archive_directory.html#a205362e312028a0a07a56b4ca3d814c7" />
+                  <section title="d" ref="class_k_archive_directory.html#ad07cb5a59edd736c57f3f38f582a7f6c" />
+                </section>
+              </section>
+              <section title="karchiveentry.h" ref="karchiveentry_8h.html">
+                <section title="KArchiveEntry" ref="class_k_archive_entry.html">
+                  <section title="KArchiveEntry" ref="class_k_archive_entry.html#a5c0e3e538520cf9d05d4d3e12ae4594b" />
+                  <section title="~KArchiveEntry" ref="class_k_archive_entry.html#aff83a50f2a99b45ab2f3715e932bab9e" />
+                  <section title="archive" ref="class_k_archive_entry.html#a7cd83225c05fec686f629e30ebc6956e" />
+                  <section title="date" ref="class_k_archive_entry.html#a5e2fd48f561980ecf22e6b69c91fc5e6" />
+                  <section title="group" ref="class_k_archive_entry.html#a6bb1dcb1549695273205c2f0068cb942" />
+                  <section title="isDirectory" ref="class_k_archive_entry.html#a02e41de0cc54c9d53c3090bf1f00bd1d" />
+                  <section title="isFile" ref="class_k_archive_entry.html#a376387d6d496cdd3a5327dc568ae03bc" />
+                  <section title="name" ref="class_k_archive_entry.html#a7a3fb99efe15847ef6cb3766d3588fc7" />
+                  <section title="permissions" ref="class_k_archive_entry.html#a2356d6ed02a40c7dae6e9101087c232d" />
+                  <section title="symLinkTarget" ref="class_k_archive_entry.html#aa0e86e5f1fa8c993463f8dd1ae605d4d" />
+                  <section title="user" ref="class_k_archive_entry.html#a2c36d4e2b4f6ef3dc97cc0d69b7c910f" />
+                  <section title="virtual_hook" ref="class_k_archive_entry.html#aed9768f6c6912e2b6f3bac7182ff8957" />
+                  <section title="d" ref="class_k_archive_entry.html#a89ac4f5f26bb32448d121351843d2cae" />
+                </section>
+              </section>
+              <section title="karchivefile.h" ref="karchivefile_8h.html">
+                <section title="KArchiveFile" ref="class_k_archive_file.html">
+                  <section title="KArchiveFile" ref="class_k_archive_file.html#a0b5589f87f70f4b1a3922040d3b63111" />
+                  <section title="~KArchiveFile" ref="class_k_archive_file.html#ac98cf5553640eb81f644e36f95f91569" />
+                  <section title="copyTo" ref="class_k_archive_file.html#a0d25262342c7e71a4d13f578959dedae" />
+                  <section title="createDevice" ref="class_k_archive_file.html#a3a7ac2dd4e4922d171e178bd02abb57f" />
+                  <section title="data" ref="class_k_archive_file.html#a5ba08d90bc2bba1f1b1c155bc93f3235" />
+                  <section title="isFile" ref="class_k_archive_file.html#ab4e8989d6c9e363b60fd633224991307" />
+                  <section title="position" ref="class_k_archive_file.html#ab45ce3c099691954fefeffe773b742c5" />
+                  <section title="setSize" ref="class_k_archive_file.html#a46ab3c77fb21b1ca095ba4a155f7d47e" />
+                  <section title="size" ref="class_k_archive_file.html#a2006219e1cb0503dbbf0bc96b1f9f80d" />
+                  <section title="virtual_hook" ref="class_k_archive_file.html#a1907f6c4ace08324cb6c26e61c20cd7d" />
+                  <section title="d" ref="class_k_archive_file.html#aa03c7884476973cdcfdaaac976c6cabd" />
+                </section>
+              </section>
+              <section title="kcompressiondevice.h" ref="kcompressiondevice_8h.html">
+                <section title="KCompressionDevice" ref="class_k_compression_device.html">
+                  <section title="CompressionType" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4b">
+                    <section title="GZip" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4bae39d092286a1ccb7e81613cde20e1249" />
+                    <section title="BZip2" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4ba64f85eee3af9065f816637a806d01d6f" />
+                    <section title="Xz" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4ba22224acd80963c8c1d36c7ed61844353" />
+                    <section title="None" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4ba4251e625a7ebdc4d2bee5f6241c149d5" />
+                  </section>
+                  <section title="KCompressionDevice" ref="class_k_compression_device.html#a19d90470f86e14433eb2f21a7135c856" />
+                  <section title="KCompressionDevice" ref="class_k_compression_device.html#a134baa7d6ad968471719755f58cea1e5" />
+                  <section title="~KCompressionDevice" ref="class_k_compression_device.html#afa5ab317f7c7f0cc6ce3f128ab0bc7a4" />
+                  <section title="atEnd" ref="class_k_compression_device.html#af88be6ed4e18af4156ec5e8478fae4c6" />
+                  <section title="close" ref="class_k_compression_device.html#a984fa31855f47612817a22e5d25b4181" />
+                  <section title="compressionType" ref="class_k_compression_device.html#a2c956ed814bf05b02a62d9ffb5e6d56e" />
+                  <section title="error" ref="class_k_compression_device.html#a47659cc4cc6c370222f59b26eee973db" />
+                  <section title="filterBase" ref="class_k_compression_device.html#a320fd225ffb444b661a98446f17ca9a5" />
+                  <section title="filterForCompressionType" ref="class_k_compression_device.html#a8b63bbaf4b332dce4d152cde3d31fed8" />
+                  <section title="open" ref="class_k_compression_device.html#ae40ec51fa25dfe0b8844d0cfc143ceb2" />
+                  <section title="readData" ref="class_k_compression_device.html#a2e060cef47f4f9e0add371dba75409bb" />
+                  <section title="seek" ref="class_k_compression_device.html#a4d8ab175fe4cd856bebf20d412a172d6" />
+                  <section title="setOrigFileName" ref="class_k_compression_device.html#a16f277ab56f2d99aceffc698625a8254" />
+                  <section title="setSkipHeaders" ref="class_k_compression_device.html#ac798a1e99382a3bbb39da72bd80c9335" />
+                  <section title="writeData" ref="class_k_compression_device.html#a21e7b4de09bdfee1d5722dfcba999d5b" />
+                  <section title="K7Zip" ref="class_k_compression_device.html#a75824a549d3aa1458428fa4663d1cd5f" />
+                  <section title="d" ref="class_k_compression_device.html#ae7b1c97a30012362e50571c07a79dc74" />
+                  <section title="KCompressionDevicePrivate" ref="class_k_compression_device.html#ad6fb214b6835a61020d47cd32dff8078" />
+                </section>
+              </section>
+              <section title="kfilterbase.h" ref="kfilterbase_8h.html">
+                <section title="KFilterBase" ref="class_k_filter_base.html">
+                  <section title="FilterFlags" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70f">
+                    <section title="NoHeaders" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70fa753930e73c3e2e3fee72ba40e9dac131" />
+                    <section title="WithHeaders" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70fa0b0c2f0f3fd2ddec8ab0a1b6318aef02" />
+                    <section title="ZlibHeaders" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70faf58b16a4808ea5faee3112e912674868" />
+                  </section>
+                  <section title="Result" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6">
+                    <section title="Ok" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6a764c61a081554c696859749260e6130d" />
+                    <section title="End" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6a622a8ff7541664e371b8edce937672fd" />
+                    <section title="Error" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6a131cc8b7a631609afba0427edac4c761" />
+                  </section>
+                  <section title="KFilterBase" ref="class_k_filter_base.html#a2140a1f803471c237cd201d2a8c6be81" />
+                  <section title="~KFilterBase" ref="class_k_filter_base.html#acaa18afce13a591c36b399c0f76511a7" />
+                  <section title="compress" ref="class_k_filter_base.html#a9640e78ba2da5e4aa34e928b426e16b8" />
+                  <section title="device" ref="class_k_filter_base.html#af1fd3c777945555ec77ec6a74eb1d418" />
+                  <section title="filterFlags" ref="class_k_filter_base.html#a29d7a5621658ff81a0fe9485a7898e62" />
+                  <section title="inBufferAvailable" ref="class_k_filter_base.html#acef9fa1b419198bde5f9d8a433d7cd8e" />
+                  <section title="inBufferEmpty" ref="class_k_filter_base.html#aa4c82c09040e1a1e29052d0e24112305" />
+                  <section title="init" ref="class_k_filter_base.html#a5957e0e8fb8a376f3011e05284b1cb70" />
+                  <section title="mode" ref="class_k_filter_base.html#aea4a8777dfad1fb83e7785194b12b680" />
+                  <section title="outBufferAvailable" ref="class_k_filter_base.html#a0a0bfb0a10281beeec6e2a2a65d32c22" />
+                  <section title="outBufferFull" ref="class_k_filter_base.html#a2f66df46355385a68fa41f5e3c04c8b3" />
+                  <section title="readHeader" ref="class_k_filter_base.html#ad7b7580531a444442caf0daaaa27a283" />
+                  <section title="reset" ref="class_k_filter_base.html#a72c70657fafeca5b310cfb1eb7b40e8c" />
+                  <section title="setDevice" ref="class_k_filter_base.html#ae0b5719aa1ebe3b43507f45828acfb31" />
+                  <section title="setFilterFlags" ref="class_k_filter_base.html#a741ff7aadcdad956684df276b690582b" />
+                  <section title="setInBuffer" ref="class_k_filter_base.html#a332c5aba58f0c01f588de41bb337e15c" />
+                  <section title="setOutBuffer" ref="class_k_filter_base.html#a5e284cc9076c690c5e0969e09ac0df1d" />
+                  <section title="terminate" ref="class_k_filter_base.html#a60085d6ad0497b3a375f393c00f33b20" />
+                  <section title="uncompress" ref="class_k_filter_base.html#a6f29466c181fbf910a75b4775488b62e" />
+                  <section title="virtual_hook" ref="class_k_filter_base.html#a0255d11e86d779c7c15f532ea59c1912" />
+                  <section title="writeHeader" ref="class_k_filter_base.html#a7672777b39bdd42c5f2c7121fff34848" />
+                  <section title="d" ref="class_k_filter_base.html#adf19e3790ed2cdbda974c84b839e87ae" />
+                </section>
+              </section>
+              <section title="kfilterdev.h" ref="kfilterdev_8h.html">
+                <section title="KFilterDev" ref="class_k_filter_dev.html">
+                  <section title="KFilterDev" ref="class_k_filter_dev.html#a7822f81287541a1952b04305273c9131" />
+                  <section title="compressionTypeForMimeType" ref="class_k_filter_dev.html#a98bdb4c8715618856c4102c7f8b2a09f" />
+                  <section title="device" ref="class_k_filter_dev.html#a15b5dc4093e405e8af6f021095464ee2" />
+                  <section title="deviceForFile" ref="class_k_filter_dev.html#a4714ddacbcfe6d57702505f7e07da141" />
+                </section>
+              </section>
+              <section title="krcc.h" ref="krcc_8h.html">
+                <section title="KRcc" ref="class_k_rcc.html">
+                  <section title="KRcc" ref="class_k_rcc.html#a7882b7b0e86c126a611144757fc862e2" />
+                  <section title="~KRcc" ref="class_k_rcc.html#a6650a818cd87ff96f51582974f2dc411" />
+                  <section title="closeArchive" ref="class_k_rcc.html#a7d32b3a4e283ba7a66d30c76069c3f33" />
+                  <section title="doFinishWriting" ref="class_k_rcc.html#a4f34239a914071605e4a8b3a67a59c85" />
+                  <section title="doPrepareWriting" ref="class_k_rcc.html#a9568adce115ae3efacc4d6c3928d0aaf" />
+                  <section title="doWriteDir" ref="class_k_rcc.html#a01d52e7e4b887813507382a870d66e0b" />
+                  <section title="doWriteSymLink" ref="class_k_rcc.html#a8822cbee0507ca869254b2b18c32f17d" />
+                  <section title="openArchive" ref="class_k_rcc.html#a99aa0df3a18ec989d3633549a2e95368" />
+                  <section title="virtual_hook" ref="class_k_rcc.html#a6d1c21b63b87c9263d96106218e270bd" />
+                  <section title="d" ref="class_k_rcc.html#a9d7c35c49efaa12cc83cae9c8a88882b" />
+                </section>
+              </section>
+              <section title="ktar.h" ref="ktar_8h.html">
+                <section title="KTar" ref="class_k_tar.html">
+                  <section title="KTar" ref="class_k_tar.html#a44b9ab8fd30f0c7ffcf6a4a5c8f2443a" />
+                  <section title="KTar" ref="class_k_tar.html#a93e7ce44e3438619e7cfb91bc879f688" />
+                  <section title="~KTar" ref="class_k_tar.html#ae67454919d98cf7c6575f24485c10746" />
+                  <section title="closeArchive" ref="class_k_tar.html#a963f2c3fc94e0a44c1f24846a8db7a20" />
+                  <section title="createDevice" ref="class_k_tar.html#a595e1d5daed28aa53a185f260ce8b629" />
+                  <section title="doFinishWriting" ref="class_k_tar.html#a3402a798f13eb00692901885c66b503c" />
+                  <section title="doPrepareWriting" ref="class_k_tar.html#ac83bfdbafb791894f791e33e3f5e48b7" />
+                  <section title="doWriteDir" ref="class_k_tar.html#ab7e296bf9ad349e68b00b3a5755b0bcd" />
+                  <section title="doWriteSymLink" ref="class_k_tar.html#a397a1617c71924cb2bc57122d409f4bd" />
+                  <section title="openArchive" ref="class_k_tar.html#a85ce841ac81b8dbce228e152cda5d555" />
+                  <section title="setOrigFileName" ref="class_k_tar.html#a6f104d8a72f38fcc1f5984a7f40a4d59" />
+                  <section title="virtual_hook" ref="class_k_tar.html#a59e263166217cb81ed68e77c2ddba642" />
+                  <section title="d" ref="class_k_tar.html#a75b22cbe503843f8ce5f66ceee9458a8" />
+                </section>
+              </section>
+              <section title="kzip.h" ref="kzip_8h.html">
+                <section title="KZip" ref="class_k_zip.html">
+                  <section title="Compression" ref="class_k_zip.html#ab0654dff75d0f8747b0d90ad39bc2ace">
+                    <section title="NoCompression" ref="class_k_zip.html#ab0654dff75d0f8747b0d90ad39bc2aceabf73c42b9987176459a29f393baf4e6a" />
+                    <section title="DeflateCompression" ref="class_k_zip.html#ab0654dff75d0f8747b0d90ad39bc2acea4a8ddbf17f28e126c1e5a297876ada80" />
+                  </section>
+                  <section title="ExtraField" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04">
+                    <section title="NoExtraField" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04ad5e053e8f68fe61489583558268ed660" />
+                    <section title="ModificationTime" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04a7b5b655b17f10dfe213d3b2323e601a0" />
+                    <section title="DefaultExtraField" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04a0f5e128a601b320fd529f0d2b8be2805" />
+                  </section>
+                  <section title="KZip" ref="class_k_zip.html#a62f0a5753d4ef02f5611b1f8dd7caf50" />
+                  <section title="KZip" ref="class_k_zip.html#a4e07b57c827771e453a9aa3f6df2102b" />
+                  <section title="~KZip" ref="class_k_zip.html#a92c0e985a12696ab8074ace2172a94ec" />
+                  <section title="closeArchive" ref="class_k_zip.html#a8b732f0df8e83658cabb7eff226941c8" />
+                  <section title="compression" ref="class_k_zip.html#aec74daa3340b3943a354877ae57e5dcf" />
+                  <section title="doFinishWriting" ref="class_k_zip.html#a779b54eddb092d2e97503a276b9fddfc" />
+                  <section title="doPrepareWriting" ref="class_k_zip.html#a5c41f2268fe0ab47b463ea41b9dc4d71" />
+                  <section title="doWriteDir" ref="class_k_zip.html#a1c872c7826c50ccd5b9fc6247dab3923" />
+                  <section title="doWriteSymLink" ref="class_k_zip.html#ace30d108e4428e06f33fa7c26eae4cc1" />
+                  <section title="extraField" ref="class_k_zip.html#ad119cbf990d218ab3374c52699338a3a" />
+                  <section title="openArchive" ref="class_k_zip.html#a18c321438e2c8f44c5e2dcf69fbdbc5a" />
+                  <section title="setCompression" ref="class_k_zip.html#a286095b519b20b3a82449f7b5b50e039" />
+                  <section title="setExtraField" ref="class_k_zip.html#a5e9a9365ce56a6d1124be7ee8fae360d" />
+                  <section title="virtual_hook" ref="class_k_zip.html#aac35511dc09ff3eab5128b2f42a79ed9" />
+                  <section title="writeData" ref="class_k_zip.html#aaa3425245096f000f5a82d5e572ce4f9" />
+                  <section title="d" ref="class_k_zip.html#a08028db66596de7161247739dddd1f1d" />
+                </section>
+              </section>
+              <section title="kzipfileentry.h" ref="kzipfileentry_8h.html">
+                <section title="KZipFileEntry" ref="class_k_zip_file_entry.html">
+                  <section title="KZipFileEntry" ref="class_k_zip_file_entry.html#a033d81c2d025339f668b3155277e7657" />
+                  <section title="~KZipFileEntry" ref="class_k_zip_file_entry.html#afcc1fa146426aa46ce1d2bd716bc40db" />
+                  <section title="compressedSize" ref="class_k_zip_file_entry.html#a30300d7e30b9f707d0ae244adaecb324" />
+                  <section title="crc32" ref="class_k_zip_file_entry.html#a6a298ae6d8c2ef6db7e31b04d6a10162" />
+                  <section title="createDevice" ref="class_k_zip_file_entry.html#a3e762e6c16acb364f3aae55ddeec6cb2" />
+                  <section title="data" ref="class_k_zip_file_entry.html#ab51e1c6ece127c3140318389cd4293be" />
+                  <section title="encoding" ref="class_k_zip_file_entry.html#aa5975c49ff36a9413c5e557d552cc828" />
+                  <section title="headerStart" ref="class_k_zip_file_entry.html#add73f6a10bd54a5372a308d5b7cc1971" />
+                  <section title="path" ref="class_k_zip_file_entry.html#a349cd4448c356b23fc569fd5d29792e0" />
+                  <section title="setCompressedSize" ref="class_k_zip_file_entry.html#a32ce307aacdabb7b6258e6c47f537823" />
+                  <section title="setCRC32" ref="class_k_zip_file_entry.html#a35e54e7ea4a6aad5cc5caa6059121589" />
+                  <section title="setHeaderStart" ref="class_k_zip_file_entry.html#afa03f8127ff0da1acb6f52056a8c5679" />
+                  <section title="d" ref="class_k_zip_file_entry.html#a052462a62263e14f21370890a50fecd7" />
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
+    </toc>
+    <keywords>
+      <keyword name="Deprecated List" id="Deprecated List" ref="deprecated.html" />
+      <keyword name="K7Zip" id="K7Zip" ref="class_k7_zip.html" />
+      <keyword name="K7Zip" id="K7Zip::K7Zip" ref="class_k7_zip.html#ae631f40a58dcb35d4dddf75dec9f6e72" />
+      <keyword name="K7Zip" id="K7Zip::K7Zip" ref="class_k7_zip.html#a46251247fccaf4f1498fd356f08748dc" />
+      <keyword name="~K7Zip" id="K7Zip::~K7Zip" ref="class_k7_zip.html#a4454278620ea3eb791d205383b290a39" />
+      <keyword name="~KArchive" id="KArchive::~KArchive" ref="class_k_archive.html#ad26fb249b1ab51c13feabfbadb9fe2c5" />
+      <keyword name="open" id="KArchive::open" ref="class_k_archive.html#a3e1dce09e2cb5008667d022a8d3fefa1" />
+      <keyword name="close" id="KArchive::close" ref="class_k_archive.html#a7107c4f9e0fd9635cb1b5e89ba408f38" />
+      <keyword name="errorString" id="KArchive::errorString" ref="class_k_archive.html#a0570604738a465326bd0c8d3925e24ee" />
+      <keyword name="isOpen" id="KArchive::isOpen" ref="class_k_archive.html#aec27152dc3cc0fa3df28daa8707d968d" />
+      <keyword name="mode" id="KArchive::mode" ref="class_k_archive.html#ac4aa377c4f4fefe55f840aa6ffcb3400" />
+      <keyword name="device" id="KArchive::device" ref="class_k_archive.html#acb2ae35e23f33dd078dc9cdd10fa25a0" />
+      <keyword name="fileName" id="KArchive::fileName" ref="class_k_archive.html#adb8c517921d59a7f48f7090cbcf5efcc" />
+      <keyword name="directory" id="KArchive::directory" ref="class_k_archive.html#a674b6afdff3069d23cd67189d865881a" />
+      <keyword name="addLocalFile" id="KArchive::addLocalFile" ref="class_k_archive.html#a1e3b4d361c4b57fe8cb956a9b49a85e4" />
+      <keyword name="addLocalDirectory" id="KArchive::addLocalDirectory" ref="class_k_archive.html#ab5a2f90d4003664127e744d078162c34" />
+      <keyword name="writeDir" id="KArchive::writeDir" ref="class_k_archive.html#a8e8dad1251bf8b2303b677445dcb86c0" />
+      <keyword name="writeSymLink" id="KArchive::writeSymLink" ref="class_k_archive.html#a5625944353172a5dbd229bf1a08d8a91" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aa6cf0bf8afebd3681b62e52d417b20bf" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aeb615bb1d33578f57f69af2b1e72029d" />
+      <keyword name="prepareWriting" id="KArchive::prepareWriting" ref="class_k_archive.html#a7e50420630c3bb44f617ad812b673332" />
+      <keyword name="finishWriting" id="KArchive::finishWriting" ref="class_k_archive.html#a28478783281e5f729210ef7ecac9c225" />
+      <keyword name="doWriteSymLink" id="K7Zip::doWriteSymLink" ref="class_k7_zip.html#a5a9a0325d0646630a2612bc157923cac" />
+      <keyword name="doWriteDir" id="K7Zip::doWriteDir" ref="class_k7_zip.html#a0ae007127015e6c87bfb6dfd11f4377f" />
+      <keyword name="doPrepareWriting" id="K7Zip::doPrepareWriting" ref="class_k7_zip.html#af5509064e8d15a5f879deb8e3c690164" />
+      <keyword name="doFinishWriting" id="K7Zip::doFinishWriting" ref="class_k7_zip.html#a34c6b2faa847ea99e08839ff186e75cc" />
+      <keyword name="writeData" id="K7Zip::writeData" ref="class_k7_zip.html#aa83781241d632dd22c4f30cff68a42f8" />
+      <keyword name="openArchive" id="K7Zip::openArchive" ref="class_k7_zip.html#a390f17f49925c41c6997a4ebf83bdfd3" />
+      <keyword name="closeArchive" id="K7Zip::closeArchive" ref="class_k7_zip.html#a44e7c936b5613c61729ee23b34f25d9a" />
+      <keyword name="virtual_hook" id="K7Zip::virtual_hook" ref="class_k7_zip.html#a75f948bf16c4b8f484d8372bd81381ea" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a4386c6e12dc034c0687aa8bb738bf25d" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a3efbb71ada0630d90c5af53fedce9b19" />
+      <keyword name="setErrorString" id="KArchive::setErrorString" ref="class_k_archive.html#afc0721d4b4a941bf083f887b148a78f4" />
+      <keyword name="rootDir" id="KArchive::rootDir" ref="class_k_archive.html#a6c70834fc162c00000b95c7af95de18e" />
+      <keyword name="findOrCreate" id="KArchive::findOrCreate" ref="class_k_archive.html#a558f460621225a20397995462d1de464" />
+      <keyword name="createDevice" id="KArchive::createDevice" ref="class_k_archive.html#a1754cd565a19adca197d5b5d1a193a16" />
+      <keyword name="setDevice" id="KArchive::setDevice" ref="class_k_archive.html#af39343456c9c458230546b64ffc66a31" />
+      <keyword name="setRootDir" id="KArchive::setRootDir" ref="class_k_archive.html#ae12a8b556703e189b9e2ebc886a18319" />
+      <keyword name="K7Zip" id="K7Zip::K7Zip" ref="class_k7_zip.html#a85afb33ca83fc62d7333a5e69ec70d29" />
+      <keyword name="K7Zip" id="K7Zip::K7Zip" ref="class_k7_zip.html#abd06c5021d64df25f5743338984f84bf" />
+      <keyword name="d" id="K7Zip::d" ref="class_k7_zip.html#acc5f1a4b8b789f4bb401d391d7b8c4ee" />
+      <keyword name="KAr" id="KAr" ref="class_k_ar.html" />
+      <keyword name="KAr" id="KAr::KAr" ref="class_k_ar.html#a39d760ebc3bfdb6b640bd8db8661a605" />
+      <keyword name="KAr" id="KAr::KAr" ref="class_k_ar.html#ab7031223b09f587dd23ca571880fce42" />
+      <keyword name="~KAr" id="KAr::~KAr" ref="class_k_ar.html#aeb8cea52d4e997d2e6a6c3eb2853a693" />
+      <keyword name="~KArchive" id="KArchive::~KArchive" ref="class_k_archive.html#ad26fb249b1ab51c13feabfbadb9fe2c5" />
+      <keyword name="open" id="KArchive::open" ref="class_k_archive.html#a3e1dce09e2cb5008667d022a8d3fefa1" />
+      <keyword name="close" id="KArchive::close" ref="class_k_archive.html#a7107c4f9e0fd9635cb1b5e89ba408f38" />
+      <keyword name="errorString" id="KArchive::errorString" ref="class_k_archive.html#a0570604738a465326bd0c8d3925e24ee" />
+      <keyword name="isOpen" id="KArchive::isOpen" ref="class_k_archive.html#aec27152dc3cc0fa3df28daa8707d968d" />
+      <keyword name="mode" id="KArchive::mode" ref="class_k_archive.html#ac4aa377c4f4fefe55f840aa6ffcb3400" />
+      <keyword name="device" id="KArchive::device" ref="class_k_archive.html#acb2ae35e23f33dd078dc9cdd10fa25a0" />
+      <keyword name="fileName" id="KArchive::fileName" ref="class_k_archive.html#adb8c517921d59a7f48f7090cbcf5efcc" />
+      <keyword name="directory" id="KArchive::directory" ref="class_k_archive.html#a674b6afdff3069d23cd67189d865881a" />
+      <keyword name="addLocalFile" id="KArchive::addLocalFile" ref="class_k_archive.html#a1e3b4d361c4b57fe8cb956a9b49a85e4" />
+      <keyword name="addLocalDirectory" id="KArchive::addLocalDirectory" ref="class_k_archive.html#ab5a2f90d4003664127e744d078162c34" />
+      <keyword name="writeDir" id="KArchive::writeDir" ref="class_k_archive.html#a8e8dad1251bf8b2303b677445dcb86c0" />
+      <keyword name="writeSymLink" id="KArchive::writeSymLink" ref="class_k_archive.html#a5625944353172a5dbd229bf1a08d8a91" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aa6cf0bf8afebd3681b62e52d417b20bf" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aeb615bb1d33578f57f69af2b1e72029d" />
+      <keyword name="prepareWriting" id="KArchive::prepareWriting" ref="class_k_archive.html#a7e50420630c3bb44f617ad812b673332" />
+      <keyword name="writeData" id="KArchive::writeData" ref="class_k_archive.html#acf9dc1761d9af65dcc44231c59fdb020" />
+      <keyword name="finishWriting" id="KArchive::finishWriting" ref="class_k_archive.html#a28478783281e5f729210ef7ecac9c225" />
+      <keyword name="doPrepareWriting" id="KAr::doPrepareWriting" ref="class_k_ar.html#ac2c892eda0beb9cc94d61ae0b9337755" />
+      <keyword name="doFinishWriting" id="KAr::doFinishWriting" ref="class_k_ar.html#af0537ec98d8c4fcc9c04b689360a22d3" />
+      <keyword name="doWriteDir" id="KAr::doWriteDir" ref="class_k_ar.html#acbe42c2c913f4b89e8a596c1dd78f312" />
+      <keyword name="doWriteSymLink" id="KAr::doWriteSymLink" ref="class_k_ar.html#a1f669857985f78d67e9d4e83666fd21e" />
+      <keyword name="openArchive" id="KAr::openArchive" ref="class_k_ar.html#a8d994e724271f25c34edfb2237d61399" />
+      <keyword name="closeArchive" id="KAr::closeArchive" ref="class_k_ar.html#abe954c7a9f94be4038255e056f2c1573" />
+      <keyword name="virtual_hook" id="KAr::virtual_hook" ref="class_k_ar.html#a6a153b6fb0f3153e934b7ac247394034" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a4386c6e12dc034c0687aa8bb738bf25d" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a3efbb71ada0630d90c5af53fedce9b19" />
+      <keyword name="setErrorString" id="KArchive::setErrorString" ref="class_k_archive.html#afc0721d4b4a941bf083f887b148a78f4" />
+      <keyword name="rootDir" id="KArchive::rootDir" ref="class_k_archive.html#a6c70834fc162c00000b95c7af95de18e" />
+      <keyword name="findOrCreate" id="KArchive::findOrCreate" ref="class_k_archive.html#a558f460621225a20397995462d1de464" />
+      <keyword name="createDevice" id="KArchive::createDevice" ref="class_k_archive.html#a1754cd565a19adca197d5b5d1a193a16" />
+      <keyword name="setDevice" id="KArchive::setDevice" ref="class_k_archive.html#af39343456c9c458230546b64ffc66a31" />
+      <keyword name="setRootDir" id="KArchive::setRootDir" ref="class_k_archive.html#ae12a8b556703e189b9e2ebc886a18319" />
+      <keyword name="KAr" id="KAr::KAr" ref="class_k_ar.html#aaaf931829ce6507891a4f0a82e544b8b" />
+      <keyword name="KAr" id="KAr::KAr" ref="class_k_ar.html#a35ff2b53abfbc6d422a50a3678338dd9" />
+      <keyword name="d" id="KAr::d" ref="class_k_ar.html#a5ae231e2538c0523ed7ef4924cdedc12" />
+      <keyword name="KArchive" id="KArchive" ref="class_k_archive.html" />
+      <keyword name="~KArchive" id="KArchive::~KArchive" ref="class_k_archive.html#ad26fb249b1ab51c13feabfbadb9fe2c5" />
+      <keyword name="open" id="KArchive::open" ref="class_k_archive.html#a3e1dce09e2cb5008667d022a8d3fefa1" />
+      <keyword name="close" id="KArchive::close" ref="class_k_archive.html#a7107c4f9e0fd9635cb1b5e89ba408f38" />
+      <keyword name="errorString" id="KArchive::errorString" ref="class_k_archive.html#a0570604738a465326bd0c8d3925e24ee" />
+      <keyword name="isOpen" id="KArchive::isOpen" ref="class_k_archive.html#aec27152dc3cc0fa3df28daa8707d968d" />
+      <keyword name="mode" id="KArchive::mode" ref="class_k_archive.html#ac4aa377c4f4fefe55f840aa6ffcb3400" />
+      <keyword name="device" id="KArchive::device" ref="class_k_archive.html#acb2ae35e23f33dd078dc9cdd10fa25a0" />
+      <keyword name="fileName" id="KArchive::fileName" ref="class_k_archive.html#adb8c517921d59a7f48f7090cbcf5efcc" />
+      <keyword name="directory" id="KArchive::directory" ref="class_k_archive.html#a674b6afdff3069d23cd67189d865881a" />
+      <keyword name="addLocalFile" id="KArchive::addLocalFile" ref="class_k_archive.html#a1e3b4d361c4b57fe8cb956a9b49a85e4" />
+      <keyword name="addLocalDirectory" id="KArchive::addLocalDirectory" ref="class_k_archive.html#ab5a2f90d4003664127e744d078162c34" />
+      <keyword name="writeDir" id="KArchive::writeDir" ref="class_k_archive.html#a8e8dad1251bf8b2303b677445dcb86c0" />
+      <keyword name="writeSymLink" id="KArchive::writeSymLink" ref="class_k_archive.html#a5625944353172a5dbd229bf1a08d8a91" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aa6cf0bf8afebd3681b62e52d417b20bf" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aeb615bb1d33578f57f69af2b1e72029d" />
+      <keyword name="prepareWriting" id="KArchive::prepareWriting" ref="class_k_archive.html#a7e50420630c3bb44f617ad812b673332" />
+      <keyword name="writeData" id="KArchive::writeData" ref="class_k_archive.html#acf9dc1761d9af65dcc44231c59fdb020" />
+      <keyword name="finishWriting" id="KArchive::finishWriting" ref="class_k_archive.html#a28478783281e5f729210ef7ecac9c225" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a4386c6e12dc034c0687aa8bb738bf25d" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a3efbb71ada0630d90c5af53fedce9b19" />
+      <keyword name="openArchive" id="KArchive::openArchive" ref="class_k_archive.html#a868eecf661cda9b0fd26b6c9a1319555" />
+      <keyword name="closeArchive" id="KArchive::closeArchive" ref="class_k_archive.html#a52fa0982c4acaf9dcca8df09749e99a0" />
+      <keyword name="setErrorString" id="KArchive::setErrorString" ref="class_k_archive.html#afc0721d4b4a941bf083f887b148a78f4" />
+      <keyword name="rootDir" id="KArchive::rootDir" ref="class_k_archive.html#a6c70834fc162c00000b95c7af95de18e" />
+      <keyword name="doWriteDir" id="KArchive::doWriteDir" ref="class_k_archive.html#a4423297991d66579ea9fbf070f91ff48" />
+      <keyword name="doWriteSymLink" id="KArchive::doWriteSymLink" ref="class_k_archive.html#a4d818a6892534b4f559d3f4612a18dd5" />
+      <keyword name="doPrepareWriting" id="KArchive::doPrepareWriting" ref="class_k_archive.html#a719ec1a1c62c015e993dee72ecb5fce7" />
+      <keyword name="doFinishWriting" id="KArchive::doFinishWriting" ref="class_k_archive.html#a181381217cda7b1d32abd7422b3de4ff" />
+      <keyword name="findOrCreate" id="KArchive::findOrCreate" ref="class_k_archive.html#a558f460621225a20397995462d1de464" />
+      <keyword name="createDevice" id="KArchive::createDevice" ref="class_k_archive.html#a1754cd565a19adca197d5b5d1a193a16" />
+      <keyword name="setDevice" id="KArchive::setDevice" ref="class_k_archive.html#af39343456c9c458230546b64ffc66a31" />
+      <keyword name="setRootDir" id="KArchive::setRootDir" ref="class_k_archive.html#ae12a8b556703e189b9e2ebc886a18319" />
+      <keyword name="virtual_hook" id="KArchive::virtual_hook" ref="class_k_archive.html#a0ad9f36a9ee3e19b6662e8f59ebc4f4c" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a374bace829e1665fa7948bf3e30463fa" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a5c3ef8ff047d3fd2fbd8e46a28b9cb29" />
+      <keyword name="d" id="KArchive::d" ref="class_k_archive.html#a64a8c553f095adaf226441cde2b355e7" />
+      <keyword name="KArchiveDirectory" id="KArchiveDirectory" ref="class_k_archive_directory.html" />
+      <keyword name="KArchiveDirectory" id="KArchiveDirectory::KArchiveDirectory" ref="class_k_archive_directory.html#a52719e2e8628d139f5454146cb9d41cb" />
+      <keyword name="~KArchiveDirectory" id="KArchiveDirectory::~KArchiveDirectory" ref="class_k_archive_directory.html#a28c3f2fc97cf147fb024ed41f406c9b9" />
+      <keyword name="entries" id="KArchiveDirectory::entries" ref="class_k_archive_directory.html#a583309dbae0b387c7af46a4dad6dfeca" />
+      <keyword name="entry" id="KArchiveDirectory::entry" ref="class_k_archive_directory.html#ac803cda8f9d7d2b9dbe1b7ac801ef310" />
+      <keyword name="file" id="KArchiveDirectory::file" ref="class_k_archive_directory.html#aa2a51a9fb0bdefe5ecbc7918f7d64983" />
+      <keyword name="addEntry" id="KArchiveDirectory::addEntry" ref="class_k_archive_directory.html#a0f5967950552c9e1fb6858fc1c627c19" />
+      <keyword name="removeEntry" id="KArchiveDirectory::removeEntry" ref="class_k_archive_directory.html#a717ab9abd24a82779b38e981c4fc1f39" />
+      <keyword name="isDirectory" id="KArchiveDirectory::isDirectory" ref="class_k_archive_directory.html#ab0c1a491aed663a566f5cac4ddb3cea1" />
+      <keyword name="copyTo" id="KArchiveDirectory::copyTo" ref="class_k_archive_directory.html#a69a28476a3c50c9a12b214abf3d5a41a" />
+      <keyword name="KArchiveEntry" id="KArchiveEntry::KArchiveEntry" ref="class_k_archive_entry.html#a5c0e3e538520cf9d05d4d3e12ae4594b" />
+      <keyword name="~KArchiveEntry" id="KArchiveEntry::~KArchiveEntry" ref="class_k_archive_entry.html#aff83a50f2a99b45ab2f3715e932bab9e" />
+      <keyword name="date" id="KArchiveEntry::date" ref="class_k_archive_entry.html#a5e2fd48f561980ecf22e6b69c91fc5e6" />
+      <keyword name="name" id="KArchiveEntry::name" ref="class_k_archive_entry.html#a7a3fb99efe15847ef6cb3766d3588fc7" />
+      <keyword name="permissions" id="KArchiveEntry::permissions" ref="class_k_archive_entry.html#a2356d6ed02a40c7dae6e9101087c232d" />
+      <keyword name="user" id="KArchiveEntry::user" ref="class_k_archive_entry.html#a2c36d4e2b4f6ef3dc97cc0d69b7c910f" />
+      <keyword name="group" id="KArchiveEntry::group" ref="class_k_archive_entry.html#a6bb1dcb1549695273205c2f0068cb942" />
+      <keyword name="symLinkTarget" id="KArchiveEntry::symLinkTarget" ref="class_k_archive_entry.html#aa0e86e5f1fa8c993463f8dd1ae605d4d" />
+      <keyword name="isFile" id="KArchiveEntry::isFile" ref="class_k_archive_entry.html#a376387d6d496cdd3a5327dc568ae03bc" />
+      <keyword name="virtual_hook" id="KArchiveDirectory::virtual_hook" ref="class_k_archive_directory.html#a205362e312028a0a07a56b4ca3d814c7" />
+      <keyword name="archive" id="KArchiveEntry::archive" ref="class_k_archive_entry.html#a7cd83225c05fec686f629e30ebc6956e" />
+      <keyword name="d" id="KArchiveDirectory::d" ref="class_k_archive_directory.html#ad07cb5a59edd736c57f3f38f582a7f6c" />
+      <keyword name="KArchiveEntry" id="KArchiveEntry" ref="class_k_archive_entry.html" />
+      <keyword name="KArchiveEntry" id="KArchiveEntry::KArchiveEntry" ref="class_k_archive_entry.html#a5c0e3e538520cf9d05d4d3e12ae4594b" />
+      <keyword name="~KArchiveEntry" id="KArchiveEntry::~KArchiveEntry" ref="class_k_archive_entry.html#aff83a50f2a99b45ab2f3715e932bab9e" />
+      <keyword name="date" id="KArchiveEntry::date" ref="class_k_archive_entry.html#a5e2fd48f561980ecf22e6b69c91fc5e6" />
+      <keyword name="name" id="KArchiveEntry::name" ref="class_k_archive_entry.html#a7a3fb99efe15847ef6cb3766d3588fc7" />
+      <keyword name="permissions" id="KArchiveEntry::permissions" ref="class_k_archive_entry.html#a2356d6ed02a40c7dae6e9101087c232d" />
+      <keyword name="user" id="KArchiveEntry::user" ref="class_k_archive_entry.html#a2c36d4e2b4f6ef3dc97cc0d69b7c910f" />
+      <keyword name="group" id="KArchiveEntry::group" ref="class_k_archive_entry.html#a6bb1dcb1549695273205c2f0068cb942" />
+      <keyword name="symLinkTarget" id="KArchiveEntry::symLinkTarget" ref="class_k_archive_entry.html#aa0e86e5f1fa8c993463f8dd1ae605d4d" />
+      <keyword name="isFile" id="KArchiveEntry::isFile" ref="class_k_archive_entry.html#a376387d6d496cdd3a5327dc568ae03bc" />
+      <keyword name="isDirectory" id="KArchiveEntry::isDirectory" ref="class_k_archive_entry.html#a02e41de0cc54c9d53c3090bf1f00bd1d" />
+      <keyword name="archive" id="KArchiveEntry::archive" ref="class_k_archive_entry.html#a7cd83225c05fec686f629e30ebc6956e" />
+      <keyword name="virtual_hook" id="KArchiveEntry::virtual_hook" ref="class_k_archive_entry.html#aed9768f6c6912e2b6f3bac7182ff8957" />
+      <keyword name="d" id="KArchiveEntry::d" ref="class_k_archive_entry.html#a89ac4f5f26bb32448d121351843d2cae" />
+      <keyword name="KArchiveFile" id="KArchiveFile" ref="class_k_archive_file.html" />
+      <keyword name="KArchiveFile" id="KArchiveFile::KArchiveFile" ref="class_k_archive_file.html#a0b5589f87f70f4b1a3922040d3b63111" />
+      <keyword name="~KArchiveFile" id="KArchiveFile::~KArchiveFile" ref="class_k_archive_file.html#ac98cf5553640eb81f644e36f95f91569" />
+      <keyword name="position" id="KArchiveFile::position" ref="class_k_archive_file.html#ab45ce3c099691954fefeffe773b742c5" />
+      <keyword name="size" id="KArchiveFile::size" ref="class_k_archive_file.html#a2006219e1cb0503dbbf0bc96b1f9f80d" />
+      <keyword name="setSize" id="KArchiveFile::setSize" ref="class_k_archive_file.html#a46ab3c77fb21b1ca095ba4a155f7d47e" />
+      <keyword name="data" id="KArchiveFile::data" ref="class_k_archive_file.html#a5ba08d90bc2bba1f1b1c155bc93f3235" />
+      <keyword name="createDevice" id="KArchiveFile::createDevice" ref="class_k_archive_file.html#a3a7ac2dd4e4922d171e178bd02abb57f" />
+      <keyword name="isFile" id="KArchiveFile::isFile" ref="class_k_archive_file.html#ab4e8989d6c9e363b60fd633224991307" />
+      <keyword name="copyTo" id="KArchiveFile::copyTo" ref="class_k_archive_file.html#a0d25262342c7e71a4d13f578959dedae" />
+      <keyword name="KArchiveEntry" id="KArchiveEntry::KArchiveEntry" ref="class_k_archive_entry.html#a5c0e3e538520cf9d05d4d3e12ae4594b" />
+      <keyword name="~KArchiveEntry" id="KArchiveEntry::~KArchiveEntry" ref="class_k_archive_entry.html#aff83a50f2a99b45ab2f3715e932bab9e" />
+      <keyword name="date" id="KArchiveEntry::date" ref="class_k_archive_entry.html#a5e2fd48f561980ecf22e6b69c91fc5e6" />
+      <keyword name="name" id="KArchiveEntry::name" ref="class_k_archive_entry.html#a7a3fb99efe15847ef6cb3766d3588fc7" />
+      <keyword name="permissions" id="KArchiveEntry::permissions" ref="class_k_archive_entry.html#a2356d6ed02a40c7dae6e9101087c232d" />
+      <keyword name="user" id="KArchiveEntry::user" ref="class_k_archive_entry.html#a2c36d4e2b4f6ef3dc97cc0d69b7c910f" />
+      <keyword name="group" id="KArchiveEntry::group" ref="class_k_archive_entry.html#a6bb1dcb1549695273205c2f0068cb942" />
+      <keyword name="symLinkTarget" id="KArchiveEntry::symLinkTarget" ref="class_k_archive_entry.html#aa0e86e5f1fa8c993463f8dd1ae605d4d" />
+      <keyword name="isDirectory" id="KArchiveEntry::isDirectory" ref="class_k_archive_entry.html#a02e41de0cc54c9d53c3090bf1f00bd1d" />
+      <keyword name="virtual_hook" id="KArchiveFile::virtual_hook" ref="class_k_archive_file.html#a1907f6c4ace08324cb6c26e61c20cd7d" />
+      <keyword name="archive" id="KArchiveEntry::archive" ref="class_k_archive_entry.html#a7cd83225c05fec686f629e30ebc6956e" />
+      <keyword name="d" id="KArchiveFile::d" ref="class_k_archive_file.html#aa03c7884476973cdcfdaaac976c6cabd" />
+      <keyword name="KCompressionDevice" id="KCompressionDevice" ref="class_k_compression_device.html" />
+      <keyword name="KCompressionDevice" id="KCompressionDevice::KCompressionDevice" ref="class_k_compression_device.html#a19d90470f86e14433eb2f21a7135c856" />
+      <keyword name="KCompressionDevice" id="KCompressionDevice::KCompressionDevice" ref="class_k_compression_device.html#a134baa7d6ad968471719755f58cea1e5" />
+      <keyword name="~KCompressionDevice" id="KCompressionDevice::~KCompressionDevice" ref="class_k_compression_device.html#afa5ab317f7c7f0cc6ce3f128ab0bc7a4" />
+      <keyword name="compressionType" id="KCompressionDevice::compressionType" ref="class_k_compression_device.html#a2c956ed814bf05b02a62d9ffb5e6d56e" />
+      <keyword name="open" id="KCompressionDevice::open" ref="class_k_compression_device.html#ae40ec51fa25dfe0b8844d0cfc143ceb2" />
+      <keyword name="close" id="KCompressionDevice::close" ref="class_k_compression_device.html#a984fa31855f47612817a22e5d25b4181" />
+      <keyword name="setOrigFileName" id="KCompressionDevice::setOrigFileName" ref="class_k_compression_device.html#a16f277ab56f2d99aceffc698625a8254" />
+      <keyword name="setSkipHeaders" id="KCompressionDevice::setSkipHeaders" ref="class_k_compression_device.html#ac798a1e99382a3bbb39da72bd80c9335" />
+      <keyword name="seek" id="KCompressionDevice::seek" ref="class_k_compression_device.html#a4d8ab175fe4cd856bebf20d412a172d6" />
+      <keyword name="atEnd" id="KCompressionDevice::atEnd" ref="class_k_compression_device.html#af88be6ed4e18af4156ec5e8478fae4c6" />
+      <keyword name="error" id="KCompressionDevice::error" ref="class_k_compression_device.html#a47659cc4cc6c370222f59b26eee973db" />
+      <keyword name="filterForCompressionType" id="KCompressionDevice::filterForCompressionType" ref="class_k_compression_device.html#a8b63bbaf4b332dce4d152cde3d31fed8" />
+      <keyword name="readData" id="KCompressionDevice::readData" ref="class_k_compression_device.html#a2e060cef47f4f9e0add371dba75409bb" />
+      <keyword name="writeData" id="KCompressionDevice::writeData" ref="class_k_compression_device.html#a21e7b4de09bdfee1d5722dfcba999d5b" />
+      <keyword name="filterBase" id="KCompressionDevice::filterBase" ref="class_k_compression_device.html#a320fd225ffb444b661a98446f17ca9a5" />
+      <keyword name="KCompressionDevicePrivate" id="KCompressionDevice::KCompressionDevicePrivate" ref="class_k_compression_device.html#ad6fb214b6835a61020d47cd32dff8078" />
+      <keyword name="d" id="KCompressionDevice::d" ref="class_k_compression_device.html#ae7b1c97a30012362e50571c07a79dc74" />
+      <keyword name="K7Zip" id="KCompressionDevice::K7Zip" ref="class_k_compression_device.html#a75824a549d3aa1458428fa4663d1cd5f" />
+      <keyword name="GZip" id="KCompressionDevice::GZip" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4bae39d092286a1ccb7e81613cde20e1249" />
+      <keyword name="BZip2" id="KCompressionDevice::BZip2" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4ba64f85eee3af9065f816637a806d01d6f" />
+      <keyword name="Xz" id="KCompressionDevice::Xz" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4ba22224acd80963c8c1d36c7ed61844353" />
+      <keyword name="None" id="KCompressionDevice::None" ref="class_k_compression_device.html#a7061edc40657085c87f8951b8a2cbe4ba4251e625a7ebdc4d2bee5f6241c149d5" />
+      <keyword name="KFilterBase" id="KFilterBase" ref="class_k_filter_base.html" />
+      <keyword name="KFilterBase" id="KFilterBase::KFilterBase" ref="class_k_filter_base.html#a2140a1f803471c237cd201d2a8c6be81" />
+      <keyword name="~KFilterBase" id="KFilterBase::~KFilterBase" ref="class_k_filter_base.html#acaa18afce13a591c36b399c0f76511a7" />
+      <keyword name="setDevice" id="KFilterBase::setDevice" ref="class_k_filter_base.html#ae0b5719aa1ebe3b43507f45828acfb31" />
+      <keyword name="device" id="KFilterBase::device" ref="class_k_filter_base.html#af1fd3c777945555ec77ec6a74eb1d418" />
+      <keyword name="init" id="KFilterBase::init" ref="class_k_filter_base.html#a5957e0e8fb8a376f3011e05284b1cb70" />
+      <keyword name="mode" id="KFilterBase::mode" ref="class_k_filter_base.html#aea4a8777dfad1fb83e7785194b12b680" />
+      <keyword name="terminate" id="KFilterBase::terminate" ref="class_k_filter_base.html#a60085d6ad0497b3a375f393c00f33b20" />
+      <keyword name="reset" id="KFilterBase::reset" ref="class_k_filter_base.html#a72c70657fafeca5b310cfb1eb7b40e8c" />
+      <keyword name="readHeader" id="KFilterBase::readHeader" ref="class_k_filter_base.html#ad7b7580531a444442caf0daaaa27a283" />
+      <keyword name="writeHeader" id="KFilterBase::writeHeader" ref="class_k_filter_base.html#a7672777b39bdd42c5f2c7121fff34848" />
+      <keyword name="setOutBuffer" id="KFilterBase::setOutBuffer" ref="class_k_filter_base.html#a5e284cc9076c690c5e0969e09ac0df1d" />
+      <keyword name="setInBuffer" id="KFilterBase::setInBuffer" ref="class_k_filter_base.html#a332c5aba58f0c01f588de41bb337e15c" />
+      <keyword name="inBufferEmpty" id="KFilterBase::inBufferEmpty" ref="class_k_filter_base.html#aa4c82c09040e1a1e29052d0e24112305" />
+      <keyword name="inBufferAvailable" id="KFilterBase::inBufferAvailable" ref="class_k_filter_base.html#acef9fa1b419198bde5f9d8a433d7cd8e" />
+      <keyword name="outBufferFull" id="KFilterBase::outBufferFull" ref="class_k_filter_base.html#a2f66df46355385a68fa41f5e3c04c8b3" />
+      <keyword name="outBufferAvailable" id="KFilterBase::outBufferAvailable" ref="class_k_filter_base.html#a0a0bfb0a10281beeec6e2a2a65d32c22" />
+      <keyword name="uncompress" id="KFilterBase::uncompress" ref="class_k_filter_base.html#a6f29466c181fbf910a75b4775488b62e" />
+      <keyword name="compress" id="KFilterBase::compress" ref="class_k_filter_base.html#a9640e78ba2da5e4aa34e928b426e16b8" />
+      <keyword name="setFilterFlags" id="KFilterBase::setFilterFlags" ref="class_k_filter_base.html#a741ff7aadcdad956684df276b690582b" />
+      <keyword name="filterFlags" id="KFilterBase::filterFlags" ref="class_k_filter_base.html#a29d7a5621658ff81a0fe9485a7898e62" />
+      <keyword name="virtual_hook" id="KFilterBase::virtual_hook" ref="class_k_filter_base.html#a0255d11e86d779c7c15f532ea59c1912" />
+      <keyword name="d" id="KFilterBase::d" ref="class_k_filter_base.html#adf19e3790ed2cdbda974c84b839e87ae" />
+      <keyword name="NoHeaders" id="KFilterBase::NoHeaders" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70fa753930e73c3e2e3fee72ba40e9dac131" />
+      <keyword name="WithHeaders" id="KFilterBase::WithHeaders" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70fa0b0c2f0f3fd2ddec8ab0a1b6318aef02" />
+      <keyword name="ZlibHeaders" id="KFilterBase::ZlibHeaders" ref="class_k_filter_base.html#a6aea514aa95018abc98c7f4de711e70faf58b16a4808ea5faee3112e912674868" />
+      <keyword name="Ok" id="KFilterBase::Ok" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6a764c61a081554c696859749260e6130d" />
+      <keyword name="End" id="KFilterBase::End" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6a622a8ff7541664e371b8edce937672fd" />
+      <keyword name="Error" id="KFilterBase::Error" ref="class_k_filter_base.html#a11c71b7d147daff9164114ef565d05a6a131cc8b7a631609afba0427edac4c761" />
+      <keyword name="KFilterDev" id="KFilterDev" ref="class_k_filter_dev.html" />
+      <keyword name="KFilterDev" id="KFilterDev::KFilterDev" ref="class_k_filter_dev.html#a7822f81287541a1952b04305273c9131" />
+      <keyword name="KCompressionDevice" id="KCompressionDevice::KCompressionDevice" ref="class_k_compression_device.html#a19d90470f86e14433eb2f21a7135c856" />
+      <keyword name="KCompressionDevice" id="KCompressionDevice::KCompressionDevice" ref="class_k_compression_device.html#a134baa7d6ad968471719755f58cea1e5" />
+      <keyword name="~KCompressionDevice" id="KCompressionDevice::~KCompressionDevice" ref="class_k_compression_device.html#afa5ab317f7c7f0cc6ce3f128ab0bc7a4" />
+      <keyword name="compressionType" id="KCompressionDevice::compressionType" ref="class_k_compression_device.html#a2c956ed814bf05b02a62d9ffb5e6d56e" />
+      <keyword name="open" id="KCompressionDevice::open" ref="class_k_compression_device.html#ae40ec51fa25dfe0b8844d0cfc143ceb2" />
+      <keyword name="close" id="KCompressionDevice::close" ref="class_k_compression_device.html#a984fa31855f47612817a22e5d25b4181" />
+      <keyword name="setOrigFileName" id="KCompressionDevice::setOrigFileName" ref="class_k_compression_device.html#a16f277ab56f2d99aceffc698625a8254" />
+      <keyword name="setSkipHeaders" id="KCompressionDevice::setSkipHeaders" ref="class_k_compression_device.html#ac798a1e99382a3bbb39da72bd80c9335" />
+      <keyword name="seek" id="KCompressionDevice::seek" ref="class_k_compression_device.html#a4d8ab175fe4cd856bebf20d412a172d6" />
+      <keyword name="atEnd" id="KCompressionDevice::atEnd" ref="class_k_compression_device.html#af88be6ed4e18af4156ec5e8478fae4c6" />
+      <keyword name="error" id="KCompressionDevice::error" ref="class_k_compression_device.html#a47659cc4cc6c370222f59b26eee973db" />
+      <keyword name="compressionTypeForMimeType" id="KFilterDev::compressionTypeForMimeType" ref="class_k_filter_dev.html#a98bdb4c8715618856c4102c7f8b2a09f" />
+      <keyword name="deviceForFile" id="KFilterDev::deviceForFile" ref="class_k_filter_dev.html#a4714ddacbcfe6d57702505f7e07da141" />
+      <keyword name="device" id="KFilterDev::device" ref="class_k_filter_dev.html#a15b5dc4093e405e8af6f021095464ee2" />
+      <keyword name="filterForCompressionType" id="KCompressionDevice::filterForCompressionType" ref="class_k_compression_device.html#a8b63bbaf4b332dce4d152cde3d31fed8" />
+      <keyword name="readData" id="KCompressionDevice::readData" ref="class_k_compression_device.html#a2e060cef47f4f9e0add371dba75409bb" />
+      <keyword name="writeData" id="KCompressionDevice::writeData" ref="class_k_compression_device.html#a21e7b4de09bdfee1d5722dfcba999d5b" />
+      <keyword name="filterBase" id="KCompressionDevice::filterBase" ref="class_k_compression_device.html#a320fd225ffb444b661a98446f17ca9a5" />
+      <keyword name="KRcc" id="KRcc" ref="class_k_rcc.html" />
+      <keyword name="KRcc" id="KRcc::KRcc" ref="class_k_rcc.html#a7882b7b0e86c126a611144757fc862e2" />
+      <keyword name="~KRcc" id="KRcc::~KRcc" ref="class_k_rcc.html#a6650a818cd87ff96f51582974f2dc411" />
+      <keyword name="~KArchive" id="KArchive::~KArchive" ref="class_k_archive.html#ad26fb249b1ab51c13feabfbadb9fe2c5" />
+      <keyword name="open" id="KArchive::open" ref="class_k_archive.html#a3e1dce09e2cb5008667d022a8d3fefa1" />
+      <keyword name="close" id="KArchive::close" ref="class_k_archive.html#a7107c4f9e0fd9635cb1b5e89ba408f38" />
+      <keyword name="errorString" id="KArchive::errorString" ref="class_k_archive.html#a0570604738a465326bd0c8d3925e24ee" />
+      <keyword name="isOpen" id="KArchive::isOpen" ref="class_k_archive.html#aec27152dc3cc0fa3df28daa8707d968d" />
+      <keyword name="mode" id="KArchive::mode" ref="class_k_archive.html#ac4aa377c4f4fefe55f840aa6ffcb3400" />
+      <keyword name="device" id="KArchive::device" ref="class_k_archive.html#acb2ae35e23f33dd078dc9cdd10fa25a0" />
+      <keyword name="fileName" id="KArchive::fileName" ref="class_k_archive.html#adb8c517921d59a7f48f7090cbcf5efcc" />
+      <keyword name="directory" id="KArchive::directory" ref="class_k_archive.html#a674b6afdff3069d23cd67189d865881a" />
+      <keyword name="addLocalFile" id="KArchive::addLocalFile" ref="class_k_archive.html#a1e3b4d361c4b57fe8cb956a9b49a85e4" />
+      <keyword name="addLocalDirectory" id="KArchive::addLocalDirectory" ref="class_k_archive.html#ab5a2f90d4003664127e744d078162c34" />
+      <keyword name="writeDir" id="KArchive::writeDir" ref="class_k_archive.html#a8e8dad1251bf8b2303b677445dcb86c0" />
+      <keyword name="writeSymLink" id="KArchive::writeSymLink" ref="class_k_archive.html#a5625944353172a5dbd229bf1a08d8a91" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aa6cf0bf8afebd3681b62e52d417b20bf" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aeb615bb1d33578f57f69af2b1e72029d" />
+      <keyword name="prepareWriting" id="KArchive::prepareWriting" ref="class_k_archive.html#a7e50420630c3bb44f617ad812b673332" />
+      <keyword name="writeData" id="KArchive::writeData" ref="class_k_archive.html#acf9dc1761d9af65dcc44231c59fdb020" />
+      <keyword name="finishWriting" id="KArchive::finishWriting" ref="class_k_archive.html#a28478783281e5f729210ef7ecac9c225" />
+      <keyword name="doPrepareWriting" id="KRcc::doPrepareWriting" ref="class_k_rcc.html#a9568adce115ae3efacc4d6c3928d0aaf" />
+      <keyword name="doFinishWriting" id="KRcc::doFinishWriting" ref="class_k_rcc.html#a4f34239a914071605e4a8b3a67a59c85" />
+      <keyword name="doWriteDir" id="KRcc::doWriteDir" ref="class_k_rcc.html#a01d52e7e4b887813507382a870d66e0b" />
+      <keyword name="doWriteSymLink" id="KRcc::doWriteSymLink" ref="class_k_rcc.html#a8822cbee0507ca869254b2b18c32f17d" />
+      <keyword name="openArchive" id="KRcc::openArchive" ref="class_k_rcc.html#a99aa0df3a18ec989d3633549a2e95368" />
+      <keyword name="closeArchive" id="KRcc::closeArchive" ref="class_k_rcc.html#a7d32b3a4e283ba7a66d30c76069c3f33" />
+      <keyword name="virtual_hook" id="KRcc::virtual_hook" ref="class_k_rcc.html#a6d1c21b63b87c9263d96106218e270bd" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a4386c6e12dc034c0687aa8bb738bf25d" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a3efbb71ada0630d90c5af53fedce9b19" />
+      <keyword name="setErrorString" id="KArchive::setErrorString" ref="class_k_archive.html#afc0721d4b4a941bf083f887b148a78f4" />
+      <keyword name="rootDir" id="KArchive::rootDir" ref="class_k_archive.html#a6c70834fc162c00000b95c7af95de18e" />
+      <keyword name="findOrCreate" id="KArchive::findOrCreate" ref="class_k_archive.html#a558f460621225a20397995462d1de464" />
+      <keyword name="createDevice" id="KArchive::createDevice" ref="class_k_archive.html#a1754cd565a19adca197d5b5d1a193a16" />
+      <keyword name="setDevice" id="KArchive::setDevice" ref="class_k_archive.html#af39343456c9c458230546b64ffc66a31" />
+      <keyword name="setRootDir" id="KArchive::setRootDir" ref="class_k_archive.html#ae12a8b556703e189b9e2ebc886a18319" />
+      <keyword name="d" id="KRcc::d" ref="class_k_rcc.html#a9d7c35c49efaa12cc83cae9c8a88882b" />
+      <keyword name="KTar" id="KTar" ref="class_k_tar.html" />
+      <keyword name="KTar" id="KTar::KTar" ref="class_k_tar.html#a44b9ab8fd30f0c7ffcf6a4a5c8f2443a" />
+      <keyword name="KTar" id="KTar::KTar" ref="class_k_tar.html#a93e7ce44e3438619e7cfb91bc879f688" />
+      <keyword name="~KTar" id="KTar::~KTar" ref="class_k_tar.html#ae67454919d98cf7c6575f24485c10746" />
+      <keyword name="setOrigFileName" id="KTar::setOrigFileName" ref="class_k_tar.html#a6f104d8a72f38fcc1f5984a7f40a4d59" />
+      <keyword name="~KArchive" id="KArchive::~KArchive" ref="class_k_archive.html#ad26fb249b1ab51c13feabfbadb9fe2c5" />
+      <keyword name="open" id="KArchive::open" ref="class_k_archive.html#a3e1dce09e2cb5008667d022a8d3fefa1" />
+      <keyword name="close" id="KArchive::close" ref="class_k_archive.html#a7107c4f9e0fd9635cb1b5e89ba408f38" />
+      <keyword name="errorString" id="KArchive::errorString" ref="class_k_archive.html#a0570604738a465326bd0c8d3925e24ee" />
+      <keyword name="isOpen" id="KArchive::isOpen" ref="class_k_archive.html#aec27152dc3cc0fa3df28daa8707d968d" />
+      <keyword name="mode" id="KArchive::mode" ref="class_k_archive.html#ac4aa377c4f4fefe55f840aa6ffcb3400" />
+      <keyword name="device" id="KArchive::device" ref="class_k_archive.html#acb2ae35e23f33dd078dc9cdd10fa25a0" />
+      <keyword name="fileName" id="KArchive::fileName" ref="class_k_archive.html#adb8c517921d59a7f48f7090cbcf5efcc" />
+      <keyword name="directory" id="KArchive::directory" ref="class_k_archive.html#a674b6afdff3069d23cd67189d865881a" />
+      <keyword name="addLocalFile" id="KArchive::addLocalFile" ref="class_k_archive.html#a1e3b4d361c4b57fe8cb956a9b49a85e4" />
+      <keyword name="addLocalDirectory" id="KArchive::addLocalDirectory" ref="class_k_archive.html#ab5a2f90d4003664127e744d078162c34" />
+      <keyword name="writeDir" id="KArchive::writeDir" ref="class_k_archive.html#a8e8dad1251bf8b2303b677445dcb86c0" />
+      <keyword name="writeSymLink" id="KArchive::writeSymLink" ref="class_k_archive.html#a5625944353172a5dbd229bf1a08d8a91" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aa6cf0bf8afebd3681b62e52d417b20bf" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aeb615bb1d33578f57f69af2b1e72029d" />
+      <keyword name="prepareWriting" id="KArchive::prepareWriting" ref="class_k_archive.html#a7e50420630c3bb44f617ad812b673332" />
+      <keyword name="writeData" id="KArchive::writeData" ref="class_k_archive.html#acf9dc1761d9af65dcc44231c59fdb020" />
+      <keyword name="finishWriting" id="KArchive::finishWriting" ref="class_k_archive.html#a28478783281e5f729210ef7ecac9c225" />
+      <keyword name="doWriteSymLink" id="KTar::doWriteSymLink" ref="class_k_tar.html#a397a1617c71924cb2bc57122d409f4bd" />
+      <keyword name="doWriteDir" id="KTar::doWriteDir" ref="class_k_tar.html#ab7e296bf9ad349e68b00b3a5755b0bcd" />
+      <keyword name="doPrepareWriting" id="KTar::doPrepareWriting" ref="class_k_tar.html#ac83bfdbafb791894f791e33e3f5e48b7" />
+      <keyword name="doFinishWriting" id="KTar::doFinishWriting" ref="class_k_tar.html#a3402a798f13eb00692901885c66b503c" />
+      <keyword name="openArchive" id="KTar::openArchive" ref="class_k_tar.html#a85ce841ac81b8dbce228e152cda5d555" />
+      <keyword name="closeArchive" id="KTar::closeArchive" ref="class_k_tar.html#a963f2c3fc94e0a44c1f24846a8db7a20" />
+      <keyword name="createDevice" id="KTar::createDevice" ref="class_k_tar.html#a595e1d5daed28aa53a185f260ce8b629" />
+      <keyword name="virtual_hook" id="KTar::virtual_hook" ref="class_k_tar.html#a59e263166217cb81ed68e77c2ddba642" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a4386c6e12dc034c0687aa8bb738bf25d" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a3efbb71ada0630d90c5af53fedce9b19" />
+      <keyword name="setErrorString" id="KArchive::setErrorString" ref="class_k_archive.html#afc0721d4b4a941bf083f887b148a78f4" />
+      <keyword name="rootDir" id="KArchive::rootDir" ref="class_k_archive.html#a6c70834fc162c00000b95c7af95de18e" />
+      <keyword name="findOrCreate" id="KArchive::findOrCreate" ref="class_k_archive.html#a558f460621225a20397995462d1de464" />
+      <keyword name="setDevice" id="KArchive::setDevice" ref="class_k_archive.html#af39343456c9c458230546b64ffc66a31" />
+      <keyword name="setRootDir" id="KArchive::setRootDir" ref="class_k_archive.html#ae12a8b556703e189b9e2ebc886a18319" />
+      <keyword name="d" id="KTar::d" ref="class_k_tar.html#a75b22cbe503843f8ce5f66ceee9458a8" />
+      <keyword name="KZip" id="KZip" ref="class_k_zip.html" />
+      <keyword name="KZip" id="KZip::KZip" ref="class_k_zip.html#a62f0a5753d4ef02f5611b1f8dd7caf50" />
+      <keyword name="KZip" id="KZip::KZip" ref="class_k_zip.html#a4e07b57c827771e453a9aa3f6df2102b" />
+      <keyword name="~KZip" id="KZip::~KZip" ref="class_k_zip.html#a92c0e985a12696ab8074ace2172a94ec" />
+      <keyword name="setExtraField" id="KZip::setExtraField" ref="class_k_zip.html#a5e9a9365ce56a6d1124be7ee8fae360d" />
+      <keyword name="extraField" id="KZip::extraField" ref="class_k_zip.html#ad119cbf990d218ab3374c52699338a3a" />
+      <keyword name="setCompression" id="KZip::setCompression" ref="class_k_zip.html#a286095b519b20b3a82449f7b5b50e039" />
+      <keyword name="compression" id="KZip::compression" ref="class_k_zip.html#aec74daa3340b3943a354877ae57e5dcf" />
+      <keyword name="writeData" id="KZip::writeData" ref="class_k_zip.html#aaa3425245096f000f5a82d5e572ce4f9" />
+      <keyword name="~KArchive" id="KArchive::~KArchive" ref="class_k_archive.html#ad26fb249b1ab51c13feabfbadb9fe2c5" />
+      <keyword name="open" id="KArchive::open" ref="class_k_archive.html#a3e1dce09e2cb5008667d022a8d3fefa1" />
+      <keyword name="close" id="KArchive::close" ref="class_k_archive.html#a7107c4f9e0fd9635cb1b5e89ba408f38" />
+      <keyword name="errorString" id="KArchive::errorString" ref="class_k_archive.html#a0570604738a465326bd0c8d3925e24ee" />
+      <keyword name="isOpen" id="KArchive::isOpen" ref="class_k_archive.html#aec27152dc3cc0fa3df28daa8707d968d" />
+      <keyword name="mode" id="KArchive::mode" ref="class_k_archive.html#ac4aa377c4f4fefe55f840aa6ffcb3400" />
+      <keyword name="device" id="KArchive::device" ref="class_k_archive.html#acb2ae35e23f33dd078dc9cdd10fa25a0" />
+      <keyword name="fileName" id="KArchive::fileName" ref="class_k_archive.html#adb8c517921d59a7f48f7090cbcf5efcc" />
+      <keyword name="directory" id="KArchive::directory" ref="class_k_archive.html#a674b6afdff3069d23cd67189d865881a" />
+      <keyword name="addLocalFile" id="KArchive::addLocalFile" ref="class_k_archive.html#a1e3b4d361c4b57fe8cb956a9b49a85e4" />
+      <keyword name="addLocalDirectory" id="KArchive::addLocalDirectory" ref="class_k_archive.html#ab5a2f90d4003664127e744d078162c34" />
+      <keyword name="writeDir" id="KArchive::writeDir" ref="class_k_archive.html#a8e8dad1251bf8b2303b677445dcb86c0" />
+      <keyword name="writeSymLink" id="KArchive::writeSymLink" ref="class_k_archive.html#a5625944353172a5dbd229bf1a08d8a91" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aa6cf0bf8afebd3681b62e52d417b20bf" />
+      <keyword name="writeFile" id="KArchive::writeFile" ref="class_k_archive.html#aeb615bb1d33578f57f69af2b1e72029d" />
+      <keyword name="prepareWriting" id="KArchive::prepareWriting" ref="class_k_archive.html#a7e50420630c3bb44f617ad812b673332" />
+      <keyword name="finishWriting" id="KArchive::finishWriting" ref="class_k_archive.html#a28478783281e5f729210ef7ecac9c225" />
+      <keyword name="doWriteSymLink" id="KZip::doWriteSymLink" ref="class_k_zip.html#ace30d108e4428e06f33fa7c26eae4cc1" />
+      <keyword name="doPrepareWriting" id="KZip::doPrepareWriting" ref="class_k_zip.html#a5c41f2268fe0ab47b463ea41b9dc4d71" />
+      <keyword name="doFinishWriting" id="KZip::doFinishWriting" ref="class_k_zip.html#a779b54eddb092d2e97503a276b9fddfc" />
+      <keyword name="openArchive" id="KZip::openArchive" ref="class_k_zip.html#a18c321438e2c8f44c5e2dcf69fbdbc5a" />
+      <keyword name="closeArchive" id="KZip::closeArchive" ref="class_k_zip.html#a8b732f0df8e83658cabb7eff226941c8" />
+      <keyword name="doWriteDir" id="KZip::doWriteDir" ref="class_k_zip.html#a1c872c7826c50ccd5b9fc6247dab3923" />
+      <keyword name="virtual_hook" id="KZip::virtual_hook" ref="class_k_zip.html#aac35511dc09ff3eab5128b2f42a79ed9" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a4386c6e12dc034c0687aa8bb738bf25d" />
+      <keyword name="KArchive" id="KArchive::KArchive" ref="class_k_archive.html#a3efbb71ada0630d90c5af53fedce9b19" />
+      <keyword name="setErrorString" id="KArchive::setErrorString" ref="class_k_archive.html#afc0721d4b4a941bf083f887b148a78f4" />
+      <keyword name="rootDir" id="KArchive::rootDir" ref="class_k_archive.html#a6c70834fc162c00000b95c7af95de18e" />
+      <keyword name="findOrCreate" id="KArchive::findOrCreate" ref="class_k_archive.html#a558f460621225a20397995462d1de464" />
+      <keyword name="createDevice" id="KArchive::createDevice" ref="class_k_archive.html#a1754cd565a19adca197d5b5d1a193a16" />
+      <keyword name="setDevice" id="KArchive::setDevice" ref="class_k_archive.html#af39343456c9c458230546b64ffc66a31" />
+      <keyword name="setRootDir" id="KArchive::setRootDir" ref="class_k_archive.html#ae12a8b556703e189b9e2ebc886a18319" />
+      <keyword name="d" id="KZip::d" ref="class_k_zip.html#a08028db66596de7161247739dddd1f1d" />
+      <keyword name="NoCompression" id="KZip::NoCompression" ref="class_k_zip.html#ab0654dff75d0f8747b0d90ad39bc2aceabf73c42b9987176459a29f393baf4e6a" />
+      <keyword name="DeflateCompression" id="KZip::DeflateCompression" ref="class_k_zip.html#ab0654dff75d0f8747b0d90ad39bc2acea4a8ddbf17f28e126c1e5a297876ada80" />
+      <keyword name="NoExtraField" id="KZip::NoExtraField" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04ad5e053e8f68fe61489583558268ed660" />
+      <keyword name="ModificationTime" id="KZip::ModificationTime" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04a7b5b655b17f10dfe213d3b2323e601a0" />
+      <keyword name="DefaultExtraField" id="KZip::DefaultExtraField" ref="class_k_zip.html#a3b1610ecac186076da3f424b6103ff04a0f5e128a601b320fd529f0d2b8be2805" />
+      <keyword name="KZipFileEntry" id="KZipFileEntry" ref="class_k_zip_file_entry.html" />
+      <keyword name="KZipFileEntry" id="KZipFileEntry::KZipFileEntry" ref="class_k_zip_file_entry.html#a033d81c2d025339f668b3155277e7657" />
+      <keyword name="~KZipFileEntry" id="KZipFileEntry::~KZipFileEntry" ref="class_k_zip_file_entry.html#afcc1fa146426aa46ce1d2bd716bc40db" />
+      <keyword name="encoding" id="KZipFileEntry::encoding" ref="class_k_zip_file_entry.html#aa5975c49ff36a9413c5e557d552cc828" />
+      <keyword name="compressedSize" id="KZipFileEntry::compressedSize" ref="class_k_zip_file_entry.html#a30300d7e30b9f707d0ae244adaecb324" />
+      <keyword name="setCompressedSize" id="KZipFileEntry::setCompressedSize" ref="class_k_zip_file_entry.html#a32ce307aacdabb7b6258e6c47f537823" />
+      <keyword name="setHeaderStart" id="KZipFileEntry::setHeaderStart" ref="class_k_zip_file_entry.html#afa03f8127ff0da1acb6f52056a8c5679" />
+      <keyword name="headerStart" id="KZipFileEntry::headerStart" ref="class_k_zip_file_entry.html#add73f6a10bd54a5372a308d5b7cc1971" />
+      <keyword name="crc32" id="KZipFileEntry::crc32" ref="class_k_zip_file_entry.html#a6a298ae6d8c2ef6db7e31b04d6a10162" />
+      <keyword name="setCRC32" id="KZipFileEntry::setCRC32" ref="class_k_zip_file_entry.html#a35e54e7ea4a6aad5cc5caa6059121589" />
+      <keyword name="path" id="KZipFileEntry::path" ref="class_k_zip_file_entry.html#a349cd4448c356b23fc569fd5d29792e0" />
+      <keyword name="data" id="KZipFileEntry::data" ref="class_k_zip_file_entry.html#ab51e1c6ece127c3140318389cd4293be" />
+      <keyword name="createDevice" id="KZipFileEntry::createDevice" ref="class_k_zip_file_entry.html#a3e762e6c16acb364f3aae55ddeec6cb2" />
+      <keyword name="KArchiveFile" id="KArchiveFile::KArchiveFile" ref="class_k_archive_file.html#a0b5589f87f70f4b1a3922040d3b63111" />
+      <keyword name="~KArchiveFile" id="KArchiveFile::~KArchiveFile" ref="class_k_archive_file.html#ac98cf5553640eb81f644e36f95f91569" />
+      <keyword name="position" id="KArchiveFile::position" ref="class_k_archive_file.html#ab45ce3c099691954fefeffe773b742c5" />
+      <keyword name="size" id="KArchiveFile::size" ref="class_k_archive_file.html#a2006219e1cb0503dbbf0bc96b1f9f80d" />
+      <keyword name="setSize" id="KArchiveFile::setSize" ref="class_k_archive_file.html#a46ab3c77fb21b1ca095ba4a155f7d47e" />
+      <keyword name="isFile" id="KArchiveFile::isFile" ref="class_k_archive_file.html#ab4e8989d6c9e363b60fd633224991307" />
+      <keyword name="copyTo" id="KArchiveFile::copyTo" ref="class_k_archive_file.html#a0d25262342c7e71a4d13f578959dedae" />
+      <keyword name="KArchiveEntry" id="KArchiveEntry::KArchiveEntry" ref="class_k_archive_entry.html#a5c0e3e538520cf9d05d4d3e12ae4594b" />
+      <keyword name="~KArchiveEntry" id="KArchiveEntry::~KArchiveEntry" ref="class_k_archive_entry.html#aff83a50f2a99b45ab2f3715e932bab9e" />
+      <keyword name="date" id="KArchiveEntry::date" ref="class_k_archive_entry.html#a5e2fd48f561980ecf22e6b69c91fc5e6" />
+      <keyword name="name" id="KArchiveEntry::name" ref="class_k_archive_entry.html#a7a3fb99efe15847ef6cb3766d3588fc7" />
+      <keyword name="permissions" id="KArchiveEntry::permissions" ref="class_k_archive_entry.html#a2356d6ed02a40c7dae6e9101087c232d" />
+      <keyword name="user" id="KArchiveEntry::user" ref="class_k_archive_entry.html#a2c36d4e2b4f6ef3dc97cc0d69b7c910f" />
+      <keyword name="group" id="KArchiveEntry::group" ref="class_k_archive_entry.html#a6bb1dcb1549695273205c2f0068cb942" />
+      <keyword name="symLinkTarget" id="KArchiveEntry::symLinkTarget" ref="class_k_archive_entry.html#aa0e86e5f1fa8c993463f8dd1ae605d4d" />
+      <keyword name="isDirectory" id="KArchiveEntry::isDirectory" ref="class_k_archive_entry.html#a02e41de0cc54c9d53c3090bf1f00bd1d" />
+      <keyword name="d" id="KZipFileEntry::d" ref="class_k_zip_file_entry.html#a052462a62263e14f21370890a50fecd7" />
+      <keyword name="virtual_hook" id="KArchiveFile::virtual_hook" ref="class_k_archive_file.html#a1907f6c4ace08324cb6c26e61c20cd7d" />
+      <keyword name="archive" id="KArchiveEntry::archive" ref="class_k_archive_entry.html#a7cd83225c05fec686f629e30ebc6956e" />
+    </keywords>
+    <files>
+      <file>tabs.css</file>
+      <file>tab_a.png</file>
+      <file>tab_b.png</file>
+      <file>tab_h.png</file>
+      <file>tab_s.png</file>
+      <file>nav_h.png</file>
+      <file>nav_f.png</file>
+      <file>bc_s.png</file>
+      <file>doxygen.png</file>
+      <file>closed.png</file>
+      <file>open.png</file>
+      <file>bdwn.png</file>
+      <file>sync_on.png</file>
+      <file>sync_off.png</file>
+      <file>doxygen.css</file>
+      <file>jquery.js</file>
+      <file>dynsections.js</file>
+      <file>search/search_l.png</file>
+      <file>search/search_m.png</file>
+      <file>search/search_r.png</file>
+      <file>search/close.png</file>
+      <file>search/mag_sel.png</file>
+      <file>search/search.css</file>
+      <file>search/search.js</file>
+      <file>k7zip_8h_source.html</file>
+      <file>kar_8h_source.html</file>
+      <file>karchive_8h_source.html</file>
+      <file>karchivedirectory_8h_source.html</file>
+      <file>karchiveentry_8h_source.html</file>
+      <file>karchivefile_8h_source.html</file>
+      <file>kcompressiondevice_8h_source.html</file>
+      <file>kfilterbase_8h_source.html</file>
+      <file>kfilterdev_8h_source.html</file>
+      <file>krcc_8h_source.html</file>
+      <file>ktar_8h_source.html</file>
+      <file>kzip_8h_source.html</file>
+      <file>kzipfileentry_8h_source.html</file>
+      <file>k7zip_8h.html</file>
+      <file>k7zip_8h__incl.png</file>
+      <file>kar_8h.html</file>
+      <file>kar_8h__incl.png</file>
+      <file>karchive_8h.html</file>
+      <file>karchive_8h__incl.png</file>
+      <file>karchive_8h__dep__incl.png</file>
+      <file>karchivedirectory_8h.html</file>
+      <file>karchivedirectory_8h__incl.png</file>
+      <file>karchivedirectory_8h__dep__incl.png</file>
+      <file>karchiveentry_8h.html</file>
+      <file>karchiveentry_8h__incl.png</file>
+      <file>karchiveentry_8h__dep__incl.png</file>
+      <file>karchivefile_8h.html</file>
+      <file>karchivefile_8h__incl.png</file>
+      <file>karchivefile_8h__dep__incl.png</file>
+      <file>kcompressiondevice_8h.html</file>
+      <file>kcompressiondevice_8h__incl.png</file>
+      <file>kcompressiondevice_8h__dep__incl.png</file>
+      <file>kfilterbase_8h.html</file>
+      <file>kfilterbase_8h__incl.png</file>
+      <file>kfilterdev_8h.html</file>
+      <file>kfilterdev_8h__incl.png</file>
+      <file>krcc_8h.html</file>
+      <file>krcc_8h__incl.png</file>
+      <file>ktar_8h.html</file>
+      <file>ktar_8h__incl.png</file>
+      <file>kzip_8h.html</file>
+      <file>kzip_8h__incl.png</file>
+      <file>kzipfileentry_8h.html</file>
+      <file>kzipfileentry_8h__incl.png</file>
+      <file>kzipfileentry_8h__dep__incl.png</file>
+      <file>deprecated.html</file>
+      <file>class_k7_zip.html</file>
+      <file>class_k7_zip__inherit__graph.png</file>
+      <file>class_k7_zip__coll__graph.png</file>
+      <file>class_k7_zip-members.html</file>
+      <file>class_k_ar.html</file>
+      <file>class_k_ar__inherit__graph.png</file>
+      <file>class_k_ar__coll__graph.png</file>
+      <file>class_k_ar-members.html</file>
+      <file>class_k_archive.html</file>
+      <file>class_k_archive__inherit__graph.png</file>
+      <file>class_k_archive-members.html</file>
+      <file>class_k_archive_directory.html</file>
+      <file>class_k_archive_directory__inherit__graph.png</file>
+      <file>class_k_archive_directory__coll__graph.png</file>
+      <file>class_k_archive_directory-members.html</file>
+      <file>class_k_archive_entry.html</file>
+      <file>class_k_archive_entry__inherit__graph.png</file>
+      <file>class_k_archive_entry-members.html</file>
+      <file>class_k_archive_file.html</file>
+      <file>class_k_archive_file__inherit__graph.png</file>
+      <file>class_k_archive_file__coll__graph.png</file>
+      <file>class_k_archive_file-members.html</file>
+      <file>class_k_compression_device.html</file>
+      <file>class_k_compression_device__inherit__graph.png</file>
+      <file>class_k_compression_device-members.html</file>
+      <file>class_k_filter_base.html</file>
+      <file>class_k_filter_base-members.html</file>
+      <file>class_k_filter_dev.html</file>
+      <file>class_k_filter_dev__inherit__graph.png</file>
+      <file>class_k_filter_dev__coll__graph.png</file>
+      <file>class_k_filter_dev-members.html</file>
+      <file>class_k_rcc.html</file>
+      <file>class_k_rcc__inherit__graph.png</file>
+      <file>class_k_rcc__coll__graph.png</file>
+      <file>class_k_rcc-members.html</file>
+      <file>class_k_tar.html</file>
+      <file>class_k_tar__inherit__graph.png</file>
+      <file>class_k_tar__coll__graph.png</file>
+      <file>class_k_tar-members.html</file>
+      <file>class_k_zip.html</file>
+      <file>class_k_zip__inherit__graph.png</file>
+      <file>class_k_zip__coll__graph.png</file>
+      <file>class_k_zip-members.html</file>
+      <file>class_k_zip_file_entry.html</file>
+      <file>class_k_zip_file_entry__inherit__graph.png</file>
+      <file>class_k_zip_file_entry__coll__graph.png</file>
+      <file>class_k_zip_file_entry-members.html</file>
+      <file>graph_legend.png</file>
+      <file>graph_legend.html</file>
+      <file>dir_68267d1309a1af8e8297ef4c3efbcdba.html</file>
+      <file>index.html</file>
+      <file>pages.html</file>
+      <file>annotated.html</file>
+      <file>classes.html</file>
+      <file>hierarchy.html</file>
+      <file>inherits.html</file>
+      <file>inherit_graph_0.png</file>
+      <file>inherit_graph_1.png</file>
+      <file>inherit_graph_2.png</file>
+      <file>inherit_graph_3.png</file>
+      <file>functions.html</file>
+      <file>functions_b.html</file>
+      <file>functions_c.html</file>
+      <file>functions_d.html</file>
+      <file>functions_e.html</file>
+      <file>functions_f.html</file>
+      <file>functions_g.html</file>
+      <file>functions_h.html</file>
+      <file>functions_i.html</file>
+      <file>functions_k.html</file>
+      <file>functions_m.html</file>
+      <file>functions_n.html</file>
+      <file>functions_o.html</file>
+      <file>functions_p.html</file>
+      <file>functions_r.html</file>
+      <file>functions_s.html</file>
+      <file>functions_t.html</file>
+      <file>functions_u.html</file>
+      <file>functions_v.html</file>
+      <file>functions_w.html</file>
+      <file>functions_x.html</file>
+      <file>functions_z.html</file>
+      <file>functions_~.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_enum.html</file>
+      <file>functions_enum.html</file>
+      <file>functions_enum.html</file>
+      <file>functions_enum.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_eval.html</file>
+      <file>functions_rela.html</file>
+      <file>files.html</file>
+    </files>
+  </filterSection>
+</QtHelpProject>

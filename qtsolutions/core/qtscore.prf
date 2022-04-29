@@ -1,0 +1,14 @@
+include(./dscfgbase.pri)
+
+dsAddLibrary($$DSLIBS, qtscore)
+
+QT            *=  network
+
+# Include paths
+contains(DSSYSTEM, HASFRAMEWORK) {
+  INCLUDEPATH *=  $$DSLIBS/qtscore.framework/Headers
+} else {
+  INCLUDEPATH *=  $$DSHEADERS/qtscore
+}
+
+DEFINES       +=  QT_QTSERVICE_IMPORT QT_QTLOCKEDFILE_IMPORT QT_QTSINGLECOREAPPLICATION_IMPORT

@@ -1,0 +1,12 @@
+include(./dscfgbase.pri)
+
+dsAddLibrary($$DSLIBS, dssshwidgets)
+
+QT            *= gui widgets network
+
+# Include paths
+contains(DSSYSTEM, HASFRAMEWORK) {
+  INCLUDEPATH *=  $$DSLIBS/dssshwidgets.framework/Headers
+} else {
+  INCLUDEPATH *=  $$DSHEADERS/dssshwidgets
+}

@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_k_archive.html" title="generic class for reading/writing archives" alt="" coords="5,107,76,133"/>
+<area shape="rect" id="node2" href="$class_k7_zip.html" title=" " alt="" coords="124,5,177,32"/>
+<area shape="rect" id="node3" href="$class_k_ar.html" title="A class for reading ar archives." alt="" coords="129,56,172,83"/>
+<area shape="rect" id="node4" href="$class_k_rcc.html" title="A class for reading rcc resources." alt="" coords="126,107,175,133"/>
+<area shape="rect" id="node5" href="$class_k_tar.html" title=" " alt="" coords="126,157,175,184"/>
+<area shape="rect" id="node6" href="$class_k_zip.html" title=" " alt="" coords="127,208,174,235"/>
+</map>

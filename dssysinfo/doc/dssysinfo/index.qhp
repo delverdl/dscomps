@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+  <namespace>org.doxygen.dssysinfo</namespace>
+  <virtualFolder>doc</virtualFolder>
+  <filterSection>
+    <filterAttribute>doxygen</filterAttribute>
+    <toc>
+      <section title="DSSysinfo 1.0" ref="index.html">
+        <section title="DSSysInfo library API" ref="index.html" />
+        <section title="Todo List" ref="todo.html" />
+        <section title="Classes" ref="annotated.html">
+          <section title="Class List" ref="annotated.html">
+            <section title="CConnector" ref="class_c_connector.html">
+              <section title="~CConnector" ref="class_c_connector.html#a182734207e03cf9b72a56fc417908a1d" />
+              <section title="className" ref="class_c_connector.html#aaf755f88146c053fc4773fe3eedae492" />
+              <section title="condition" ref="class_c_connector.html#a52b799e8db1f0a2b81d3f52891e4cfad" />
+              <section title="execQuery" ref="class_c_connector.html#a9cd581821e9e8bf89ed61a77f69c2104" />
+              <section title="isValid" ref="class_c_connector.html#a50bf1fb3eec981911d6785823909bd90" />
+              <section title="lastError" ref="class_c_connector.html#a086eaf03ee368b9b330e4105c23d2d2e" />
+              <section title="nextObject" ref="class_c_connector.html#ae1d8599fa951907aec51904591d249a9" />
+              <section title="properties" ref="class_c_connector.html#a2646cdd5183672fc7e91a21974b8932d" />
+              <section title="setClassName" ref="class_c_connector.html#a6da763a0b9bfba21452a0246fb630e86" />
+              <section title="setCondition" ref="class_c_connector.html#afca240e6e5b6205d73f2d9b1a9084cbc" />
+              <section title="setProperties" ref="class_c_connector.html#a9fefdc1522dc8f447b6f7ba5324c1eac" />
+            </section>
+            <section title="CDisk" ref="class_c_disk.html">
+              <section title="Map" ref="class_c_disk.html#a8b8bdc48971bfcaceb33299e3a641d2f" />
+              <section title="CDisk" ref="class_c_disk.html#ab654f9b9445518b222e2ec47653e7854" />
+              <section title="CDisk" ref="class_c_disk.html#a10aa51c30f72dc41db14170b054c6eab" />
+              <section title="CDisk" ref="class_c_disk.html#a1d07b377029ee909e98ab09a9fe0b9da" />
+              <section title="CDisk" ref="class_c_disk.html#a0691e3145eadd233270525f133a39606" />
+              <section title="device" ref="class_c_disk.html#af4237c125c98ea39242f64de74f9548f" />
+              <section title="isValid" ref="class_c_disk.html#a8272b14dc7078b230a85d05b64b3d5de" />
+              <section title="model" ref="class_c_disk.html#a7b3a537c4344a81e6d40de5d46ed97c9" />
+              <section title="operator=" ref="class_c_disk.html#ab0ef1e9426252edae604e4bea17f313d" />
+              <section title="serial" ref="class_c_disk.html#ae568ee542293f42abc7de21677c28234" />
+              <section title="size" ref="class_c_disk.html#a2b37e0fb35116461f1ae5138db443e65" />
+              <section title="m_device" ref="class_c_disk.html#a2761165f3d0353b62d87d34516c30974" />
+              <section title="m_model" ref="class_c_disk.html#ac57584cb60a05b57a2910dca6abfa9fd" />
+              <section title="m_serial" ref="class_c_disk.html#a687ccc038d049f35856d7e33ca5dc9b8" />
+              <section title="m_size" ref="class_c_disk.html#ac21911698d8038914cb3efe61bff14dd" />
+              <section title="m_valid" ref="class_c_disk.html#adb905b9448d8ee607dd81e6861ae1631" />
+            </section>
+            <section title="CInformer" ref="class_c_informer.html">
+              <section title="~ CInformer" ref="class_c_informer.html#aa4f6dd7098477b05d80b97556029effb" />
+              <section title="applicationDisk" ref="class_c_informer.html#af20e441fba8c0bf0d637f9a856bbce6f" />
+              <section title="boardManufacturer" ref="class_c_informer.html#ac999d70245613f9eeea3504a4e191f6c" />
+              <section title="boardName" ref="class_c_informer.html#a861169790a689666096b7951f1df9b23" />
+              <section title="boardSerial" ref="class_c_informer.html#a98757b68502b340f1d73e2af7b7fdb28" />
+              <section title="boardVersion" ref="class_c_informer.html#abde55a6544f81b3177608a9b0f2df43f" />
+              <section title="computerName" ref="class_c_informer.html#aecc74ffc931ae138cc09ee5ba278dd33" />
+              <section title="currentUser" ref="class_c_informer.html#a2ecdd44c83ce71fad05af2be74b88862" />
+              <section title="disks" ref="class_c_informer.html#acdb38f1e28d066b8e1c86367b5d4ac4d" />
+              <section title="homePath" ref="class_c_informer.html#a118b930afd7ef2a0617e17b2c8590e09" />
+              <section title="installDate" ref="class_c_informer.html#ab39e6c79cd242c2fcb695922feeb832b" />
+              <section title="isApplication64Bits" ref="class_c_informer.html#a0edd9cfecb360d511d6c604b099f2358" />
+              <section title="isSystem64Bits" ref="class_c_informer.html#af0765a312ab155bdcd43ccd405e4264e" />
+              <section title="networkInterfaces" ref="class_c_informer.html#a35a029c83d294dcc9000ef756204cbb2" />
+              <section title="osName" ref="class_c_informer.html#ae9c37f02d579636eec82bcd1de164fea" />
+              <section title="userList" ref="class_c_informer.html#aa403221cb199f88cc2df85fa6f6c348a" />
+            </section>
+            <section title="CSysInfo" ref="class_c_sys_info.html">
+              <section title="~CSysInfo" ref="class_c_sys_info.html#af3341a0ea191457f63308c22583fdba3" />
+              <section title="CSysInfo" ref="class_c_sys_info.html#aa23645ab0e937926949a54f61cdd0440" />
+              <section title="CSysInfo" ref="class_c_sys_info.html#a167370d91c3e6a38bd558f3faae8f2c2" />
+              <section title="connector" ref="class_c_sys_info.html#a3bfc0dea10172d2833882f1f465a19d2" />
+              <section title="informer" ref="class_c_sys_info.html#a9cc111747b15af8948d40405264529bf" />
+              <section title="instance" ref="class_c_sys_info.html#a86ba673e656254bfa0222d4b152850db" />
+              <section title="operator=" ref="class_c_sys_info.html#acf9876243bd3bd4669f2eae31e6cb7a4" />
+              <section title="randBuffer" ref="class_c_sys_info.html#a460d6040c20fbe4d5420678c6ac42015" />
+              <section title="d_ptr" ref="class_c_sys_info.html#acc93ada0bd50c75d2d3b4f4f6ac00dbb" />
+              <section title="m_connector" ref="class_c_sys_info.html#a61ed17fa6e5cc223ea68cacd1b1a4bed" />
+              <section title="m_instance" ref="class_c_sys_info.html#a1c92176dd7fd9b078fef1d833f49d724" />
+            </section>
+          </section>
+          <section title="Class Index" ref="classes.html" />
+          <section title="Class Members" ref="functions.html">
+            <section title="All" ref="functions.html" />
+            <section title="Functions" ref="functions_func.html" />
+            <section title="Variables" ref="functions_vars.html" />
+            <section title="Typedefs" ref="functions_type.html" />
+          </section>
+        </section>
+        <section title="Files" ref="files.html">
+          <section title="File List" ref="files.html">
+            <section title="CConnector.h" ref="_c_connector_8h.html">
+              <section title="CConnector" ref="class_c_connector.html">
+                <section title="~CConnector" ref="class_c_connector.html#a182734207e03cf9b72a56fc417908a1d" />
+                <section title="className" ref="class_c_connector.html#aaf755f88146c053fc4773fe3eedae492" />
+                <section title="condition" ref="class_c_connector.html#a52b799e8db1f0a2b81d3f52891e4cfad" />
+                <section title="execQuery" ref="class_c_connector.html#a9cd581821e9e8bf89ed61a77f69c2104" />
+                <section title="isValid" ref="class_c_connector.html#a50bf1fb3eec981911d6785823909bd90" />
+                <section title="lastError" ref="class_c_connector.html#a086eaf03ee368b9b330e4105c23d2d2e" />
+                <section title="nextObject" ref="class_c_connector.html#ae1d8599fa951907aec51904591d249a9" />
+                <section title="properties" ref="class_c_connector.html#a2646cdd5183672fc7e91a21974b8932d" />
+                <section title="setClassName" ref="class_c_connector.html#a6da763a0b9bfba21452a0246fb630e86" />
+                <section title="setCondition" ref="class_c_connector.html#afca240e6e5b6205d73f2d9b1a9084cbc" />
+                <section title="setProperties" ref="class_c_connector.html#a9fefdc1522dc8f447b6f7ba5324c1eac" />
+              </section>
+            </section>
+            <section title="CDisk.h" ref="_c_disk_8h.html">
+              <section title="CDisk" ref="class_c_disk.html">
+                <section title="Map" ref="class_c_disk.html#a8b8bdc48971bfcaceb33299e3a641d2f" />
+                <section title="CDisk" ref="class_c_disk.html#ab654f9b9445518b222e2ec47653e7854" />
+                <section title="CDisk" ref="class_c_disk.html#a10aa51c30f72dc41db14170b054c6eab" />
+                <section title="CDisk" ref="class_c_disk.html#a1d07b377029ee909e98ab09a9fe0b9da" />
+                <section title="CDisk" ref="class_c_disk.html#a0691e3145eadd233270525f133a39606" />
+                <section title="device" ref="class_c_disk.html#af4237c125c98ea39242f64de74f9548f" />
+                <section title="isValid" ref="class_c_disk.html#a8272b14dc7078b230a85d05b64b3d5de" />
+                <section title="model" ref="class_c_disk.html#a7b3a537c4344a81e6d40de5d46ed97c9" />
+                <section title="operator=" ref="class_c_disk.html#ab0ef1e9426252edae604e4bea17f313d" />
+                <section title="serial" ref="class_c_disk.html#ae568ee542293f42abc7de21677c28234" />
+                <section title="size" ref="class_c_disk.html#a2b37e0fb35116461f1ae5138db443e65" />
+                <section title="m_device" ref="class_c_disk.html#a2761165f3d0353b62d87d34516c30974" />
+                <section title="m_model" ref="class_c_disk.html#ac57584cb60a05b57a2910dca6abfa9fd" />
+                <section title="m_serial" ref="class_c_disk.html#a687ccc038d049f35856d7e33ca5dc9b8" />
+                <section title="m_size" ref="class_c_disk.html#ac21911698d8038914cb3efe61bff14dd" />
+                <section title="m_valid" ref="class_c_disk.html#adb905b9448d8ee607dd81e6861ae1631" />
+              </section>
+            </section>
+            <section title="CInformer.h" ref="_c_informer_8h.html">
+              <section title="CInformer" ref="class_c_informer.html">
+                <section title="~ CInformer" ref="class_c_informer.html#aa4f6dd7098477b05d80b97556029effb" />
+                <section title="applicationDisk" ref="class_c_informer.html#af20e441fba8c0bf0d637f9a856bbce6f" />
+                <section title="boardManufacturer" ref="class_c_informer.html#ac999d70245613f9eeea3504a4e191f6c" />
+                <section title="boardName" ref="class_c_informer.html#a861169790a689666096b7951f1df9b23" />
+                <section title="boardSerial" ref="class_c_informer.html#a98757b68502b340f1d73e2af7b7fdb28" />
+                <section title="boardVersion" ref="class_c_informer.html#abde55a6544f81b3177608a9b0f2df43f" />
+                <section title="computerName" ref="class_c_informer.html#aecc74ffc931ae138cc09ee5ba278dd33" />
+                <section title="currentUser" ref="class_c_informer.html#a2ecdd44c83ce71fad05af2be74b88862" />
+                <section title="disks" ref="class_c_informer.html#acdb38f1e28d066b8e1c86367b5d4ac4d" />
+                <section title="homePath" ref="class_c_informer.html#a118b930afd7ef2a0617e17b2c8590e09" />
+                <section title="installDate" ref="class_c_informer.html#ab39e6c79cd242c2fcb695922feeb832b" />
+                <section title="isApplication64Bits" ref="class_c_informer.html#a0edd9cfecb360d511d6c604b099f2358" />
+                <section title="isSystem64Bits" ref="class_c_informer.html#af0765a312ab155bdcd43ccd405e4264e" />
+                <section title="networkInterfaces" ref="class_c_informer.html#a35a029c83d294dcc9000ef756204cbb2" />
+                <section title="osName" ref="class_c_informer.html#ae9c37f02d579636eec82bcd1de164fea" />
+                <section title="userList" ref="class_c_informer.html#aa403221cb199f88cc2df85fa6f6c348a" />
+              </section>
+            </section>
+            <section title="CSysInfo.h" ref="_c_sys_info_8h.html">
+              <section title="CSysInfo" ref="class_c_sys_info.html">
+                <section title="~CSysInfo" ref="class_c_sys_info.html#af3341a0ea191457f63308c22583fdba3" />
+                <section title="CSysInfo" ref="class_c_sys_info.html#aa23645ab0e937926949a54f61cdd0440" />
+                <section title="CSysInfo" ref="class_c_sys_info.html#a167370d91c3e6a38bd558f3faae8f2c2" />
+                <section title="connector" ref="class_c_sys_info.html#a3bfc0dea10172d2833882f1f465a19d2" />
+                <section title="informer" ref="class_c_sys_info.html#a9cc111747b15af8948d40405264529bf" />
+                <section title="instance" ref="class_c_sys_info.html#a86ba673e656254bfa0222d4b152850db" />
+                <section title="operator=" ref="class_c_sys_info.html#acf9876243bd3bd4669f2eae31e6cb7a4" />
+                <section title="randBuffer" ref="class_c_sys_info.html#a460d6040c20fbe4d5420678c6ac42015" />
+                <section title="d_ptr" ref="class_c_sys_info.html#acc93ada0bd50c75d2d3b4f4f6ac00dbb" />
+                <section title="m_connector" ref="class_c_sys_info.html#a61ed17fa6e5cc223ea68cacd1b1a4bed" />
+                <section title="m_instance" ref="class_c_sys_info.html#a1c92176dd7fd9b078fef1d833f49d724" />
+              </section>
+            </section>
+            <section title="dstypes.h" ref="dstypes_8h.html">
+              <section title="KSYSINFOSHARED_EXPORT" ref="dstypes_8h.html#a011c29ed2e265256da25bd0858a08f49" />
+              <section title="CTags" ref="dstypes_8h.html#a16e0ef2c68f8a0e0f6688fcf0030e05f" />
+              <section title="CUsers" ref="dstypes_8h.html#a1f96f9ff9d9f35f136e65a44b237990a" />
+            </section>
+          </section>
+          <section title="File Members" ref="globals.html">
+            <section title="All" ref="globals.html" />
+            <section title="Typedefs" ref="globals_type.html" />
+            <section title="Macros" ref="globals_defs.html" />
+          </section>
+        </section>
+      </section>
+    </toc>
+    <keywords>
+      <keyword name="KSYSINFOSHARED_EXPORT" id="dstypes.h::KSYSINFOSHARED_EXPORT" ref="dstypes_8h.html#a011c29ed2e265256da25bd0858a08f49" />
+      <keyword name="CTags" id="dstypes.h::CTags" ref="dstypes_8h.html#a16e0ef2c68f8a0e0f6688fcf0030e05f" />
+      <keyword name="CUsers" id="dstypes.h::CUsers" ref="dstypes_8h.html#a1f96f9ff9d9f35f136e65a44b237990a" />
+      <keyword name="Todo List" id="Todo List" ref="todo.html" />
+      <keyword name="CConnector" id="CConnector" ref="class_c_connector.html" />
+      <keyword name="~CConnector" id="CConnector::~CConnector" ref="class_c_connector.html#a182734207e03cf9b72a56fc417908a1d" />
+      <keyword name="setClassName" id="CConnector::setClassName" ref="class_c_connector.html#a6da763a0b9bfba21452a0246fb630e86" />
+      <keyword name="className" id="CConnector::className" ref="class_c_connector.html#aaf755f88146c053fc4773fe3eedae492" />
+      <keyword name="setProperties" id="CConnector::setProperties" ref="class_c_connector.html#a9fefdc1522dc8f447b6f7ba5324c1eac" />
+      <keyword name="properties" id="CConnector::properties" ref="class_c_connector.html#a2646cdd5183672fc7e91a21974b8932d" />
+      <keyword name="setCondition" id="CConnector::setCondition" ref="class_c_connector.html#afca240e6e5b6205d73f2d9b1a9084cbc" />
+      <keyword name="condition" id="CConnector::condition" ref="class_c_connector.html#a52b799e8db1f0a2b81d3f52891e4cfad" />
+      <keyword name="lastError" id="CConnector::lastError" ref="class_c_connector.html#a086eaf03ee368b9b330e4105c23d2d2e" />
+      <keyword name="isValid" id="CConnector::isValid" ref="class_c_connector.html#a50bf1fb3eec981911d6785823909bd90" />
+      <keyword name="execQuery" id="CConnector::execQuery" ref="class_c_connector.html#a9cd581821e9e8bf89ed61a77f69c2104" />
+      <keyword name="nextObject" id="CConnector::nextObject" ref="class_c_connector.html#ae1d8599fa951907aec51904591d249a9" />
+      <keyword name="CDisk" id="CDisk" ref="class_c_disk.html" />
+      <keyword name="Map" id="CDisk::Map" ref="class_c_disk.html#a8b8bdc48971bfcaceb33299e3a641d2f" />
+      <keyword name="CDisk" id="CDisk::CDisk" ref="class_c_disk.html#ab654f9b9445518b222e2ec47653e7854" />
+      <keyword name="CDisk" id="CDisk::CDisk" ref="class_c_disk.html#a10aa51c30f72dc41db14170b054c6eab" />
+      <keyword name="CDisk" id="CDisk::CDisk" ref="class_c_disk.html#a1d07b377029ee909e98ab09a9fe0b9da" />
+      <keyword name="CDisk" id="CDisk::CDisk" ref="class_c_disk.html#a0691e3145eadd233270525f133a39606" />
+      <keyword name="isValid" id="CDisk::isValid" ref="class_c_disk.html#a8272b14dc7078b230a85d05b64b3d5de" />
+      <keyword name="device" id="CDisk::device" ref="class_c_disk.html#af4237c125c98ea39242f64de74f9548f" />
+      <keyword name="model" id="CDisk::model" ref="class_c_disk.html#a7b3a537c4344a81e6d40de5d46ed97c9" />
+      <keyword name="serial" id="CDisk::serial" ref="class_c_disk.html#ae568ee542293f42abc7de21677c28234" />
+      <keyword name="size" id="CDisk::size" ref="class_c_disk.html#a2b37e0fb35116461f1ae5138db443e65" />
+      <keyword name="operator=" id="CDisk::operator=" ref="class_c_disk.html#ab0ef1e9426252edae604e4bea17f313d" />
+      <keyword name="m_device" id="CDisk::m_device" ref="class_c_disk.html#a2761165f3d0353b62d87d34516c30974" />
+      <keyword name="m_model" id="CDisk::m_model" ref="class_c_disk.html#ac57584cb60a05b57a2910dca6abfa9fd" />
+      <keyword name="m_serial" id="CDisk::m_serial" ref="class_c_disk.html#a687ccc038d049f35856d7e33ca5dc9b8" />
+      <keyword name="m_size" id="CDisk::m_size" ref="class_c_disk.html#ac21911698d8038914cb3efe61bff14dd" />
+      <keyword name="m_valid" id="CDisk::m_valid" ref="class_c_disk.html#adb905b9448d8ee607dd81e6861ae1631" />
+      <keyword name="CInformer" id="CInformer" ref="class_c_informer.html" />
+      <keyword name="~ CInformer" id="CInformer::~ CInformer" ref="class_c_informer.html#aa4f6dd7098477b05d80b97556029effb" />
+      <keyword name="isSystem64Bits" id="CInformer::isSystem64Bits" ref="class_c_informer.html#af0765a312ab155bdcd43ccd405e4264e" />
+      <keyword name="isApplication64Bits" id="CInformer::isApplication64Bits" ref="class_c_informer.html#a0edd9cfecb360d511d6c604b099f2358" />
+      <keyword name="osName" id="CInformer::osName" ref="class_c_informer.html#ae9c37f02d579636eec82bcd1de164fea" />
+      <keyword name="installDate" id="CInformer::installDate" ref="class_c_informer.html#ab39e6c79cd242c2fcb695922feeb832b" />
+      <keyword name="userList" id="CInformer::userList" ref="class_c_informer.html#aa403221cb199f88cc2df85fa6f6c348a" />
+      <keyword name="computerName" id="CInformer::computerName" ref="class_c_informer.html#aecc74ffc931ae138cc09ee5ba278dd33" />
+      <keyword name="currentUser" id="CInformer::currentUser" ref="class_c_informer.html#a2ecdd44c83ce71fad05af2be74b88862" />
+      <keyword name="homePath" id="CInformer::homePath" ref="class_c_informer.html#a118b930afd7ef2a0617e17b2c8590e09" />
+      <keyword name="disks" id="CInformer::disks" ref="class_c_informer.html#acdb38f1e28d066b8e1c86367b5d4ac4d" />
+      <keyword name="networkInterfaces" id="CInformer::networkInterfaces" ref="class_c_informer.html#a35a029c83d294dcc9000ef756204cbb2" />
+      <keyword name="applicationDisk" id="CInformer::applicationDisk" ref="class_c_informer.html#af20e441fba8c0bf0d637f9a856bbce6f" />
+      <keyword name="boardName" id="CInformer::boardName" ref="class_c_informer.html#a861169790a689666096b7951f1df9b23" />
+      <keyword name="boardVersion" id="CInformer::boardVersion" ref="class_c_informer.html#abde55a6544f81b3177608a9b0f2df43f" />
+      <keyword name="boardSerial" id="CInformer::boardSerial" ref="class_c_informer.html#a98757b68502b340f1d73e2af7b7fdb28" />
+      <keyword name="boardManufacturer" id="CInformer::boardManufacturer" ref="class_c_informer.html#ac999d70245613f9eeea3504a4e191f6c" />
+      <keyword name="CSysInfo" id="CSysInfo" ref="class_c_sys_info.html" />
+      <keyword name="~CSysInfo" id="CSysInfo::~CSysInfo" ref="class_c_sys_info.html#af3341a0ea191457f63308c22583fdba3" />
+      <keyword name="informer" id="CSysInfo::informer" ref="class_c_sys_info.html#a9cc111747b15af8948d40405264529bf" />
+      <keyword name="randBuffer" id="CSysInfo::randBuffer" ref="class_c_sys_info.html#a460d6040c20fbe4d5420678c6ac42015" />
+      <keyword name="instance" id="CSysInfo::instance" ref="class_c_sys_info.html#a86ba673e656254bfa0222d4b152850db" />
+      <keyword name="connector" id="CSysInfo::connector" ref="class_c_sys_info.html#a3bfc0dea10172d2833882f1f465a19d2" />
+      <keyword name="CSysInfo" id="CSysInfo::CSysInfo" ref="class_c_sys_info.html#aa23645ab0e937926949a54f61cdd0440" />
+      <keyword name="CSysInfo" id="CSysInfo::CSysInfo" ref="class_c_sys_info.html#a167370d91c3e6a38bd558f3faae8f2c2" />
+      <keyword name="operator=" id="CSysInfo::operator=" ref="class_c_sys_info.html#acf9876243bd3bd4669f2eae31e6cb7a4" />
+      <keyword name="d_ptr" id="CSysInfo::d_ptr" ref="class_c_sys_info.html#acc93ada0bd50c75d2d3b4f4f6ac00dbb" />
+      <keyword name="m_instance" id="CSysInfo::m_instance" ref="class_c_sys_info.html#a1c92176dd7fd9b078fef1d833f49d724" />
+      <keyword name="m_connector" id="CSysInfo::m_connector" ref="class_c_sys_info.html#a61ed17fa6e5cc223ea68cacd1b1a4bed" />
+    </keywords>
+    <files>
+      <file>tabs.css</file>
+      <file>tab_a.png</file>
+      <file>tab_b.png</file>
+      <file>tab_h.png</file>
+      <file>tab_s.png</file>
+      <file>nav_h.png</file>
+      <file>nav_f.png</file>
+      <file>bc_s.png</file>
+      <file>doxygen.png</file>
+      <file>closed.png</file>
+      <file>open.png</file>
+      <file>bdwn.png</file>
+      <file>sync_on.png</file>
+      <file>sync_off.png</file>
+      <file>doxygen.css</file>
+      <file>jquery.js</file>
+      <file>dynsections.js</file>
+      <file>search/search_l.png</file>
+      <file>search/search_m.png</file>
+      <file>search/search_r.png</file>
+      <file>search/close.png</file>
+      <file>search/mag_sel.png</file>
+      <file>search/search.css</file>
+      <file>search/search.js</file>
+      <file>_c_connector_8h_source.html</file>
+      <file>_c_disk_8h_source.html</file>
+      <file>_c_informer_8h_source.html</file>
+      <file>_c_sys_info_8h_source.html</file>
+      <file>dstypes_8h_source.html</file>
+      <file>_c_connector_8h.html</file>
+      <file>_c_connector_8h__incl.png</file>
+      <file>_c_connector_8h__dep__incl.png</file>
+      <file>_c_disk_8h.html</file>
+      <file>_c_disk_8h__incl.png</file>
+      <file>_c_disk_8h__dep__incl.png</file>
+      <file>_c_informer_8h.html</file>
+      <file>_c_informer_8h__incl.png</file>
+      <file>_c_informer_8h__dep__incl.png</file>
+      <file>_c_sys_info_8h.html</file>
+      <file>_c_sys_info_8h__incl.png</file>
+      <file>dstypes_8h.html</file>
+      <file>dstypes_8h__incl.png</file>
+      <file>dstypes_8h__dep__incl.png</file>
+      <file>todo.html</file>
+      <file>class_c_connector.html</file>
+      <file>class_c_connector-members.html</file>
+      <file>class_c_disk.html</file>
+      <file>class_c_disk-members.html</file>
+      <file>class_c_informer.html</file>
+      <file>class_c_informer-members.html</file>
+      <file>class_c_sys_info.html</file>
+      <file>class_c_sys_info__coll__graph.png</file>
+      <file>class_c_sys_info-members.html</file>
+      <file>graph_legend.png</file>
+      <file>graph_legend.html</file>
+      <file>index.html</file>
+      <file>pages.html</file>
+      <file>annotated.html</file>
+      <file>classes.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_func.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_vars.html</file>
+      <file>functions_type.html</file>
+      <file>files.html</file>
+      <file>globals.html</file>
+      <file>globals.html</file>
+      <file>globals_type.html</file>
+      <file>globals_defs.html</file>
+    </files>
+  </filterSection>
+</QtHelpProject>
