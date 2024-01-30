@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 #include "tomcrypt_private.h"
 
 #ifdef LTC_RNG_GET_BYTES
@@ -16,7 +10,7 @@
 
 #if defined(LTC_DEVRANDOM) && !defined(_WIN32)
 /* on *NIX read /dev/random */
-static unsigned long _rng_nix(unsigned char *buf, unsigned long len,
+static unsigned long s_rng_nix(unsigned char *buf, unsigned long len,
                              void (*callback)(void))
 {
 #ifdef LTC_NO_FILE
@@ -59,7 +53,7 @@ static unsigned long _rng_nix(unsigned char *buf, unsigned long len,
 
 #define ANSI_RNG
 
-static unsigned long _rng_ansic(unsigned char *buf, unsigned long len,
+static unsigned long s_rng_ansic(unsigned char *buf, unsigned long len,
                                void (*callback)(void))
 {
    clock_t t1;
@@ -100,7 +94,7 @@ static unsigned long _rng_ansic(unsigned char *buf, unsigned long len,
 #include <windows.h>
 #include <wincrypt.h>
 
-static unsigned long _rng_win32(unsigned char *buf, unsigned long len,
+static unsigned long s_rng_win32(unsigned char *buf, unsigned long len,
                                void (*callback)(void))
 {
    HCRYPTPROV hProv = 0;
@@ -146,17 +140,13 @@ unsigned long rng_get_bytes(unsigned char *out, unsigned long outlen,
 #endif
 
 #if defined(_WIN32) || defined(_WIN32_WCE)
-   x = _rng_win32(out, outlen, callback); if (x != 0) { return x; }
+   x = s_rng_win32(out, outlen, callback); if (x != 0) { return x; }
 #elif defined(LTC_DEVRANDOM)
-   x = _rng_nix(out, outlen, callback);   if (x != 0) { return x; }
+   x = s_rng_nix(out, outlen, callback);   if (x != 0) { return x; }
 #endif
 #ifdef ANSI_RNG
-   x = _rng_ansic(out, outlen, callback); if (x != 0) { return x; }
+   x = s_rng_ansic(out, outlen, callback); if (x != 0) { return x; }
 #endif
    return 0;
 }
 #endif /* #ifdef LTC_RNG_GET_BYTES */
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

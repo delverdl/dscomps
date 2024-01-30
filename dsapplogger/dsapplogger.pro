@@ -16,7 +16,7 @@ INCLUDEPATH         =   $$PWD/include
 
 win32 {
   RC_FILE           =   library.rc
-  CONFIG            *=  staticlib
+  #CONFIG            *=  staticlib
 }
 
 DOCS_FILES          =   $$PWD/doc/*

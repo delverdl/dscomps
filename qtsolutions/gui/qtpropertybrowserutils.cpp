@@ -262,7 +262,12 @@ void QtBoolEdit::mousePressEvent(QMouseEvent *event)
 void QtBoolEdit::paintEvent(QPaintEvent *)
 {
     QStyleOption opt;
-    opt.init(this);
+    opt.
+    #if QT_VERSION >= 0x060000
+        initFrom(this);
+    #else
+        init(this);
+    #endif
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -323,6 +328,12 @@ void QtKeySequenceEdit::slotClearShortcut()
     emit keySequenceChanged(m_keySequence);
 }
 
+#if QT_VERSION >= 0x060000
+  #define KSEQ(idx) m_keySequence[idx].key()
+#else
+  #define KSEQ(idx) m_keySequence[idx]
+#endif
+
 void QtKeySequenceEdit::handleKeyEvent(QKeyEvent *e)
 {
     int nextKey = e->key();
@@ -332,10 +343,10 @@ void QtKeySequenceEdit::handleKeyEvent(QKeyEvent *e)
         return;
 
     nextKey |= translateModifiers(e->modifiers(), e->text());
-    int k0 = m_keySequence[0];
-    int k1 = m_keySequence[1];
-    int k2 = m_keySequence[2];
-    int k3 = m_keySequence[3];
+    int k0 = KSEQ(0);
+    int k1 = KSEQ(1);
+    int k2 = KSEQ(2);
+    int k3 = KSEQ(3);
     switch (m_num) {
         case 0: k0 = nextKey; k1 = 0; k2 = 0; k3 = 0; break;
         case 1: k1 = nextKey; k2 = 0; k3 = 0; break;
@@ -408,7 +419,12 @@ void QtKeySequenceEdit::keyReleaseEvent(QKeyEvent *e)
 void QtKeySequenceEdit::paintEvent(QPaintEvent *)
 {
     QStyleOption opt;
-    opt.init(this);
+    opt.
+    #if QT_VERSION >= 0x060000
+        initFrom(this);
+    #else
+        init(this);
+    #endif
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }

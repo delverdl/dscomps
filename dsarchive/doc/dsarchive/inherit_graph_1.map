@@ -1,6 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_k_archive_entry.html" title="Base class for the archive&#45;file&#39;s directory structure." alt="" coords="5,31,105,57"/>
-<area shape="rect" id="node2" href="$class_k_archive_directory.html" title="A directory in an archive." alt="" coords="153,5,276,32"/>
-<area shape="rect" id="node3" href="$class_k_archive_file.html" title="A file in an archive." alt="" coords="169,56,260,83"/>
-<area shape="rect" id="node4" href="$class_k_zip_file_entry.html" title=" " alt="" coords="324,56,419,83"/>
-</map>

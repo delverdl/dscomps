@@ -12,6 +12,10 @@ android|contains(DSSYSTEM,TODEVICE) {
   QT                  -=  gui
   DEFINES             +=  QSSH_LIBRARY
 
+  greaterThan(QT_MAJOR_VERSION, 5) {
+      QT += core5compat
+  }
+
   # Sources
   include(dsssh.pri)
   include($$PWD/botan/dsbotan.pri)

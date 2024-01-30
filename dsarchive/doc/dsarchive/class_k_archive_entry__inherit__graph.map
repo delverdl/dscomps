@@ -1,6 +1,0 @@
-<map id="KArchiveEntry" name="KArchiveEntry">
-<area shape="rect" id="node1" title="Base class for the archive&#45;file&#39;s directory structure." alt="" coords="82,5,182,32"/>
-<area shape="rect" id="node2" href="$class_k_archive_directory.html" title="A directory in an archive." alt="" coords="5,80,128,107"/>
-<area shape="rect" id="node3" href="$class_k_archive_file.html" title="A file in an archive." alt="" coords="152,80,243,107"/>
-<area shape="rect" id="node4" href="$class_k_zip_file_entry.html" title=" " alt="" coords="150,155,245,181"/>
-</map>

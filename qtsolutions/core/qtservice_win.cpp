@@ -200,7 +200,13 @@ QString QtServiceController::serviceFilePath() const
             char data[8 * 1024];
             if (pQueryServiceConfig(hService, reinterpret_cast<LPQUERY_SERVICE_CONFIG>(data), 8 * 1024, &sizeNeeded)) {
                 LPQUERY_SERVICE_CONFIG config = reinterpret_cast<LPQUERY_SERVICE_CONFIG>(data);
-                result = QString::fromUtf16(reinterpret_cast<const ushort*>(config->lpBinaryPathName));
+                result = QString::fromUtf16(
+           #if QT_VERSION >= 0x060000
+                           reinterpret_cast<const char16_t*>
+           #else
+                           reinterpret_cast<const ushort*>
+           #endif
+                           (config->lpBinaryPathName));
             }
             pCloseServiceHandle(hService);
         }
@@ -233,7 +239,13 @@ QString QtServiceController::serviceDescription() const
                     &dwBytesNeeded)) {
                 LPSERVICE_DESCRIPTION desc = reinterpret_cast<LPSERVICE_DESCRIPTION>(data);
                 if (desc->lpDescription)
-                    result = QString::fromUtf16(reinterpret_cast<const ushort*>(desc->lpDescription));
+                    result = QString::fromUtf16(
+           #if QT_VERSION >= 0x060000
+                               reinterpret_cast<const char16_t*>
+           #else
+                               reinterpret_cast<const ushort*>
+           #endif
+                               (desc->lpDescription));
             }
             pCloseServiceHandle(hService);
         }
@@ -555,7 +567,13 @@ void WINAPI QtServiceSysPrivate::serviceMain(DWORD dwArgc, wchar_t** lpszArgv)
     // in the main thread to go ahead with start()'ing the service.
 
     for (DWORD i = 0; i < dwArgc; i++)
-        instance->serviceArgs.append(QString::fromUtf16(reinterpret_cast<unsigned short*>(lpszArgv[i])));
+        instance->serviceArgs.append(QString::fromUtf16(
+                               #if QT_VERSION >= 0x060000
+                                                   reinterpret_cast<const char16_t*>
+                               #else
+                                                   reinterpret_cast<const ushort*>
+                               #endif
+                                       (lpszArgv[i])));
 
     instance->startSemaphore.release(); // let the qapp creation start
     instance->startSemaphore2.acquire(); // wait until its done
@@ -754,10 +772,23 @@ class QtServiceAppEventFilter : public QAbstractNativeEventFilter
 {
 public:
     QtServiceAppEventFilter() {}
-    bool nativeEventFilter(const QByteArray &eventType, void *message, long *result);
+    bool nativeEventFilter(const QByteArray &eventType, void *message,
+                       #if QT_VERSION >= 0x060000
+                           qintptr
+                       #else
+                           long
+                       #endif
+                           *result);
+
 };
 
-bool QtServiceAppEventFilter::nativeEventFilter(const QByteArray &, void *message, long *result)
+bool QtServiceAppEventFilter::nativeEventFilter(const QByteArray &, void *message,
+                                                #if QT_VERSION >= 0x060000
+                                                    qintptr
+                                                #else
+                                                    long
+                                                #endif
+                                                *result)
 {
     MSG *winMessage = reinterpret_cast<MSG*>(message);
     if (winMessage->message == WM_ENDSESSION && (static_cast<ulong>(winMessage->lParam) & ENDSESSION_LOGOFF)) {
@@ -928,7 +959,13 @@ QString QtServiceBasePrivate::filePath() const
 {
     wchar_t path[_MAX_PATH];
     ::GetModuleFileNameW( nullptr, path, sizeof(path) );
-    return QString::fromUtf16(reinterpret_cast<unsigned short*>(path));
+    return QString::fromUtf16(
+      #if QT_VERSION >= 0x060000
+                      reinterpret_cast<const char16_t*>
+      #else
+                      reinterpret_cast<const ushort*>
+      #endif
+          (path));
 }
 
 bool QtServiceBasePrivate::sysInit()

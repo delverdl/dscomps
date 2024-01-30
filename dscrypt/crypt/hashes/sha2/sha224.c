@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 /**
    @param sha224.c
    LTC_SHA-224 new NIST standard based off of LTC_SHA-256 truncated to 224 bits (Tom St Denis)
@@ -111,7 +105,7 @@ int  sha224_test(void)
 
   for (i = 0; i < (int)(sizeof(tests) / sizeof(tests[0])); i++) {
       sha224_init(&md);
-      sha224_process(&md, (unsigned char*)tests[i].msg, (unsigned long)strlen(tests[i].msg));
+      sha224_process(&md, (unsigned char*)tests[i].msg, (unsigned long)XSTRLEN(tests[i].msg));
       sha224_done(&md, tmp);
       if (compare_testvector(tmp, sizeof(tmp), tests[i].hash, sizeof(tests[i].hash), "SHA224", i)) {
          return CRYPT_FAIL_TESTVECTOR;
@@ -123,7 +117,3 @@ int  sha224_test(void)
 
 #endif /* defined(LTC_SHA224) && defined(LTC_SHA256) */
 
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

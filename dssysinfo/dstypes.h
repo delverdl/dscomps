@@ -95,8 +95,8 @@ typedef QHash<QString, bool>    CUsers;
  * @todo An aditional source code for such systems like OSX, BSD*, AIX, HPUX, etc could
  * be added providing an usage extension to the library.
  *
- * @author Delver Domingo. Montevideo 2019. delverdl@gmail.com
- * @date 2017-05-03
+ * @author Delver Domingo. Montevideo 2023. delverdl@gmail.com
+ * @date 2023-08-04
  * @copyright GNU LGPL version 3.
  */
 

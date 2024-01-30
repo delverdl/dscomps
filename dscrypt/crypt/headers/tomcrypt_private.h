@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 #include "tomcrypt.h"
 
@@ -15,26 +9,30 @@
 
 #define LTC_PAD_MASK       (0xF000U)
 
+/* `NULL` as defined by the standard is not guaranteed to be of a pointer
+ * type. In order to make sure that in vararg API's a pointer type is used,
+ * define our own version and use that one internally.
+ */
+#ifndef LTC_NULL
+   #define LTC_NULL ((void *)0)
+#endif
+
 /*
  * Internal Enums
  */
 
-enum public_key_algorithms {
-   PKA_RSA,
-   PKA_DSA,
-   PKA_EC,
-   PKA_EC_PRIMEF
+enum ltc_oid_id {
+   LTC_OID_RSA,
+   LTC_OID_DSA,
+   LTC_OID_EC,
+   LTC_OID_EC_PRIMEF,
+   LTC_OID_X25519,
+   LTC_OID_ED25519,
 };
 
 /*
  * Internal Types
  */
-
-typedef struct Oid {
-    unsigned long OID[16];
-    /** Number of OID digits in use */
-    unsigned long OIDlen;
-} oid_st;
 
 typedef struct {
   int size;
@@ -42,9 +40,54 @@ typedef struct {
 } ltc_dh_set_type;
 
 
+typedef int (*fn_kdf_t)(const unsigned char *password, unsigned long password_len,
+                              const unsigned char *salt,     unsigned long salt_len,
+                              int iteration_count,  int hash_idx,
+                              unsigned char *out,   unsigned long *outlen);
+
+typedef struct {
+   /* KDF */
+   fn_kdf_t kdf;
+   /* Hash or HMAC */
+   const char* h;
+   /* cipher */
+   const char* c;
+   unsigned long keylen;
+   /* not used for pbkdf2 */
+   unsigned long blocklen;
+} pbes_properties;
+
+typedef struct
+{
+   pbes_properties type;
+   const void *pwd;
+   unsigned long pwdlen;
+   ltc_asn1_list *enc_data;
+   ltc_asn1_list *salt;
+   ltc_asn1_list *iv;
+   unsigned long iterations;
+   /* only used for RC2 */
+   unsigned long key_bits;
+} pbes_arg;
+
 /*
  * Internal functions
  */
+
+
+/* tomcrypt_cipher.h */
+
+#if defined(LTC_AES_NI) && defined(LTC_AMD64_SSE4_1)
+#define LTC_HAS_AES_NI
+#endif
+
+void blowfish_enc(ulong32 *data, unsigned long blocks, const symmetric_key *skey);
+int blowfish_expand(const unsigned char *key, int keylen,
+                    const unsigned char *data, int datalen,
+                    symmetric_key *skey);
+int blowfish_setup_with_data(const unsigned char *key, int keylen,
+                             const unsigned char *data, int datalen,
+                             symmetric_key *skey);
 
 /* tomcrypt_hash.h */
 
@@ -59,7 +102,8 @@ int func_name (hash_state * md, const unsigned char *in, unsigned long inlen)   
     if (md-> state_var .curlen > sizeof(md-> state_var .buf)) {                             \
        return CRYPT_INVALID_ARG;                                                            \
     }                                                                                       \
-    if ((md-> state_var .length + inlen) < md-> state_var .length) {                        \
+    if (((md-> state_var .length + inlen * 8) < md-> state_var .length)                     \
+          || ((inlen * 8) < inlen)) {                                                       \
       return CRYPT_HASH_OVERFLOW;                                                           \
     }                                                                                       \
     while (inlen > 0) {                                                                     \
@@ -171,7 +215,23 @@ void ocb3_int_xor_blocks(unsigned char *out, const unsigned char *block_a, const
 
 /* tomcrypt_misc.h */
 
+typedef enum {
+   /** Use `\r\n` as line separator */
+   BASE64_PEM_CRLF = 1,
+   /** Create output with 72 chars line length */
+   BASE64_PEM_SSH = 2,
+} base64_pem_flags;
+
+int base64_encode_pem(const unsigned char *in,  unsigned long inlen,
+                                     char *out, unsigned long *outlen,
+                            unsigned int  flags);
+
 void copy_or_zeromem(const unsigned char* src, unsigned char* dest, unsigned long len, int coz);
+
+int pbes_decrypt(const pbes_arg  *arg, unsigned char *dec_data, unsigned long *dec_size);
+
+int pbes1_extract(const ltc_asn1_list *s, pbes_arg *res);
+int pbes2_extract(const ltc_asn1_list *s, pbes_arg *res);
 
 
 /* tomcrypt_pk.h */
@@ -179,9 +239,18 @@ void copy_or_zeromem(const unsigned char* src, unsigned char* dest, unsigned lon
 int rand_bn_bits(void *N, int bits, prng_state *prng, int wprng);
 int rand_bn_upto(void *N, void *limit, prng_state *prng, int wprng);
 
-int pk_get_oid(int pk, oid_st *st);
+int pk_get_oid(enum ltc_oid_id id, const char **st);
 int pk_oid_str_to_num(const char *OID, unsigned long *oid, unsigned long *oidlen);
 int pk_oid_num_to_str(const unsigned long *oid, unsigned long oidlen, char *OID, unsigned long *outlen);
+
+/* ---- DH Routines ---- */
+#ifdef LTC_MRSA
+int rsa_init(rsa_key *key);
+void rsa_shrink_key(rsa_key *key);
+int rsa_make_key_bn_e(prng_state *prng, int wprng, int size, void *e,
+                      rsa_key *key); /* used by op-tee */
+int rsa_import_pkcs1(const unsigned char *in, unsigned long inlen, rsa_key *key);
+#endif /* LTC_MRSA */
 
 /* ---- DH Routines ---- */
 #ifdef LTC_MDH
@@ -196,6 +265,10 @@ int ecc_set_curve_from_mpis(void *a, void *b, void *prime, void *order, void *gx
 int ecc_copy_curve(const ecc_key *srckey, ecc_key *key);
 int ecc_set_curve_by_size(int size, ecc_key *key);
 int ecc_import_subject_public_key_info(const unsigned char *in, unsigned long inlen, ecc_key *key);
+
+#ifdef LTC_SSH
+int ecc_ssh_ecdsa_encode_name(char *buffer, unsigned long *buflen, const ecc_key *key);
+#endif
 
 /* low level functions */
 ecc_point *ltc_ecc_new_point(void);
@@ -264,7 +337,43 @@ int dsa_int_validate_pqg(const dsa_key *key, int *stat);
 int dsa_int_validate_primes(const dsa_key *key, int *stat);
 #endif /* LTC_MDSA */
 
+
+#ifdef LTC_CURVE25519
+
+int tweetnacl_crypto_sign(
+  unsigned char *sm,unsigned long long *smlen,
+  const unsigned char *m,unsigned long long mlen,
+  const unsigned char *sk,const unsigned char *pk,
+  const unsigned char *ctx,unsigned long long cs);
+int tweetnacl_crypto_sign_open(
+  int *stat,
+  unsigned char *m,unsigned long long *mlen,
+  const unsigned char *sm,unsigned long long smlen,
+  const unsigned char *ctx, unsigned long long cs,
+  const unsigned char *pk);
+int tweetnacl_crypto_sign_keypair(prng_state *prng, int wprng, unsigned char *pk,unsigned char *sk);
+int tweetnacl_crypto_sk_to_pk(unsigned char *pk, const unsigned char *sk);
+int tweetnacl_crypto_scalarmult(unsigned char *q, const unsigned char *n, const unsigned char *p);
+int tweetnacl_crypto_scalarmult_base(unsigned char *q,const unsigned char *n);
+int tweetnacl_crypto_ph(unsigned char *out, const unsigned char *msg, unsigned long long msglen);
+
+typedef int (*sk_to_pk)(unsigned char *pk ,const unsigned char *sk);
+int ec25519_import_pkcs8(const unsigned char *in, unsigned long inlen,
+                       const void *pwd, unsigned long pwdlen,
+                       enum ltc_oid_id id, sk_to_pk fp,
+                       curve25519_key *key);
+int ec25519_export(       unsigned char *out, unsigned long *outlen,
+                                    int  which,
+                   const curve25519_key *key);
+int ec25519_crypto_ctx(      unsigned char *out, unsigned long *outlen,
+                             unsigned char flag,
+                       const unsigned char *ctx, unsigned long  ctxlen);
+#endif /* LTC_CURVE25519 */
+
 #ifdef LTC_DER
+
+#define LTC_ASN1_IS_TYPE(e, t) (((e) != NULL) && ((e)->type == (t)))
+
 /* DER handling */
 int der_decode_custom_type_ex(const unsigned char *in, unsigned long  inlen,
                            ltc_asn1_list *root,
@@ -287,12 +396,20 @@ extern const unsigned long  der_asn1_tag_to_type_map_sz;
 extern const int der_asn1_type_to_identifier_map[];
 extern const unsigned long der_asn1_type_to_identifier_map_sz;
 
-int der_decode_sequence_multi_ex(const unsigned char *in, unsigned long inlen, unsigned int flags, ...);
+int der_decode_sequence_multi_ex(const unsigned char *in, unsigned long inlen, unsigned int flags, ...)
+                                 LTC_NULL_TERMINATED;
 
 int der_teletex_char_encode(int c);
 int der_teletex_value_decode(int v);
 
 int der_utf8_valid_char(const wchar_t c);
+
+typedef int (*public_key_decode_cb)(const unsigned char *in, unsigned long inlen, void *ctx);
+
+int x509_decode_public_key_from_certificate(const unsigned char *in, unsigned long inlen,
+                                            enum ltc_oid_id algorithm, ltc_asn1_type param_type,
+                                            ltc_asn1_list* parameters, unsigned long *parameters_len,
+                                            public_key_decode_cb callback, void *ctx);
 
 /* SUBJECT PUBLIC KEY INFO */
 int x509_encode_subject_public_key_info(unsigned char *out, unsigned long *outlen,
@@ -303,9 +420,21 @@ int x509_decode_subject_public_key_info(const unsigned char *in, unsigned long i
         unsigned int algorithm, void* public_key, unsigned long* public_key_len,
         ltc_asn1_type parameters_type, ltc_asn1_list* parameters, unsigned long *parameters_len);
 
+int pk_oid_cmp_with_ulong(const char *o1, const unsigned long *o2, unsigned long o2size);
+int pk_oid_cmp_with_asn1(const char *o1, const ltc_asn1_list *o2);
+
 #endif /* LTC_DER */
 
 /* tomcrypt_pkcs.h */
+
+#ifdef LTC_PKCS_8
+
+int pkcs8_decode_flexi(const unsigned char  *in,  unsigned long inlen,
+                                    const void  *pwd, unsigned long pwdlen,
+                                 ltc_asn1_list **decoded_list);
+
+#endif  /* LTC_PKCS_8 */
+
 
 #ifdef LTC_PKCS_12
 
@@ -322,7 +451,7 @@ int pkcs12_kdf(               int   hash_id,
 
 /* tomcrypt_prng.h */
 
-#define _LTC_PRNG_EXPORT(which) \
+#define LTC_PRNG_EXPORT(which) \
 int which ## _export(unsigned char *out, unsigned long *outlen, prng_state *prng)      \
 {                                                                                      \
    unsigned long len = which ## _desc.export_size;                                     \
@@ -344,7 +473,9 @@ int which ## _export(unsigned char *out, unsigned long *outlen, prng_state *prng
    return CRYPT_OK;                                                                    \
 }
 
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */
+/* extract a byte portably */
+#ifdef _MSC_VER
+   #define LTC_BYTE(x, n) ((unsigned char)((x) >> (8 * (n))))
+#else
+   #define LTC_BYTE(x, n) (((x) >> (8 * (n))) & 255)
+#endif

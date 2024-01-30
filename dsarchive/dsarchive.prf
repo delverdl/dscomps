@@ -2,6 +2,11 @@ include(./dscfgbase.pri)
 
 dsAddLibrary($$DSLIBS, dsarchive)
 
+!wasm {
+  LIBS        +=  -lbz2 -llzma
+}
+LIBS          +=  -lz
+
 # Include paths
 contains(DSSYSTEM, HASFRAMEWORK) {
   INCLUDEPATH *=  $$DSLIBS/dsarchive.framework/Headers

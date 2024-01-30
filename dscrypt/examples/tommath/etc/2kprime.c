@@ -8,7 +8,7 @@ int main(void)
 {
    char buf[2000];
    size_t x;
-   int y;
+   bool y;
    mp_int q, p;
    FILE *out;
    clock_t t1;
@@ -37,13 +37,13 @@ top:
             if ((clock() - t1) > CLOCKS_PER_SEC) {
                printf(".");
                fflush(stdout);
-//            sleep((clock() - t1 + CLOCKS_PER_SEC/2)/CLOCKS_PER_SEC);
+               /*            sleep((clock() - t1 + CLOCKS_PER_SEC/2)/CLOCKS_PER_SEC); */
                t1 = clock();
             }
 
             /* quick test on q */
             mp_prime_is_prime(&q, 1, &y);
-            if (y == 0) {
+            if (!y) {
                continue;
             }
 
@@ -51,25 +51,25 @@ top:
             mp_sub_d(&q, 1uL, &p);
             mp_div_2(&p, &p);
             mp_prime_is_prime(&p, 3, &y);
-            if (y == 0) {
+            if (!y) {
                continue;
             }
 
             /* test on q */
             mp_prime_is_prime(&q, 3, &y);
-            if (y == 0) {
+            if (!y) {
                continue;
             }
 
             break;
          }
 
-         if (y == 0) {
+         if (!y) {
             ++sizes[x];
             goto top;
          }
 
-         mp_toradix(&q, buf, 10);
+         mp_to_decimal(&q, buf, sizeof(buf));
          printf("\n\n%d-bits (k = %lu) = %s\n", sizes[x], z, buf);
          fprintf(out, "%d-bits (k = %lu) = %s\n", sizes[x], z, buf);
          fflush(out);
@@ -79,7 +79,3 @@ top:
 
    return 0;
 }
-
-/* ref:         HEAD -> develop */
-/* git commit:  bc685fd4a58a8ffb132d10635a96bf46e144cde3 */
-/* commit time: 2018-06-10 23:34:19 +0200 */

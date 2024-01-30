@@ -1,13 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
-
-#include <tomcrypt_custom.h>
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /* ---- NUMBER THEORY ---- */
 
@@ -53,7 +45,8 @@ typedef struct Rsa_key {
 } rsa_key;
 
 int rsa_make_key(prng_state *prng, int wprng, int size, long e, rsa_key *key);
-
+int rsa_make_key_ubin_e(prng_state *prng, int wprng, int size,
+                        const unsigned char *e, unsigned long elen, rsa_key *key);
 int rsa_get_size(const rsa_key *key);
 
 int rsa_exptmod(const unsigned char *in,   unsigned long inlen,
@@ -63,20 +56,20 @@ int rsa_exptmod(const unsigned char *in,   unsigned long inlen,
 void rsa_free(rsa_key *key);
 
 /* These use PKCS #1 v2.0 padding */
-#define rsa_encrypt_key(_in, _inlen, _out, _outlen, _lparam, _lparamlen, _prng, _prng_idx, _hash_idx, _key) \
-  rsa_encrypt_key_ex(_in, _inlen, _out, _outlen, _lparam, _lparamlen, _prng, _prng_idx, _hash_idx, LTC_PKCS_1_OAEP, _key)
+#define rsa_encrypt_key(in, inlen, out, outlen, lparam, lparamlen, prng, prng_idx, hash_idx, key) \
+  rsa_encrypt_key_ex(in, inlen, out, outlen, lparam, lparamlen, prng, prng_idx, hash_idx, LTC_PKCS_1_OAEP, key)
 
-#define rsa_decrypt_key(_in, _inlen, _out, _outlen, _lparam, _lparamlen, _hash_idx, _stat, _key) \
-  rsa_decrypt_key_ex(_in, _inlen, _out, _outlen, _lparam, _lparamlen, _hash_idx, LTC_PKCS_1_OAEP, _stat, _key)
+#define rsa_decrypt_key(in, inlen, out, outlen, lparam, lparamlen, hash_idx, stat, key) \
+  rsa_decrypt_key_ex(in, inlen, out, outlen, lparam, lparamlen, hash_idx, LTC_PKCS_1_OAEP, stat, key)
 
-#define rsa_sign_hash(_in, _inlen, _out, _outlen, _prng, _prng_idx, _hash_idx, _saltlen, _key) \
-  rsa_sign_hash_ex(_in, _inlen, _out, _outlen, LTC_PKCS_1_PSS, _prng, _prng_idx, _hash_idx, _saltlen, _key)
+#define rsa_sign_hash(in, inlen, out, outlen, prng, prng_idx, hash_idx, saltlen, key) \
+  rsa_sign_hash_ex(in, inlen, out, outlen, LTC_PKCS_1_PSS, prng, prng_idx, hash_idx, saltlen, key)
 
-#define rsa_verify_hash(_sig, _siglen, _hash, _hashlen, _hash_idx, _saltlen, _stat, _key) \
-  rsa_verify_hash_ex(_sig, _siglen, _hash, _hashlen, LTC_PKCS_1_PSS, _hash_idx, _saltlen, _stat, _key)
+#define rsa_verify_hash(sig, siglen, hash, hashlen, hash_idx, saltlen, stat, key) \
+  rsa_verify_hash_ex(sig, siglen, hash, hashlen, LTC_PKCS_1_PSS, hash_idx, saltlen, stat, key)
 
-#define rsa_sign_saltlen_get_max(_hash_idx, _key) \
-  rsa_sign_saltlen_get_max_ex(LTC_PKCS_1_PSS, _hash_idx, _key)
+#define rsa_sign_saltlen_get_max(hash_idx, key) \
+  rsa_sign_saltlen_get_max_ex(LTC_PKCS_1_PSS, hash_idx, key)
 
 /* These can be switched between PKCS #1 v2.x and PKCS #1 v1.5 paddings */
 int rsa_encrypt_key_ex(const unsigned char *in,       unsigned long  inlen,
@@ -246,10 +239,21 @@ typedef struct {
     void *k;
 } ecc_key;
 
+/** Formats of ECC signatures */
+typedef enum ecc_signature_type_ {
+   /* ASN.1 encoded, ANSI X9.62 */
+   LTC_ECCSIG_ANSIX962   = 0x0,
+   /* raw R, S values */
+   LTC_ECCSIG_RFC7518    = 0x1,
+   /* raw R, S, V (+27) values */
+   LTC_ECCSIG_ETH27      = 0x2,
+   /* SSH + ECDSA signature format defined by RFC5656 */
+   LTC_ECCSIG_RFC5656    = 0x3,
+} ecc_signature_type;
+
 /** the ECC params provided */
 extern const ltc_ecc_curve ltc_ecc_curves[];
 
-int  ecc_test(void);
 void ecc_sizes(int *low, int *high);
 int  ecc_get_size(const ecc_key *key);
 
@@ -274,6 +278,7 @@ int ecc_ansi_x963_import_ex(const unsigned char *in, unsigned long inlen, ecc_ke
 
 int ecc_export_openssl(unsigned char *out, unsigned long *outlen, int type, const ecc_key *key);
 int ecc_import_openssl(const unsigned char *in, unsigned long inlen, ecc_key *key);
+int ecc_import_pkcs8(const unsigned char *in, unsigned long inlen, const void *pwd, unsigned long pwdlen, ecc_key *key);
 int ecc_import_x509(const unsigned char *in, unsigned long inlen, ecc_key *key);
 
 int  ecc_shared_secret(const ecc_key *private_key, const ecc_key *public_key,
@@ -288,31 +293,124 @@ int  ecc_decrypt_key(const unsigned char *in,  unsigned long  inlen,
                            unsigned char *out, unsigned long *outlen,
                            const ecc_key *key);
 
-int ecc_sign_hash_rfc7518(const unsigned char *in,  unsigned long inlen,
-                                unsigned char *out, unsigned long *outlen,
-                                prng_state *prng, int wprng, const ecc_key *key);
+#define ecc_sign_hash_rfc7518(in_, inlen_, out_, outlen_, prng_, wprng_, key_) \
+   ecc_sign_hash_ex(in_, inlen_, out_, outlen_, prng_, wprng_, LTC_ECCSIG_RFC7518, NULL, key_)
 
-int  ecc_sign_hash(const unsigned char *in,  unsigned long inlen,
-                         unsigned char *out, unsigned long *outlen,
-                         prng_state *prng, int wprng, const ecc_key *key);
+#define ecc_sign_hash(in_, inlen_, out_, outlen_, prng_, wprng_, key_) \
+   ecc_sign_hash_ex(in_, inlen_, out_, outlen_, prng_, wprng_, LTC_ECCSIG_ANSIX962, NULL, key_)
 
-int ecc_verify_hash_rfc7518(const unsigned char *sig,  unsigned long siglen,
-                            const unsigned char *hash, unsigned long hashlen,
-                            int *stat, const ecc_key *key);
+#define ecc_verify_hash_rfc7518(sig_, siglen_, hash_, hashlen_, stat_, key_) \
+   ecc_verify_hash_ex(sig_, siglen_, hash_, hashlen_, LTC_ECCSIG_RFC7518, stat_, key_)
 
-int  ecc_verify_hash(const unsigned char *sig,  unsigned long siglen,
+#define ecc_verify_hash(sig_, siglen_, hash_, hashlen_, stat_, key_) \
+   ecc_verify_hash_ex(sig_, siglen_, hash_, hashlen_, LTC_ECCSIG_ANSIX962, stat_, key_)
+
+int  ecc_sign_hash_ex(const unsigned char *in,  unsigned long inlen,
+                            unsigned char *out, unsigned long *outlen,
+                            prng_state *prng, int wprng, ecc_signature_type sigformat,
+                            int *recid, const ecc_key *key);
+
+int  ecc_verify_hash_ex(const unsigned char *sig,  unsigned long siglen,
+                        const unsigned char *hash, unsigned long hashlen,
+                        ecc_signature_type sigformat, int *stat, const ecc_key *key);
+
+int  ecc_recover_key(const unsigned char *sig,  unsigned long siglen,
                      const unsigned char *hash, unsigned long hashlen,
-                     int *stat, const ecc_key *key);
+                     int recid, ecc_signature_type sigformat, ecc_key *key);
 
 #endif
 
+#ifdef LTC_CURVE25519
+
+typedef struct {
+   /** The key type, PK_PRIVATE or PK_PUBLIC */
+   enum public_key_type type;
+
+   /** The PK-algorithm, PKA_ED25519 or PKA_X25519 */
+   /** This was supposed to be:
+    * enum public_key_algorithms algo;
+    * but that enum is now in tomcrypt_private.h
+    */
+   int algo;
+
+   /** The private key */
+   unsigned char priv[32];
+
+   /** The public key */
+   unsigned char pub[32];
+} curve25519_key;
+
+
+/** Ed25519 Signature API */
+int ed25519_make_key(prng_state *prng, int wprng, curve25519_key *key);
+
+int ed25519_export(       unsigned char *out, unsigned long *outlen,
+                                    int  which,
+                   const curve25519_key *key);
+
+int ed25519_import(const unsigned char *in, unsigned long inlen, curve25519_key *key);
+int ed25519_import_raw(const unsigned char *in, unsigned long inlen, int which, curve25519_key *key);
+int ed25519_import_x509(const unsigned char *in, unsigned long inlen, curve25519_key *key);
+int ed25519_import_pkcs8(const unsigned char *in, unsigned long inlen,
+                                  const void *pwd, unsigned long pwdlen,
+                              curve25519_key *key);
+
+int ed25519_sign(const  unsigned char *msg, unsigned long msglen,
+                        unsigned char *sig, unsigned long *siglen,
+                 const curve25519_key *private_key);
+int ed25519ctx_sign(const  unsigned char *msg, unsigned long  msglen,
+                           unsigned char *sig, unsigned long *siglen,
+                    const  unsigned char *ctx, unsigned long  ctxlen,
+                    const curve25519_key *private_key);
+int ed25519ph_sign(const  unsigned char *msg, unsigned long  msglen,
+                          unsigned char *sig, unsigned long *siglen,
+                   const  unsigned char *ctx, unsigned long  ctxlen,
+                   const curve25519_key *private_key);
+int ed25519_verify(const  unsigned char *msg, unsigned long msglen,
+                   const  unsigned char *sig, unsigned long siglen,
+                                    int *stat,
+                   const curve25519_key *public_key);
+int ed25519ctx_verify(const  unsigned char *msg, unsigned long msglen,
+                      const  unsigned char *sig, unsigned long siglen,
+                      const  unsigned char *ctx, unsigned long ctxlen,
+                                       int *stat,
+                      const curve25519_key *public_key);
+int ed25519ph_verify(const  unsigned char *msg, unsigned long msglen,
+                     const  unsigned char *sig, unsigned long siglen,
+                     const  unsigned char *ctx, unsigned long ctxlen,
+                                      int *stat,
+                     const curve25519_key *public_key);
+
+/** X25519 Key-Exchange API */
+int x25519_make_key(prng_state *prng, int wprng, curve25519_key *key);
+
+int x25519_export(       unsigned char *out, unsigned long *outlen,
+                                   int  which,
+                  const curve25519_key *key);
+
+int x25519_import(const unsigned char *in, unsigned long inlen, curve25519_key *key);
+int x25519_import_raw(const unsigned char *in, unsigned long inlen, int which, curve25519_key *key);
+int x25519_import_x509(const unsigned char *in, unsigned long inlen, curve25519_key *key);
+int x25519_import_pkcs8(const unsigned char *in, unsigned long inlen,
+                                 const void *pwd, unsigned long pwdlen,
+                             curve25519_key *key);
+
+int x25519_shared_secret(const curve25519_key *private_key,
+                         const curve25519_key *public_key,
+                                unsigned char *out, unsigned long *outlen);
+
+#endif /* LTC_CURVE25519 */
+
 #ifdef LTC_MDSA
 
-/* Max diff between group and modulus size in bytes */
-#define LTC_MDSA_DELTA     512
+/* Max diff between group and modulus size in bytes (max case: L=8192bits, N=256bits) */
+#define LTC_MDSA_DELTA 992
 
-/* Max DSA group size in bytes (default allows 4k-bit groups) */
-#define LTC_MDSA_MAX_GROUP 512
+/* Max DSA group size in bytes */
+#define LTC_MDSA_MAX_GROUP 64
+
+/* Max DSA modulus size in bytes (the actual DSA size, max 8192 bits) */
+#define LTC_MDSA_MAX_MODULUS 1024
 
 /** DSA key structure */
 typedef struct {
@@ -450,43 +548,43 @@ typedef struct ltc_asn1_list_ {
    struct ltc_asn1_list_ *prev, *next, *child, *parent;
 } ltc_asn1_list;
 
-#define LTC_SET_ASN1(list, index, Type, Data, Size)  \
-   do {                                              \
-      int LTC_MACRO_temp            = (index);       \
-      ltc_asn1_list *LTC_MACRO_list = (list);        \
-      LTC_MACRO_list[LTC_MACRO_temp].type = (Type);  \
-      LTC_MACRO_list[LTC_MACRO_temp].data = (void*)(Data);  \
-      LTC_MACRO_list[LTC_MACRO_temp].size = (Size);  \
-      LTC_MACRO_list[LTC_MACRO_temp].used = 0;       \
-      LTC_MACRO_list[LTC_MACRO_temp].optional = 0;   \
-      LTC_MACRO_list[LTC_MACRO_temp].klass = 0;      \
-      LTC_MACRO_list[LTC_MACRO_temp].pc = 0;         \
-      LTC_MACRO_list[LTC_MACRO_temp].tag = 0;        \
+#define LTC_SET_ASN1(list, index, Type, Data, Size)               \
+   do {                                                           \
+      int LTC_TMPVAR(SA)            = (index);                    \
+      ltc_asn1_list *LTC_TMPVAR(SA_list) = (list);                \
+      LTC_TMPVAR(SA_list)[LTC_TMPVAR(SA)].type = (Type);          \
+      LTC_TMPVAR(SA_list)[LTC_TMPVAR(SA)].data = (void*)(Data);   \
+      LTC_TMPVAR(SA_list)[LTC_TMPVAR(SA)].size = (Size);          \
+      LTC_TMPVAR(SA_list)[LTC_TMPVAR(SA)].used = 0;               \
+      LTC_TMPVAR(SA_list)[LTC_TMPVAR(SA)].optional = 0;           \
+      LTC_TMPVAR(SA_list)[LTC_TMPVAR(SA)].klass = 0;              \
+      LTC_TMPVAR(SA_list)[LTC_TMPVAR(SA)].pc = 0;                 \
+      LTC_TMPVAR(SA_list)[LTC_TMPVAR(SA)].tag = 0;                \
    } while (0)
 
-#define __LTC_SET_ASN1_IDENTIFIER(list, index, Class, Pc, Tag)      \
-   do {                                                           \
-      int LTC_MACRO_temp            = (index);                    \
-      ltc_asn1_list *LTC_MACRO_list = (list);                     \
-      LTC_MACRO_list[LTC_MACRO_temp].type = LTC_ASN1_CUSTOM_TYPE; \
-      LTC_MACRO_list[LTC_MACRO_temp].klass = (Class);             \
-      LTC_MACRO_list[LTC_MACRO_temp].pc = (Pc);                   \
-      LTC_MACRO_list[LTC_MACRO_temp].tag = (Tag);                 \
+#define LTC_SET_ASN1_IDENTIFIER(list, index, Class, Pc, Tag)               \
+   do {                                                                    \
+      int LTC_TMPVAR(SAI)       = (index);                                 \
+      ltc_asn1_list *LTC_TMPVAR(SAI_list) = (list);                        \
+      LTC_TMPVAR(SAI_list)[LTC_TMPVAR(SAI)].type = LTC_ASN1_CUSTOM_TYPE;   \
+      LTC_TMPVAR(SAI_list)[LTC_TMPVAR(SAI)].klass = (Class);               \
+      LTC_TMPVAR(SAI_list)[LTC_TMPVAR(SAI)].pc = (Pc);                     \
+      LTC_TMPVAR(SAI_list)[LTC_TMPVAR(SAI)].tag = (Tag);                   \
    } while (0)
 
-#define LTC_SET_ASN1_CUSTOM_CONSTRUCTED(list, index, Class, Tag, Data)    \
-   do {                                                           \
-      int LTC_MACRO_temp##__LINE__ = (index);                     \
-      LTC_SET_ASN1(list, LTC_MACRO_temp##__LINE__, LTC_ASN1_CUSTOM_TYPE, Data, 1);   \
-      __LTC_SET_ASN1_IDENTIFIER(list, LTC_MACRO_temp##__LINE__, Class, LTC_ASN1_PC_CONSTRUCTED, Tag);       \
+#define LTC_SET_ASN1_CUSTOM_CONSTRUCTED(list, index, Class, Tag, Data)                       \
+   do {                                                                                      \
+      int LTC_TMPVAR(SACC) = (index);                                                        \
+      LTC_SET_ASN1(list, LTC_TMPVAR(SACC), LTC_ASN1_CUSTOM_TYPE, Data, 1);                   \
+      LTC_SET_ASN1_IDENTIFIER(list, LTC_TMPVAR(SACC), Class, LTC_ASN1_PC_CONSTRUCTED, Tag);  \
    } while (0)
 
-#define LTC_SET_ASN1_CUSTOM_PRIMITIVE(list, index, Class, Tag, Type, Data, Size)    \
-   do {                                                           \
-      int LTC_MACRO_temp##__LINE__ = (index);                     \
-      LTC_SET_ASN1(list, LTC_MACRO_temp##__LINE__, LTC_ASN1_CUSTOM_TYPE, Data, Size);   \
-      __LTC_SET_ASN1_IDENTIFIER(list, LTC_MACRO_temp##__LINE__, Class, LTC_ASN1_PC_PRIMITIVE, Tag);       \
-      list[LTC_MACRO_temp##__LINE__].used = (int)(Type);       \
+#define LTC_SET_ASN1_CUSTOM_PRIMITIVE(list, index, Class, Tag, Type, Data, Size)          \
+   do {                                                                                   \
+      int LTC_TMPVAR(SACP) = (index);                                                     \
+      LTC_SET_ASN1(list, LTC_TMPVAR(SACP), LTC_ASN1_CUSTOM_TYPE, Data, Size);             \
+      LTC_SET_ASN1_IDENTIFIER(list, LTC_TMPVAR(SACP), Class, LTC_ASN1_PC_PRIMITIVE, Tag); \
+      list[LTC_TMPVAR(SACP)].used = (int)(Type);                                          \
    } while (0)
 
 extern const char*          der_asn1_class_to_string_map[];
@@ -556,8 +654,8 @@ int der_encode_setof(const ltc_asn1_list *list, unsigned long inlen,
                      unsigned char *out,        unsigned long *outlen);
 
 /* VA list handy helpers with triplets of <type, size, data> */
-int der_encode_sequence_multi(unsigned char *out, unsigned long *outlen, ...);
-int der_decode_sequence_multi(const unsigned char *in, unsigned long inlen, ...);
+int der_encode_sequence_multi(unsigned char *out, unsigned long *outlen, ...) LTC_NULL_TERMINATED;
+int der_decode_sequence_multi(const unsigned char *in, unsigned long inlen, ...) LTC_NULL_TERMINATED;
 
 /* FLEXI DECODER handle unknown list decoder */
 int  der_decode_sequence_flexi(const unsigned char *in, unsigned long *inlen, ltc_asn1_list **out);
@@ -703,7 +801,3 @@ int der_decode_generalizedtime(const unsigned char *in, unsigned long *inlen,
 int der_length_generalizedtime(const ltc_generalizedtime *gtime, unsigned long *outlen);
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

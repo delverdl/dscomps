@@ -5,12 +5,13 @@
 #include <time.h>
 #include <tommath.h>
 
-static int is_mersenne(long s, int *pp)
+static mp_err is_mersenne(long s, bool *pp)
 {
    mp_int  n, u;
-   int     res, k;
+   mp_err  res;
+   int     k;
 
-   *pp = 0;
+   *pp = false;
 
    if ((res = mp_init(&n)) != MP_OKAY) {
       return res;
@@ -42,7 +43,7 @@ static int is_mersenne(long s, int *pp)
       }
 
       /* make sure u is positive */
-      while (u.sign == MP_NEG) {
+      while (mp_isneg(&u)) {
          if ((res = mp_add(&u, &n, &u)) != MP_OKAY) {
             goto LBL_MU;
          }
@@ -55,9 +56,9 @@ static int is_mersenne(long s, int *pp)
    }
 
    /* if u == 0 then its prime */
-   if (mp_iszero(&u) == 1) {
+   if (mp_iszero(&u)) {
       mp_prime_is_prime(&n, 8, pp);
-      if (*pp != 1) printf("FAILURE\n");
+      if (!*pp) printf("FAILURE\n");
    }
 
    res = MP_OKAY;
@@ -102,7 +103,7 @@ static int isprime(long k)
 
 int main(void)
 {
-   int     pp;
+   bool pp;
    long    k;
    clock_t tt;
 
@@ -118,12 +119,12 @@ int main(void)
          return -1;
       }
 
-      if (pp == 1) {
+      if (pp) {
          /* count time */
          tt = clock() - tt;
 
          /* display if prime */
-         printf("2^%-5ld - 1 is prime, test took %ld ticks\n", k, tt);
+         printf("2^%-5ld - 1 is prime, test took %ld ticks\n", k, (long)tt);
       }
 
       /* goto next odd exponent */
@@ -135,7 +136,3 @@ int main(void)
       }
    }
 }
-
-/* ref:         HEAD -> develop */
-/* git commit:  bc685fd4a58a8ffb132d10635a96bf46e144cde3 */
-/* commit time: 2018-06-10 23:34:19 +0200 */

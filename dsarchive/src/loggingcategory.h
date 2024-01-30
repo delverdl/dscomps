@@ -7,5 +7,4 @@
 
 Q_DECLARE_LOGGING_CATEGORY(KArchiveLog)
 
-
 #endif

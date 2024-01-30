@@ -88,7 +88,7 @@ class CAppLogger
  * just like the following:
  * <tt>CONFIG += dsapplogger</tt>
  * @author  Delver Domingo
- * @date    1977-2018
+ * @date    1977-2023
  */
 
 /**

@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 #include "tomcrypt_private.h"
 
@@ -43,6 +37,7 @@ int chacha20poly1305_memory(const unsigned char *key, unsigned long keylen,
    LTC_ARGCHK(in  != NULL);
    LTC_ARGCHK(out != NULL);
    LTC_ARGCHK(tag != NULL);
+   LTC_ARGCHK(taglen != NULL);
 
    if ((err = chacha20poly1305_init(&st, key, keylen)) != CRYPT_OK)          { goto LBL_ERR; }
    if ((err = chacha20poly1305_setiv(&st, iv, ivlen)) != CRYPT_OK)           { goto LBL_ERR; }
@@ -51,15 +46,22 @@ int chacha20poly1305_memory(const unsigned char *key, unsigned long keylen,
    }
    if (direction == CHACHA20POLY1305_ENCRYPT) {
       if ((err = chacha20poly1305_encrypt(&st, in, inlen, out)) != CRYPT_OK) { goto LBL_ERR; }
+      if ((err = chacha20poly1305_done(&st, tag, taglen)) != CRYPT_OK)       { goto LBL_ERR; }
    }
    else if (direction == CHACHA20POLY1305_DECRYPT) {
+      unsigned char buf[MAXBLOCKSIZE];
+      unsigned long buflen = sizeof(buf);
       if ((err = chacha20poly1305_decrypt(&st, in, inlen, out)) != CRYPT_OK) { goto LBL_ERR; }
+      if ((err = chacha20poly1305_done(&st, buf, &buflen)) != CRYPT_OK)      { goto LBL_ERR; }
+      if (buflen != *taglen || XMEM_NEQ(buf, tag, buflen) != 0) {
+         err = CRYPT_ERROR;
+         goto LBL_ERR;
+      }
    }
    else {
       err = CRYPT_INVALID_ARG;
       goto LBL_ERR;
    }
-   err = chacha20poly1305_done(&st, tag, taglen);
 LBL_ERR:
 #ifdef LTC_CLEAN_STACK
    zeromem(&st, sizeof(chacha20poly1305_state));
@@ -68,7 +70,3 @@ LBL_ERR:
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

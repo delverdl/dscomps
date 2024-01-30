@@ -7,89 +7,124 @@
 # modify it under the terms of the Qwt License, Version 1.0
 ################################################################
 
-QWT_ROOT          =   $$PWD/..
-QWT_OUT_ROOT      =   $${OUT_PWD}/..
+QWT_ROOT = $${PWD}/..
+QWT_OUT_ROOT = $${OUT_PWD}/..
 
 include ( $${QWT_ROOT}/qwtconfig.pri )
 include ( $${QWT_ROOT}/qwtbuild.pri )
-#include ( $${QWT_ROOT}/qwtfunctions.pri )
+include ( $${QWT_ROOT}/qwtfunctions.pri )
+
 
 CONFIG( debug_and_release ) {
-  # When building debug_and_release the designer plugin is built
-  # for release only. If you want to have a debug version it has to be
-  # done with "CONFIG += debug" only.
 
-  # message("debug_and_release: building the Qwt designer plugin in release mode only")
-  CONFIG          -=  debug_and_release
-  CONFIG          +=  release
+    # When building debug_and_release the designer plugin is built
+    # for release only. If you want to have a debug version it has to be
+    # done with "CONFIG += debug" only.
+
+    message("debug_and_release: building the Qwt designer plugin in release mode only")
+
+    CONFIG -= debug_and_release
+    CONFIG += release
+}
+
+contains(QWT_CONFIG, QwtDesigner ) {
+    
+    greaterThan(QT_MAJOR_VERSION, 4) {
+
+        !qtHaveModule(designer) QWT_CONFIG -= QwtDesigner
+    } else {
+
+        !exists( $(QTDIR)/include/QtDesigner ) QWT_CONFIG -= QwtDesigner
+    }
+
+    !contains(QWT_CONFIG, QwtDesigner ) {
+        warning("QwtDesigner is enabled in qwtconfig.pri, but Qt has not been built with designer support")
+    }
 }
 
 contains(QWT_CONFIG, QwtDesigner) {
-  CONFIG          +=  qt plugin
-  QT              +=  designer
 
-  TEMPLATE        =   lib
-  TARGET          =   qwt_designer_plugin
+    CONFIG    += qt plugin 
 
-  DESTDIR         =   $${QWT_OUT_ROOT}/../plugins
+    greaterThan(QT_MAJOR_VERSION, 4) {
 
-  INCLUDEPATH     +=  $${QWT_ROOT}/src
-  DEPENDPATH      +=  $${QWT_ROOT}/src
-
-  contains(QWT_CONFIG, QwtDll) {
-    contains(QWT_CONFIG, QwtDesignerSelfContained) {
-      QWT_CONFIG  +=  include_src
+        QT += designer
     }
-  } else {
-    # for linking against a static library the
-    # plugin will be self contained anyway
-  }
+    else {
 
-  contains(QWT_CONFIG, include_src) {
-    # compile all qwt classes into the plugin
-    include ( $${QWT_ROOT}/src/src.pri )
-    for( header, HEADERS) {
-      QWT_HEADERS += $${QWT_ROOT}/src/$${header}
+        CONFIG    += designer
     }
-    for( source, SOURCES ) {
-      QWT_SOURCES += $${QWT_ROOT}/src/$${source}
+
+
+    TEMPLATE        = lib
+    TARGET          = qwt_designer_plugin
+
+    DESTDIR         = plugins/designer
+
+    INCLUDEPATH    += $${QWT_ROOT}/src 
+    DEPENDPATH     += $${QWT_ROOT}/src 
+
+    contains(QWT_CONFIG, QwtDll) {
+
+        contains(QWT_CONFIG, QwtDesignerSelfContained) {
+            QWT_CONFIG += include_src
+        }
+
+    } else {
+
+        # for linking against a static library the 
+        # plugin will be self contained anyway 
     }
-    HEADERS = $${QWT_HEADERS}
-    SOURCES = $${QWT_SOURCES}
-  } else {
-      # compile the path for finding the Qwt library
-      # into the plugin. Not supported on Windows !
-      QMAKE_RPATHDIR *= $${QWT_INSTALL_LIBS}
-      dsAddLibrary($${QWT_OUT_ROOT}/../lib, qwt)
 
-      contains(QWT_CONFIG, QwtDll) {
-          win32 {
-              DEFINES += QT_DLL QWT_DLL
-          }
-      }
-  }
+    contains(QWT_CONFIG, include_src) {
 
-  !contains(QWT_CONFIG, QwtPlot) {
-    DEFINES += NO_QWT_PLOT
-  }
+        # compile all qwt classes into the plugin
 
-  !contains(QWT_CONFIG, QwtWidgets) {
-    DEFINES += NO_QWT_WIDGETS
-  }
+        include ( $${QWT_ROOT}/src/src.pri )
 
-  HEADERS += qwt_designer_plugin.h
-  SOURCES += qwt_designer_plugin.cpp
+        for( header, HEADERS) {
+            QWT_HEADERS += $${QWT_ROOT}/src/$${header}
+        }
 
-  contains(QWT_CONFIG, QwtPlot) {
-    HEADERS += qwt_designer_plotdialog.h
-    SOURCES += qwt_designer_plotdialog.cpp
-  }
+        for( source, SOURCES ) {
+            QWT_SOURCES += $${QWT_ROOT}/src/$${source}
+        }
 
-  RESOURCES += qwt_designer_plugin.qrc
+        HEADERS = $${QWT_HEADERS}
+        SOURCES = $${QWT_SOURCES}
 
-  target.path = $${QWT_INSTALL_PLUGINS}
-  INSTALLS += target
+    } else {
+
+        # compile the path for finding the Qwt library
+        # into the plugin. Not supported on Windows !
+
+        QMAKE_RPATHDIR *= $${QWT_INSTALL_LIBS}
+        qwtAddLibrary($${QWT_OUT_ROOT}/lib, qwt)
+
+        contains(QWT_CONFIG, QwtDll) {
+
+            DEFINES += QT_DLL QWT_DLL
+        }
+    }
+
+    !contains(QWT_CONFIG, QwtPlot) {
+        DEFINES += NO_QWT_PLOT
+    }
+
+    !contains(QWT_CONFIG, QwtPolar) {
+        DEFINES += NO_QWT_POLAR
+    }
+
+    !contains(QWT_CONFIG, QwtWidgets) {
+        DEFINES += NO_QWT_WIDGETS
+    }
+
+    SOURCES += qwt_designer_plugin.cpp
+    RESOURCES += qwt_designer_plugin.qrc
+
+    target.path = $${QWT_INSTALL_PLUGINS}
+    INSTALLS += target
 }
 else {
-  TEMPLATE        = subdirs # do nothing
+    TEMPLATE        = subdirs # do nothing
 }

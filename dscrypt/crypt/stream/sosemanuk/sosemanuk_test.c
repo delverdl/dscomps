@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 #include "tomcrypt_private.h"
 
@@ -28,7 +22,7 @@ int sosemanuk_test(void)
                               0xda, 0x8e, 0x7f, 0x61, 0x70, 0x81, 0xe3, 0xbb, 0x99, 0xaf, 0x19, 0x9f, 0x20, 0x45 };
        char pt[]          = "Kilroy was here, and there. ...and everywhere!";    /* len = 46 bytes */
        unsigned long len;
-       len = strlen(pt);
+       len = XSTRLEN(pt);
        /* crypt piece by piece */
        if ((err = sosemanuk_setup(&st, k, sizeof(k)))                                != CRYPT_OK) return err;
        if ((err = sosemanuk_setiv(&st, n, sizeof(n)))                                != CRYPT_OK) return err;
@@ -43,6 +37,11 @@ int sosemanuk_test(void)
        if ((err = sosemanuk_setiv(&st, n, sizeof(n)))                 != CRYPT_OK) return err;
        if ((err = sosemanuk_crypt(&st, (unsigned char*)pt, len, out)) != CRYPT_OK) return err;
        if (compare_testvector(out, len, ct, sizeof(ct), "SOSEMANUK-TV2", 1))       return CRYPT_FAIL_TESTVECTOR;
+
+       /* crypt in a single call */
+       if ((err = sosemanuk_memory(k, sizeof(k), n, sizeof(n),
+                                       (unsigned char*)pt, len, out)) != CRYPT_OK) return err;
+       if (compare_testvector(out, len, ct, sizeof(ct), "SOSEMANUK-TV3", 1))       return CRYPT_FAIL_TESTVECTOR;
 
    }
    {
@@ -70,7 +69,7 @@ int sosemanuk_test(void)
        if ((err = sosemanuk_setiv(&st, n3, sizeof(n3)))      != CRYPT_OK)     return err;
        if ((err = sosemanuk_keystream(&st, out, 64))         != CRYPT_OK)     return err;
        if ((err = sosemanuk_done(&st))                       != CRYPT_OK)     return err;
-       if (compare_testvector(out, 64, ct3, sizeof(ct3), "SOSEMANUK-TV3", 1)) return CRYPT_FAIL_TESTVECTOR;
+       if (compare_testvector(out, 64, ct3, sizeof(ct3), "SOSEMANUK-TV4", 1)) return CRYPT_FAIL_TESTVECTOR;
    }
 
    return CRYPT_OK;
@@ -78,7 +77,3 @@ int sosemanuk_test(void)
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

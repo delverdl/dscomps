@@ -3,7 +3,7 @@
 #TEMPLATE        =   lib
 
 #To compile uncomment the following line
-#and uncomment the next assignment
+#and comment the previous assignment
 TEMPLATE        =   subdirs
 
 include($$PWD/../dscommon/dscfgbase.pri)

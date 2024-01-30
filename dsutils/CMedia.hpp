@@ -3,7 +3,7 @@
 
 #include <QCoreApplication>
 #include <QLocale>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QString>
 #include <QStringList>
 #include <QTextStream>
@@ -56,21 +56,25 @@ class CMedia
           if (isValid)
           {
             if (sl.count() >= 3)
-            { QRegExp rx("([5-8]),([N,E,O,S,M]),([1-2]\\.?5?),?([N,H,S]?)");
+            { QRegularExpression rx("([5-8]),([N,E,O,S,M]),([1-2]\\.?5?),?([N,H,S]?)");
+              QRegularExpressionMatch match;
               QString sCfg = sl.join(',');
 
-              if (rx.indexIn(sCfg) != -1)
+              match = rx.match(sCfg);
+              if (match.hasMatch())
               {
                 char    ch = 'N';
                 double  n;
+                QString s1 = match.captured(2);
 
-                if (!rx.cap(2).isEmpty()) ch = static_cast<char>(rx.cap(2)[0].cell());
-                serialBits = static_cast<quint8>(rx.cap(1).toInt());
+                if (!s1.isEmpty()) ch = static_cast<char>(s1[0].cell());
+                serialBits = static_cast<quint8>(match.captured(1).toInt());
                 serialParity = ch == 'N' ? 0 : (ch == 'E' ? 2 : (ch == 'O' ? 3 : (ch == 'S' ? 4 : 5)));
-                n = QLocale::c().toDouble(rx.cap(3));
+                n = QLocale::c().toDouble(match.captured(3));
                 serialStop = n == 1.0 ? 1 : (n == 2.0 ? 2 : 3);
                 ch = 'N';
-                if (!rx.cap(4).isEmpty()) ch = static_cast<char>(rx.cap(4)[0].cell());
+                s1 = match.captured(4);
+                if (!s1.isEmpty()) ch = static_cast<char>(s1[0].cell());
                 serialFlow = ch == 'N' ? 0 : (ch == 'H' ? 1 : 2);
               } else goto _defser;
             } else goto _defser;

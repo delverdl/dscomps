@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 #include "tomcrypt_private.h"
 
 /**
@@ -42,7 +36,7 @@ int dsa_verify_hash_raw(         void   *r,          void   *s,
    *stat = 0;
 
    /* init our variables */
-   if ((err = mp_init_multi(&w, &v, &u1, &u2, NULL)) != CRYPT_OK) {
+   if ((err = mp_init_multi(&w, &v, &u1, &u2, LTC_NULL)) != CRYPT_OK) {
       return err;
    }
 
@@ -78,7 +72,7 @@ int dsa_verify_hash_raw(         void   *r,          void   *s,
 
    err = CRYPT_OK;
 error:
-   mp_clear_multi(w, v, u1, u2, NULL);
+   mp_clear_multi(w, v, u1, u2, LTC_NULL);
    return err;
 }
 
@@ -104,7 +98,7 @@ int dsa_verify_hash(const unsigned char *sig,        unsigned long  siglen,
    LTC_ARGCHK(stat != NULL);
    *stat = 0; /* must be set before the first return */
 
-   if ((err = mp_init_multi(&r, &s, NULL)) != CRYPT_OK) {
+   if ((err = mp_init_multi(&r, &s, LTC_NULL)) != CRYPT_OK) {
       return err;
    }
 
@@ -125,13 +119,9 @@ int dsa_verify_hash(const unsigned char *sig,        unsigned long  siglen,
    err = dsa_verify_hash_raw(r, s, hash, hashlen, stat, key);
 
 LBL_ERR:
-   mp_clear_multi(r, s, NULL);
+   mp_clear_multi(r, s, LTC_NULL);
    return err;
 }
 
 #endif
 
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

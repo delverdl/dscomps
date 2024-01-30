@@ -27,8 +27,8 @@ CONFIG                    *=  islib
 # Shared object and export library install location
 win32:dll {
   dlltarget.path          =   $$DSBINS
-  INSTALLS                *=  dlltarget
   DLLDESTDIR              =   $$OUT_PWD/../bin
+  INSTALLS                *=  dlltarget
 }
 DESTDIR                   =   $$OUT_PWD/../lib
 
@@ -49,6 +49,12 @@ iexamples.files           =   $$EXAMPLES_FILES
 iexamples.path            =   $$DSEXAMPLES/$$DSNAME
 
 target.path               =   $$DSLIBS
+
+# Remove remaining binary in libs directory
+#win32:dll {
+#  origtrg                 =   $$shell_path($$DSLIBS/$$TARGET)".dll"
+#  target.extra            =   del $$origtrg
+#}
 
 # Headers install location
 CONFIG(lib_bundle) {

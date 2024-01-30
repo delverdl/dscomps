@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /* The implementation is based on:
  * chacha-ref.c version 20080118
@@ -39,33 +33,42 @@ int chacha_test(void)
    chacha_state st;
    int err;
 
-   len = strlen(pt);
-   /* crypt piece by piece */
+   len = XSTRLEN(pt);
+
+   /* crypt piece by piece - using chacha_ivctr32() */
    if ((err = chacha_setup(&st, k, sizeof(k), 20)) != CRYPT_OK)                            return err;
    if ((err = chacha_ivctr32(&st, n, sizeof(n), 1)) != CRYPT_OK)                           return err;
-   if ((err = chacha_crypt(&st, (unsigned char*)pt,      35,       out)) != CRYPT_OK)      return err;
+   if ((err = chacha_crypt(&st, (unsigned char*)pt,      35,       out     )) != CRYPT_OK) return err;
    if ((err = chacha_crypt(&st, (unsigned char*)pt + 35, 35,       out + 35)) != CRYPT_OK) return err;
    if ((err = chacha_crypt(&st, (unsigned char*)pt + 70,  5,       out + 70)) != CRYPT_OK) return err;
    if ((err = chacha_crypt(&st, (unsigned char*)pt + 75,  5,       out + 75)) != CRYPT_OK) return err;
    if ((err = chacha_crypt(&st, (unsigned char*)pt + 80, len - 80, out + 80)) != CRYPT_OK) return err;
    if (compare_testvector(out, len, ct, sizeof(ct), "CHACHA-TV1", 1))                      return CRYPT_FAIL_TESTVECTOR;
-   /* crypt in one go */
+
+   /* crypt in one go - using chacha_ivctr32() */
    if ((err = chacha_setup(&st, k, sizeof(k), 20)) != CRYPT_OK)                            return err;
    if ((err = chacha_ivctr32(&st, n, sizeof(n), 1)) != CRYPT_OK)                           return err;
    if ((err = chacha_crypt(&st, (unsigned char*)pt, len, out)) != CRYPT_OK)                return err;
    if (compare_testvector(out, len, ct, sizeof(ct), "CHACHA-TV2", 1))                      return CRYPT_FAIL_TESTVECTOR;
+
    /* crypt in one go - using chacha_ivctr64() */
    if ((err = chacha_setup(&st, k, sizeof(k), 20)) != CRYPT_OK)                            return err;
    if ((err = chacha_ivctr64(&st, n + 4, sizeof(n) - 4, 1)) != CRYPT_OK)                   return err;
    if ((err = chacha_crypt(&st, (unsigned char*)pt, len, out)) != CRYPT_OK)                return err;
    if (compare_testvector(out, len, ct, sizeof(ct), "CHACHA-TV3", 1))                      return CRYPT_FAIL_TESTVECTOR;
 
+   /* crypt in a single call using 32-bit counter with a value of 1 */
+   if ((err = chacha_memory(k, sizeof(k), 20,
+                            n, sizeof(n), 1, (unsigned char*)pt, len, out)) != CRYPT_OK)   return err;
+   if (compare_testvector(out, len, ct, sizeof(ct), "CHACHA-TV4", 1))                      return CRYPT_FAIL_TESTVECTOR;
+
+   /* crypt in a single call using 64-bit counter with a value of 1 */
+   if ((err = chacha_memory(k, sizeof(k), 20,
+                            n + 4, sizeof(n) - 4, 1, (unsigned char*)pt, len, out)) != CRYPT_OK)  return err;
+   if (compare_testvector(out, len, ct, sizeof(ct), "CHACHA-TV5", 1))                      return CRYPT_FAIL_TESTVECTOR;
+
    return CRYPT_OK;
 #endif
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

@@ -23,8 +23,6 @@
 #ifndef KXZFILTER_H
 #define KXZFILTER_H
 
-
-
 #if HAVE_XZ_SUPPORT
 
 #include "kfilterbase.h"

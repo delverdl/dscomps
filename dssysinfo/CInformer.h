@@ -1,7 +1,6 @@
 #ifndef CINFORMER_H
 #define CINFORMER_H
 
-#include "dstypes.h"
 #include "CDisk.h"
 
 /**

@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 #include "tomcrypt_private.h"
 
 /**
@@ -16,17 +10,14 @@
 
 #ifdef LTC_SOBER128
 
-#define __LTC_SOBER128TAB_C__
+#define LTC_SOBER128TAB_C
 #include "sober128tab.c"
 
 /* don't change these... */
 #define N                        17
-#define FOLD                      N /* how many iterations of folding to do */
 #define INITKONST        0x6996c53a /* value of KONST to use during key loading */
 #define KEYP                     15 /* where to insert key words */
 #define FOLDP                     4 /* where to insert non-linear feedback */
-
-#define B(x,i) ((unsigned char)(((x) >> (8*i)) & 0xFF))
 
 static ulong32 BYTE2WORD(const unsigned char *b)
 {
@@ -335,12 +326,8 @@ int sober128_stream_keystream(sober128_state *st, unsigned char *out, unsigned l
 int sober128_stream_done(sober128_state *st)
 {
    LTC_ARGCHK(st != NULL);
-   XMEMSET(st, 0, sizeof(sober128_state));
+   zeromem(st, sizeof(sober128_state));
    return CRYPT_OK;
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

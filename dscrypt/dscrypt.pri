@@ -1,3 +1,3 @@
-LIBS          +=  -L$$OUT_PWD/../lib -lapplogger
+LIBS          +=  -L$$OUT_PWD/../lib -ldscrypt
 INCLUDEPATH   +=  $$PWD
 DEPENDPATH    +=  $$PWD

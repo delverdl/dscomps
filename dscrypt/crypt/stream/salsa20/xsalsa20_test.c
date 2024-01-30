@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /* The implementation is based on:
  * "Extending the Salsa20 nonce", https://cr.yp.to/snuffle/xsalsa-20081128.pdf
@@ -18,8 +12,8 @@
 
 #ifdef LTC_XSALSA20
 
-#ifdef LTC_SHA256
-int _sha256(unsigned char *hash, const unsigned char *data, const int datalen) {
+#if defined(LTC_SHA256) && defined(LTC_TEST)
+static int s_sha256(unsigned char *hash, const unsigned char *data, const int datalen) {
    hash_state md;
    sha256_init(&md);
    sha256_process(&md, data, datalen);
@@ -57,6 +51,12 @@ int xsalsa20_test(void)
         if ((err = salsa20_done(&st))                               != CRYPT_OK)  return err;
 
         if (compare_testvector(msg, msglen, msg2, msglen, "XSALSA20-TV1", 1))  return CRYPT_FAIL_TESTVECTOR;
+
+
+        /* round trip with two single function calls */
+        if ((err = xsalsa20_memory(key, sizeof(key), 20, nonce, sizeof(nonce), msg, msglen, ciphertext))  != CRYPT_OK)                return err;
+        if ((err = xsalsa20_memory(key, sizeof(key), 20, nonce, sizeof(nonce), ciphertext, msglen, msg2)) != CRYPT_OK)                return err;
+        if (compare_testvector(msg, msglen, msg2, msglen, "XSALSA20-TV2", 1))  return CRYPT_FAIL_TESTVECTOR;
     }
 
 #ifdef LTC_SHA256
@@ -77,8 +77,8 @@ int xsalsa20_test(void)
        if ((err = xsalsa20_setup(&st, key, 32, nonce, 24, rounds))   != CRYPT_OK)  return err;
        if ((err = salsa20_keystream(&st, keystream, keystreamlen))   != CRYPT_OK)  return err;
        if ((err = salsa20_done(&st))                                 != CRYPT_OK)  return err;
-       if ((err = _sha256(hash, keystream, keystreamlen))            != CRYPT_OK)  return err;
-       if (compare_testvector(hash, sizeof(hash), expecthash, sizeof(expecthash),   "XSALSA20-TV2", 1))  return CRYPT_FAIL_TESTVECTOR;
+       if ((err = s_sha256(hash, keystream, keystreamlen))            != CRYPT_OK)  return err;
+       if (compare_testvector(hash, sizeof(hash), expecthash, sizeof(expecthash),   "XSALSA20-TV3", 1))  return CRYPT_FAIL_TESTVECTOR;
    }
 #endif
 
@@ -88,7 +88,3 @@ int xsalsa20_test(void)
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

@@ -38,22 +38,35 @@ public:
     QwwTipWidget *pub;
     QLabel *label;
     QAbstractItemModel *m_model;
-	QWidget *m_headerWidget;
+    QWidget *m_headerWidget;
     QPersistentModelIndex m_currentTip;
-	QPushButton *m_next, *m_prev, *m_close;
+    QPushButton *m_next, *m_prev, *m_close;
     QTextBrowser *m_browser;
-	QCheckBox *m_check;
+    QCheckBox *m_check;
     QIcon defaultIcon;
     QSize iconSize;
+
     void showTip() {
         m_browser->setHtml(m_currentTip.data(Qt::DisplayRole).toString());
         QVariant v = m_currentTip.data(Qt::DisplayRole);
-        if (v.type()==QVariant::Icon) {
+#if QT_VERSION >= 0x060000
+        if (v.metaType().id()==QMetaType::QIcon) {
+#else
+          if (v.type()==QVariant::Icon) {
+#endif
             QIcon ic = qvariant_cast<QIcon>(v);
             label->setPixmap(ic.pixmap(iconSize));
+#if QT_VERSION >= 0x060000
+        } else if (v.metaType().id()==QMetaType::QPixmap) {
+#else
         } else if (v.type()==QVariant::Pixmap) {
+#endif
             label->setPixmap(qvariant_cast<QPixmap>(v));
+#if QT_VERSION >= 0x060000
+        } else if (v.metaType().id()==QMetaType::QImage) {
+#else
         } else if (v.type()==QVariant::Image) {
+#endif
             label->setPixmap(QPixmap::fromImage(qvariant_cast<QImage>(v)));
         } else
             label->setPixmap(defaultIcon.pixmap(iconSize));

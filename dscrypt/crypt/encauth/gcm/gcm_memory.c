@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /**
    @file gcm_memory.c
@@ -93,14 +87,28 @@ int gcm_memory(      int           cipher,
     if ((err = gcm_process(gcm, pt, ptlen, ct, direction)) != CRYPT_OK) {
        goto LTC_ERR;
     }
-    err = gcm_done(gcm, tag, taglen);
+    if (direction == GCM_ENCRYPT) {
+      if ((err = gcm_done(gcm, tag, taglen)) != CRYPT_OK) {
+         goto LTC_ERR;
+      }
+    }
+    else if (direction == GCM_DECRYPT) {
+       unsigned char buf[MAXBLOCKSIZE];
+       unsigned long buflen = sizeof(buf);
+       if ((err = gcm_done(gcm, buf, &buflen)) != CRYPT_OK) {
+          goto LTC_ERR;
+       }
+       if (buflen != *taglen || XMEM_NEQ(buf, tag, buflen) != 0) {
+          err = CRYPT_ERROR;
+       }
+    }
+    else {
+       err = CRYPT_INVALID_ARG;
+    }
 LTC_ERR:
+    gcm_reset(gcm);
     XFREE(orig);
     return err;
 }
 #endif
 
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

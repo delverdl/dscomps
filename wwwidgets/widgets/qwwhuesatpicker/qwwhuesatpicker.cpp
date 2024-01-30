@@ -184,13 +184,18 @@ void QwwHueSatPicker::paintEvent(QPaintEvent *) {
     drawFrame(&p);
     QRect rct = contentsRect();
     QStyleOptionFrame opt;
-    opt.initFrom(this);
+    opt.
+    #if QT_VERSION >= 0x060000
+        initFrom(this);
+    #else
+        init(this);
+    #endif
     if (opt.state & QStyle::State_Enabled) {
         p.drawPixmap(rct.topLeft(), d->px);
         drawCrosshair(&p, d->m_pt);
     } else {
         QIcon i(d->px);
-        i.paint(&p, rct, 0, QIcon::Disabled);
+        i.paint(&p, rct, (Qt::Alignment) 0, QIcon::Disabled);
     }
 }
 

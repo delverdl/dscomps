@@ -137,7 +137,12 @@ void QwwTwoColorIndicator::paintEvent(QPaintEvent *) {
 void QwwTwoColorIndicator::paintSection(QPainter * painter, const QRect & rect, const QColor & color) {
     Q_D(QwwTwoColorIndicator);
     QStyleOptionButton opt;
-    opt.initFrom(this);
+    opt.
+    #if QT_VERSION >= 0x060000
+        initFrom(this);
+    #else
+        init(this);
+    #endif
     opt.rect = rect;
     if ((rect.contains(QPoint(3,3)) && d->fgP) || (rect.contains(QPoint(width()-4, height()-4)) && d->bgP))
         opt.state |= QStyle::State_Sunken;
@@ -222,7 +227,7 @@ void QwwTwoColorIndicator::setActive(bool a) {
  * \internal
  */
 QSize QwwTwoColorIndicator::sizeHint() const {
-    return QSize(50,50).expandedTo(QApplication::globalStrut()*1.5);
+    return QSize(50,50);
 }
 
 
@@ -230,7 +235,7 @@ QSize QwwTwoColorIndicator::sizeHint() const {
  * \internal
  */
 QSize QwwTwoColorIndicator::minimumSizeHint() const {
-    return QSize(20,20).expandedTo(QApplication::globalStrut());
+    return QSize(20,20);
 }
 
 /*!
@@ -358,9 +363,21 @@ void QwwTwoColorIndicator::dropEvent(QDropEvent *ev) {
         col = qvariant_cast<QColor>(ev->mimeData()->colorData());
     else
         col.setNamedColor(ev->mimeData()->text());
-    if (d->foregroundRect().contains(ev->pos())) {
+    if (d->foregroundRect().contains(ev->
+                                 #if QT_VERSION >= 0x060000
+                                     position().toPoint()
+                                 #else
+                                     pos()
+                                 #endif
+                                     )) {
         setFgColor(col);
-    } else if (d->backgroundRect().contains(ev->pos())) {
+    } else if (d->backgroundRect().contains(ev->
+                                        #if QT_VERSION >= 0x060000
+                                            position().toPoint()
+                                        #else
+                                            pos()
+                                        #endif
+                                            )) {
         setBgColor(col);
     }
     ev->setDropAction(Qt::CopyAction);

@@ -18,6 +18,8 @@
 #ifndef K7ZIP_H
 #define K7ZIP_H
 
+#if HAVE_XZ_SUPPORT
+
 #include <karchive.h>
 
 /**
@@ -94,5 +96,7 @@ private:
     K7Zip(): KArchive(nullptr), d(nullptr) {}
     K7Zip(const K7Zip& other): KArchive(nullptr), d(nullptr) { Q_UNUSED(other); }
 };
+
+#endif
 
 #endif

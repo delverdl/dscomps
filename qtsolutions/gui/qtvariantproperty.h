@@ -129,7 +129,7 @@ private:
     Q_PRIVATE_SLOT(d_func(), void slotDecimalsChanged(QtProperty *, int))
     Q_PRIVATE_SLOT(d_func(), void slotValueChanged(QtProperty *, bool))
     Q_PRIVATE_SLOT(d_func(), void slotValueChanged(QtProperty *, const QString &))
-    Q_PRIVATE_SLOT(d_func(), void slotRegExpChanged(QtProperty *, const QRegExp &))
+    Q_PRIVATE_SLOT(d_func(), void slotRegExpChanged(QtProperty *, const QRegularExpression &))
     Q_PRIVATE_SLOT(d_func(), void slotValueChanged(QtProperty *, const QDate &))
     Q_PRIVATE_SLOT(d_func(), void slotRangeChanged(QtProperty *, const QDate &, const QDate &))
     Q_PRIVATE_SLOT(d_func(), void slotValueChanged(QtProperty *, const QTime &))
@@ -183,6 +183,54 @@ private:
 
 #if QT_VERSION >= 0x040400
 QT_END_NAMESPACE
+#endif
+
+#if QT_DEPRECATED_SINCE(6, 0)
+  #define VPROP_INT         QVariant::Int
+  #define VPROP_BOOL        QVariant::Bool
+  #define VPROP_DOUBLE      QVariant::Double
+  #define VPROP_STRING      QVariant::String
+  #define VPROP_DATE        QVariant::Date
+  #define VPROP_TIME        QVariant::Time
+  #define VPROP_DATETIME    QVariant::DateTime
+  #define VPROP_KEYSEQUENCE QVariant::KeySequence
+  #define VPROP_CHAR        QVariant::Char
+  #define VPROP_LOCALE      QVariant::Locale
+  #define VPROP_POINT       QVariant::Point
+  #define VPROP_POINTFLOAT  QVariant::PointF
+  #define VPROP_SIZE        QVariant::Size
+  #define VPROP_SIZEFLOAT   QVariant::SizeF
+  #define VPROP_RECT        QVariant::Rect
+  #define VPROP_RECTFLOAT   QVariant::RectF
+  #define VPROP_COLOR       QVariant::Color
+  #define VPROP_STRINGLIST  QVariant::StringList
+  #define VPROP_SIZEPOLICY  QVariant::SizePolicy
+  #define VPROP_FONT        QVariant::Font
+  #define VPROP_CURSOR      QVariant::Cursor
+  #define VPROP_UNKNOWN     QVariant::Invalid
+#else
+  #define VPROP_INT         QMetaType::Int
+  #define VPROP_BOOL        QMetaType::Bool
+  #define VPROP_DOUBLE      QMetaType::Double
+  #define VPROP_STRING      QMetaType::QString
+  #define VPROP_DATE        QMetaType::QDate
+  #define VPROP_TIME        QMetaType::QTime
+  #define VPROP_DATETIME    QMetaType::QDateTime
+  #define VPROP_KEYSEQUENCE QMetaType::QKeySequence
+  #define VPROP_CHAR        QMetaType::QChar
+  #define VPROP_LOCALE      QMetaType::QLocale
+  #define VPROP_POINT       QMetaType::QPoint
+  #define VPROP_POINTFLOAT  QMetaType::QPointF
+  #define VPROP_SIZE        QMetaType::QSize
+  #define VPROP_SIZEFLOAT   QMetaType::QSizeF
+  #define VPROP_RECT        QMetaType::QRect
+  #define VPROP_RECTFLOAT   QMetaType::QRectF
+  #define VPROP_COLOR       QMetaType::QColor
+  #define VPROP_STRINGLIST  QMetaType::QStringList
+  #define VPROP_SIZEPOLICY  QMetaType::QSizePolicy
+  #define VPROP_FONT        QMetaType::QFont
+  #define VPROP_CURSOR      QMetaType::QCursor
+  #define VPROP_UNKNOWN     QMetaType::UnknownType
 #endif
 
 Q_DECLARE_METATYPE(QIcon)

@@ -130,7 +130,6 @@ void QwwNumPad::animateClick(const QString & button, int msec) {
 #else
     char key = button[0].toAscii();
 #endif
-    QList<QToolButton*> items;
     QString name;
     switch (key) {
     case '#':
@@ -142,13 +141,20 @@ void QwwNumPad::animateClick(const QString & button, int msec) {
     default:
         name = QString("b%1").arg(key);
     }
+#if QT_VERSION >= 0x060000
+    Q_UNUSED(msec)
+#endif
 #if QT_VERSION >= 0x050000
 	QToolButton *buttonPtr = findChild<QToolButton*>(name);
 #else
     QToolButton *buttonPtr = qFindChild<QToolButton*>(this, name);
 #endif
     if (!buttonPtr) return;
-    buttonPtr->animateClick(msec);
+    buttonPtr->animateClick(
+      #if QT_VERSION < 0x060000
+          msec
+      #endif
+          );
 }
 
 #include "moc_qwwnumpad.cpp"

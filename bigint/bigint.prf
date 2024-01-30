@@ -1,0 +1,10 @@
+include(./dscfgbase.pri)
+
+dsAddLibrary($$DSLIBS, bigint)
+
+# Include paths
+contains(DSSYSTEM, HASFRAMEWORK) {
+  INCLUDEPATH *=  $$DSLIBS/bigint.framework/Headers
+} else {
+  INCLUDEPATH *=  $$DSHEADERS/bigint
+}

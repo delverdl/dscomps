@@ -28,7 +28,9 @@
 #include <QMimeData>
 #include <QDragEnterEvent>
 #include <QDropEvent>
+#if QT_VERSION < 0x060000
 #include <QDesktopWidget>
+#endif
 #include "colormodel.h"
 
 /**
@@ -172,11 +174,17 @@ public:
         Q_Q(QwwColorButton);
         if (!popup) {
             popup = new QwwColorPopup(model, q);
-            q->connect(popup->colorView(), SIGNAL(clicked(const QModelIndex&)), q, SLOT(_q_activated(const QModelIndex&)));
+            q->connect(popup->colorView(), SIGNAL(clicked(const QModelIndex&)), q,
+                       SLOT(_q_activated(const QModelIndex&)));
         }
         QPoint p = q->rect().bottomLeft();
         p = q->mapToGlobal(p);
-        QRect avail = QDesktopWidget().availableGeometry(q);
+        QRect avail =
+#if QT_VERSION >= 0x060000
+            QGuiApplication::primaryScreen()->availableGeometry();
+#else
+            QDesktopWidget().availableGeometry(q);
+#endif
         int hei = avail.height()-p.y();
         popup->move(p);
         QSize hint = sizeHint();

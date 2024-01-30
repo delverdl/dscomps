@@ -93,7 +93,7 @@ Task::Task(QWidget *body, QWidget *parent) : QWidget(parent) {
     m_animBody = 0;
     m_animator.setDuration(1200);
     m_animator.setUpdateInterval(20);
-    m_animator.setCurveShape(QTimeLine::EaseInOutCurve);
+    m_animator.setEasingCurve(QEasingCurve::InOutSine);
     QVBoxLayout *l = new QVBoxLayout(this);
     l->setSpacing(0);
     l->setContentsMargins(0, 0, 0, 0);

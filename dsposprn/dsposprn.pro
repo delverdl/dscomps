@@ -3,6 +3,10 @@ android {
   SUBDIRS         =
 } else {
   QT              +=  core gui serialport network
+  
+  greaterThan(QT_MAJOR_VERSION, 5) {
+    QT += core5compat
+  }
 
   DSNAME          =   dsposprn
   TEMPLATE        =   lib

@@ -1,5 +1,10 @@
 #ifndef WW_NO_RICHTEXTEDIT
 #include "qwwrichtextedit.h"
+
+#if QT_VERSION >= 0x060000
+#include <QActionGroup>
+#endif
+
 #include <QKeyEvent>
 #include <QToolBar>
 #include <QResizeEvent>

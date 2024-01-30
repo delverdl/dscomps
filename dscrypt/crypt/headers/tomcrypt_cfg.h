@@ -1,15 +1,9 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /* This is the build config file.
  *
- * With this you can setup what to inlcude/exclude automatically during any build.  Just comment
+ * With this you can setup what to include/exclude automatically during any build.  Just comment
  * out the line that #define's the word for the thing you want to remove.  phew!
  */
 
@@ -61,6 +55,14 @@ LTC_EXPORT int   LTC_CALL XSTRCMP(const char *s1, const char *s2);
    #define LTC_INLINE
 #endif
 
+#if defined(__clang__) || defined(__GNUC_MINOR__)
+#define LTC_NORETURN __attribute__ ((noreturn))
+#elif defined(_MSC_VER)
+#define LTC_NORETURN __declspec(noreturn)
+#else
+#define LTC_NORETURN
+#endif
+
 /* type of argument checking, 0=default, 1=fatal and 2=error+continue, 3=nothing */
 #ifndef ARGTYPE
    #define ARGTYPE  0
@@ -89,6 +91,11 @@ LTC_EXPORT int   LTC_CALL XSTRCMP(const char *s1, const char *s2);
    #define ENDIAN_LITTLE
    #define ENDIAN_64BITWORD
    #define LTC_FAST
+   #if defined(__SSE4_1__)
+      #if __SSE4_1__ == 1
+         #define LTC_AMD64_SSE4_1
+      #endif
+   #endif
 #endif
 
 /* detect PPC32 */
@@ -103,7 +110,7 @@ LTC_EXPORT int   LTC_CALL XSTRCMP(const char *s1, const char *s2);
    #define ENDIAN_64BITWORD
    #if defined(_MIPSEB) || defined(__MIPSEB) || defined(__MIPSEB__)
      #define ENDIAN_BIG
-   #endif
+   #else
      #define ENDIAN_LITTLE
    #endif
 #endif
@@ -180,7 +187,8 @@ LTC_EXPORT int   LTC_CALL XSTRCMP(const char *s1, const char *s2);
       defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__ || \
       defined(__BIG_ENDIAN__) || \
       defined(__ARMEB__) || defined(__THUMBEB__) || defined(__AARCH64EB__) || \
-      defined(_MIPSEB) || defined(__MIPSEB) || defined(__MIPSEB__)
+      defined(_MIPSEB) || defined(__MIPSEB) || defined(__MIPSEB__) || \
+      defined(__m68k__)
     #define ENDIAN_BIG
   #elif defined(_BYTE_ORDER) && _BYTE_ORDER == _LITTLE_ENDIAN || \
       defined(__BYTE_ORDER) && __BYTE_ORDER == __LITTLE_ENDIAN || \
@@ -198,9 +206,11 @@ LTC_EXPORT int   LTC_CALL XSTRCMP(const char *s1, const char *s2);
 #ifdef _MSC_VER
    #define CONST64(n) n ## ui64
    typedef unsigned __int64 ulong64;
+   typedef __int64 long64;
 #else
    #define CONST64(n) n ## ULL
    typedef unsigned long long ulong64;
+   typedef long long long64;
 #endif
 
 /* ulong32: "32-bit at least" data type */
@@ -233,8 +243,9 @@ typedef unsigned long ltc_mp_digit;
    #undef ENDIAN_32BITWORD
    #undef ENDIAN_64BITWORD
    #undef LTC_FAST
-   #define LTC_NO_ROLC
    #define LTC_NO_BSWAP
+   #define LTC_NO_ROLC
+   #define LTC_NO_ROTATE
 #endif
 
 /* No LTC_FAST if: explicitly disabled OR non-gcc/non-clang compiler OR old gcc OR using -ansi -std=c99 */
@@ -279,15 +290,39 @@ typedef unsigned long ltc_mp_digit;
    #define LTC_HAVE_BSWAP_BUILTIN
 #endif
 
-#if defined(__GNUC__) && (__GNUC__ * 100 + __GNUC_MINOR__ >= 301)
-   #define LTC_DEPRECATED __attribute__((deprecated))
-#elif defined(_MSC_VER) && _MSC_VER >= 1500
-   /* supported since Visual Studio 2008 */
-   #define LTC_DEPRECATED __declspec(deprecated)
-#else
-   #define LTC_DEPRECATED
+#if !defined(LTC_NO_ROTATE) && (__has_builtin(__builtin_rotateleft32) && __has_builtin(__builtin_rotateright32))
+   #define LTC_HAVE_ROTATE_BUILTIN
 #endif
 
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */
+#if defined(__GNUC__)
+   #define LTC_ALIGN(n) __attribute__((aligned(n)))
+#else
+   #define LTC_ALIGN(n)
+#endif
+
+/* Define `LTC_NO_NULL_TERMINATION_CHECK` in the user code
+ * before including `tomcrypt.h` to disable this functionality.
+ */
+#if defined(__GNUC__) && __GNUC__ >= 4 && !defined(LTC_NO_NULL_TERMINATION_CHECK)
+#   define LTC_NULL_TERMINATED __attribute__((sentinel))
+#else
+#   define LTC_NULL_TERMINATED
+#endif
+
+#if defined(__GNUC__) && (__GNUC__ * 100 + __GNUC_MINOR__ >= 405)
+#  define LTC_DEPRECATED(s) __attribute__((deprecated("replaced by " #s)))
+#  define PRIVATE_LTC_DEPRECATED_PRAGMA(s) _Pragma(#s)
+#  define LTC_DEPRECATED_PRAGMA(s) PRIVATE_LTC_DEPRECATED_PRAGMA(GCC warning s)
+#elif defined(__GNUC__) && (__GNUC__ * 100 + __GNUC_MINOR__ >= 301)
+#  define LTC_DEPRECATED(s) __attribute__((deprecated))
+#  define LTC_DEPRECATED_PRAGMA(s)
+#elif defined(_MSC_VER) && _MSC_VER >= 1500
+   /* supported since Visual Studio 2008 */
+#  define LTC_DEPRECATED(s) __declspec(deprecated("replaced by " #s))
+#  define LTC_DEPRECATED_PRAGMA(s) __pragma(message(s))
+#else
+#  define LTC_DEPRECATED(s)
+#  define LTC_DEPRECATED_PRAGMA(s)
+#endif
+
+#endif /* TOMCRYPT_CFG_H */

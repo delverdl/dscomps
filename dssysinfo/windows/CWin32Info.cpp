@@ -138,7 +138,6 @@ CUsers CWin32Info::userList() const
   DWORD           dwTotalEntries = 0;
   DWORD           dwResumeHandle = 0;
   DWORD           i;
-  DWORD           dwTotalCount = 0;
   NET_API_STATUS  nStatus;
   LPTSTR          pszServerName = nullptr;
   QString         sName;
@@ -166,7 +165,6 @@ CUsers CWin32Info::userList() const
           croot = iscurrent ? currentHaveRoot() : pTmpBuf->usri1_priv == USER_PRIV_ADMIN;
           lUsers.insert(sName, croot);
           pTmpBuf++;
-          dwTotalCount++;
         }
       }
     }

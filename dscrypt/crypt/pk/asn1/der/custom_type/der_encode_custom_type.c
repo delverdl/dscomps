@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 #include "tomcrypt_private.h"
 
 
@@ -42,7 +36,7 @@ int der_encode_custom_type(const ltc_asn1_list *root,
 
    /* get size of output that will be required */
    y = 0; z = 0;
-   if ((err = der_length_custom_type(root, &y, &z)) != CRYPT_OK) return CRYPT_INVALID_ARG;
+   if (der_length_custom_type(root, &y, &z) != CRYPT_OK) return CRYPT_INVALID_ARG;
 
    /* too big ? */
    if (*outlen < y) {
@@ -52,7 +46,7 @@ int der_encode_custom_type(const ltc_asn1_list *root,
    }
 
    /* get length of the identifier, so we know the offset where to start writing */
-   if ((err = der_length_asn1_identifier(root, &id_len)) != CRYPT_OK) return CRYPT_INVALID_ARG;
+   if (der_length_asn1_identifier(root, &id_len) != CRYPT_OK) return CRYPT_INVALID_ARG;
    x = id_len;
 
 
@@ -232,7 +226,3 @@ LBL_ERR:
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

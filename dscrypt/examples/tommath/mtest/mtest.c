@@ -28,11 +28,7 @@ mulmod
 
  */
 
-#ifdef MP_8BIT
-#define THE_MASK 127
-#else
 #define THE_MASK 32767
-#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -99,7 +95,7 @@ void rand_num2(mp_int *a)
 int main(int argc, char *argv[])
 {
    int n, tmp;
-   long long max;
+   long max;
    mp_int a, b, c, d, e;
 #ifdef MTEST_NO_FULLSPEED
    clock_t t1;
@@ -293,7 +289,7 @@ int main(int argc, char *argv[])
          rand_num2(&a);
          rand_num2(&b);
          rand_num2(&c);
-//      if (c.dp[0]&1) mp_add_d(&c, 1, &c);
+         /*      if (c.dp[0]&1) mp_add_d(&c, 1, &c); */
          a.sign = b.sign = c.sign = 0;
          mp_exptmod(&a, &b, &c, &d);
          printf("expt\n");

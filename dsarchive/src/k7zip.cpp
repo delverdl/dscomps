@@ -20,6 +20,8 @@
 #include "karchive_p.h"
 #include "loggingcategory.h"
 
+#if HAVE_XZ_SUPPORT
+
 #include <QDebug>
 #include <QDir>
 #include <QBuffer>
@@ -2984,3 +2986,5 @@ void K7Zip::virtual_hook(int id, void *data)
 {
     KArchive::virtual_hook(id, data);
 }
+
+#endif

@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /* The implementation is based on:
  * Public Domain poly1305 from Andrew Moon
@@ -17,7 +11,7 @@
 #ifdef LTC_POLY1305
 
 /* internal only */
-static void _poly1305_block(poly1305_state *st, const unsigned char *in, unsigned long inlen)
+static void s_poly1305_block(poly1305_state *st, const unsigned char *in, unsigned long inlen)
 {
    const unsigned long hibit = (st->final) ? 0 : (1UL << 24); /* 1 << 128 */
    ulong32 r0,r1,r2,r3,r4;
@@ -141,14 +135,14 @@ int poly1305_process(poly1305_state *st, const unsigned char *in, unsigned long 
       in += want;
       st->leftover += want;
       if (st->leftover < 16) return CRYPT_OK;
-      _poly1305_block(st, st->buffer, 16);
+      s_poly1305_block(st, st->buffer, 16);
       st->leftover = 0;
    }
 
    /* process full blocks */
    if (inlen >= 16) {
       unsigned long want = (inlen & ~(16 - 1));
-      _poly1305_block(st, in, want);
+      s_poly1305_block(st, in, want);
       in += want;
       inlen -= want;
    }
@@ -186,7 +180,7 @@ int poly1305_done(poly1305_state *st, unsigned char *mac, unsigned long *maclen)
       st->buffer[i++] = 1;
       for (; i < 16; i++) st->buffer[i] = 0;
       st->final = 1;
-      _poly1305_block(st, st->buffer, 16);
+      s_poly1305_block(st, st->buffer, 16);
    }
 
    /* fully carry h */
@@ -262,7 +256,3 @@ int poly1305_done(poly1305_state *st, unsigned char *mac, unsigned long *maclen)
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

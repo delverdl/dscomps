@@ -17,7 +17,7 @@
 #include <QToolButton>
 #include <QtDebug>
 #include <QActionEvent>
-#include <QRegExpValidator>
+#include <QRegularExpressionValidator>
 #if QT_VERSION >= 0x050000
 #include <QRegularExpressionValidator>
 #endif
@@ -312,9 +312,9 @@ QToolButton * QwwButtonLineEdit::button() const
  */
 
 QString QwwButtonLineEdit::regExp() const {
-    const QRegExpValidator *rxvalid = qobject_cast<const QRegExpValidator*>(validator());
+    const QRegularExpressionValidator *rxvalid = qobject_cast<const QRegularExpressionValidator*>(validator());
     if (!rxvalid) return ".*";
-    return rxvalid->regExp().pattern();
+    return rxvalid->regularExpression().pattern();
 }
 
 /*!
@@ -323,20 +323,20 @@ QString QwwButtonLineEdit::regExp() const {
 
 void QwwButtonLineEdit::setRegExp(const QString &v) {
     QValidator *valid = const_cast<QValidator*>(validator());
-    QRegExpValidator *rxvalid = qobject_cast<QRegExpValidator*>(valid);
-    if (rxvalid && rxvalid->regExp().pattern()==v) {
+    QRegularExpressionValidator *rxvalid = qobject_cast<QRegularExpressionValidator*>(valid);
+    if (rxvalid && rxvalid->regularExpression().pattern()==v) {
         return;
     }
-    QRegExp rx(v);
+    QRegularExpression rx(v);
     if (v==".*" || v.isEmpty()) {
         setValidator(0);
         emit validatorChanged(".*");
         return;
     }
     if (rxvalid) {
-        rxvalid->setRegExp(rx);
+        rxvalid->setRegularExpression(rx);
     } else {
-        setValidator(new QRegExpValidator(rx, this));
+        setValidator(new QRegularExpressionValidator(rx, this));
     }
     emit validatorChanged(v);
 }
@@ -345,10 +345,10 @@ void QwwButtonLineEdit::setRegExp(const QString &v) {
  *
  * \overload
  */
-void QwwButtonLineEdit::setRegExp(const QRegExp &rx) {
+void QwwButtonLineEdit::setRegExp(const QRegularExpression &rx) {
     QValidator *valid = const_cast<QValidator*>(validator());
-    QRegExpValidator *rxvalid = qobject_cast<QRegExpValidator*>(valid);
-    if (rxvalid && rxvalid->regExp()==rx) {
+    QRegularExpressionValidator *rxvalid = qobject_cast<QRegularExpressionValidator*>(valid);
+    if (rxvalid && rxvalid->regularExpression()==rx) {
         return;
     }
     if (rx.pattern()==".*") {
@@ -357,9 +357,9 @@ void QwwButtonLineEdit::setRegExp(const QRegExp &rx) {
         return;
     }
     if (rxvalid) {
-        rxvalid->setRegExp(rx);
+        rxvalid->setRegularExpression(rx);
     } else {
-        setValidator(new QRegExpValidator(rx, this));
+        setValidator(new QRegularExpressionValidator(rx, this));
     }
   emit validatorChanged(rx.pattern());
 }

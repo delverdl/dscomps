@@ -381,7 +381,7 @@ void SshOutgoingPacket::finalize()
     m_length = m_data.size() - 4;
     qCDebug(sshLog, "Encrypting packet of type %u", m_data.at(TypeOffset));
     encrypt();
-    qCDebug(sshLog, "Sending packet of size %d", rawData().count());
+    qCDebug(sshLog, "Sending packet of size %d", (int) rawData().count());
     Q_ASSERT(isComplete());
 }
 

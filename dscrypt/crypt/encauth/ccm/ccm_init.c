@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 #include "tomcrypt_private.h"
 
 #ifdef LTC_CCM_MODE
@@ -29,7 +23,6 @@ int ccm_init(ccm_state *ccm, int cipher,
 
    LTC_ARGCHK(ccm    != NULL);
    LTC_ARGCHK(key    != NULL);
-   LTC_ARGCHK(taglen != 0);
 
    XMEMSET(ccm, 0, sizeof(ccm_state));
 
@@ -41,17 +34,11 @@ int ccm_init(ccm_state *ccm, int cipher,
       return CRYPT_INVALID_CIPHER;
    }
 
-   /* make sure the taglen is even and <= 16 */
-   ccm->taglen = taglen;
-   ccm->taglen &= ~1;
-   if (ccm->taglen > 16) {
-      ccm->taglen = 16;
-   }
-
-   /* can't use < 4 */
-   if (ccm->taglen < 4) {
+   /* make sure the taglen is valid */
+   if (taglen < 4 || taglen > 16 || (taglen % 2) == 1 || aadlen < 0 || ptlen < 0) {
       return CRYPT_INVALID_ARG;
    }
+   ccm->taglen = taglen;
 
    /* schedule key */
    if ((err = cipher_descriptor[cipher].setup(key, keylen, 0, &ccm->K)) != CRYPT_OK) {
@@ -75,7 +62,3 @@ int ccm_init(ccm_state *ccm, int cipher,
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

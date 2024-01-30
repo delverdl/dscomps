@@ -1,0 +1,12 @@
+include(./dscfgbase.pri)
+
+dsAddLibrary($$DSLIBS, qxlsx)
+
+DEFINES += QXlsx_SHAREDLIB
+
+# Include paths
+contains(DSSYSTEM, HASFRAMEWORK) {
+  INCLUDEPATH *=  $$DSLIBS/qxlsx.framework/Headers
+} else {
+  INCLUDEPATH *=  $$DSHEADERS/qxlsx
+}

@@ -3,6 +3,7 @@ include(./dscfgbase.pri)
 dsAddLibrary($$DSLIBS, dssshwidgets)
 
 QT            *= gui widgets network
+CONFIG        *= dsssh
 
 # Include paths
 contains(DSSYSTEM, HASFRAMEWORK) {

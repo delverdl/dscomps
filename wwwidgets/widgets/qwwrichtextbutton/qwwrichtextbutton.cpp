@@ -187,7 +187,7 @@ QSize QwwRichTextButton::sizeHint() const {
     int m = style()->pixelMetric(QStyle::PM_ButtonMargin, &opt, this);
     m+=style()->pixelMetric(QStyle::PM_DefaultFrameWidth, 0, this);
     m*=2;
-    return QSize(80,25).expandedTo(QApplication::globalStrut()).expandedTo(document()->size().toSize()+QSize(m, m));
+    return QSize(80,25).expandedTo(document()->size().toSize()+QSize(m, m));
 }
 
 /*!
@@ -196,7 +196,12 @@ QSize QwwRichTextButton::sizeHint() const {
 void QwwRichTextButtonPrivate::initStyleOption(QStyleOptionButton * opt) const {
     Q_Q(const QwwRichTextButton);
     if (!opt) return;
-    opt->initFrom(q);
+    opt->
+    #if QT_VERSION >= 0x060000
+        initFrom(q);
+    #else
+        init(q);
+    #endif
 //    opt->features = StyleOptionButton::None;
     if (q->isDown())
         opt->state |= QStyle::State_Sunken;
@@ -259,7 +264,7 @@ void QwwRichTextButtonPrivate::_q_documentDestroyed() {
  * \internal
  */
 QSize QwwRichTextButton::minimumSizeHint() const {
-    return QSize(80, 25).expandedTo(QApplication::globalStrut());
+    return QSize(80, 25);
 }
 
 /*!

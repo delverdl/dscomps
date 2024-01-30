@@ -1,33 +1,54 @@
-################################################################
-# Qwt Widget Library
-# Copyright (C) 1997   Josef Wilgen
-# Copyright (C) 2002   Uwe Rathmann
-#
-# This library is free software; you can redistribute it and/or
-# modify it under the terms of the Qwt License, Version 1.0
-################################################################
+######################################################################
+# Qwt Examples - Copyright (C) 2002 Uwe Rathmann
+# This file may be used under the terms of the 3-clause BSD License
+######################################################################
 
-include( $$PWD/../qwtconfig.pri )
+include( $${PWD}/../qwtconfig.pri )
 
-TEMPLATE        =   subdirs
+TEMPLATE = subdirs
 
-contains(QWT_CONFIG, QwtExamplesBuild) {
-  contains(QWT_CONFIG, QwtPlot) {
-    SUBDIRS     +=  animation barchart cpuplot curvdemo1 distrowatch friedberg itemeditor \
-                    legends stockchart simpleplot sinusplot realtime refreshtest scatterplot \
-                    spectrogram rasterview tvplot
+contains(QWT_CONFIG, QwtPlot) {
+    
+    SUBDIRS += \
+        animation \
+        barchart \
+        cpuplot \
+        curvedemo \
+        distrowatch \
+        friedberg \
+        itemeditor \
+        legends \
+        stockchart \
+        simpleplot \
+        sinusplot \
+        realtime \
+        refreshtest \
+        scatterplot \
+        spectrogram \
+        rasterview \
+        tvplot 
 
     contains(QWT_CONFIG, QwtWidgets) {
-      SUBDIRS   +=  bode event_filter oscilloscope
-    }
-  }
 
-  contains(QWT_CONFIG, QwtWidgets) {
-    SUBDIRS     +=  sysinfo radio dials controls
-  }
+        SUBDIRS += \
+            bode \
+            splineeditor \
+            oscilloscope  
+    }
+
+    contains(QWT_CONFIG, QwtPolar) {
+
+        SUBDIRS += \
+            polardemo \
+            polarspectrogram \
+    }
 }
 
-iexamples.files = $$PWD
-iexamples.path  = $${QWT_INSTALL_EXAMPLES}
+contains(QWT_CONFIG, QwtWidgets) {
 
-INSTALLS        += iexamples
+    SUBDIRS += \
+        sysinfo \
+        radio \
+        dials \
+        controls
+}

@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 #include "tomcrypt_private.h"
 
@@ -31,7 +25,7 @@ int chacha20poly1305_test(void)
                            0x61, 0x16 };
    unsigned char tag[] = { 0x1A, 0xE1, 0x0B, 0x59, 0x4F, 0x09, 0xE2, 0x6A, 0x7E, 0x90, 0x2E, 0xCB, 0xD0, 0x60, 0x06, 0x91 };
    char m[] = "Ladies and Gentlemen of the class of '99: If I could offer you only one tip for the future, sunscreen would be it.";
-   unsigned long mlen = strlen(m);
+   unsigned long mlen = XSTRLEN(m);
    unsigned long len;
    unsigned char rfc7905_pt[]  = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F };
    unsigned char rfc7905_enc[] = { 0xE4, 0x62, 0x85, 0xB4, 0x29, 0x95, 0x34, 0x96, 0xAB, 0xFB, 0x67, 0xCD, 0xAE, 0xAC, 0x94, 0x1E };
@@ -77,10 +71,10 @@ int chacha20poly1305_test(void)
 
    /* chacha20poly1305_memory - decrypt */
    len = sizeof(dmac);
+   XMEMCPY(dmac, tag, sizeof(tag));
    if ((err = chacha20poly1305_memory(k, sizeof(k), i12, sizeof(i12), aad, sizeof(aad),
                                       ct, mlen, pt, dmac, &len, CHACHA20POLY1305_DECRYPT)) != CRYPT_OK) return err;
    if (compare_testvector(pt, mlen, m, mlen, "DEC-PT2", 3) != 0) return CRYPT_FAIL_TESTVECTOR;
-   if (compare_testvector(dmac, len, tag, sizeof(tag), "DEC-TAG2", 4) != 0) return CRYPT_FAIL_TESTVECTOR;
 
    /* encrypt - rfc7905 */
    if ((err = chacha20poly1305_init(&st1, k, sizeof(k))) != CRYPT_OK) return err;
@@ -123,12 +117,43 @@ int chacha20poly1305_test(void)
    if (compare_testvector(pt, mlen, m, mlen, "DEC-PT4", 1) != 0) return CRYPT_FAIL_TESTVECTOR;
    if (compare_testvector(dmac, len, emac, len, "DEC-TAG4", 2) != 0) return CRYPT_FAIL_TESTVECTOR;
 
+   /* wycheproof failing test - https://github.com/libtom/libtomcrypt/pull/451 */
+   {
+      unsigned char key[] = { 0x00,0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88,0x99,0xaa,0xbb,0xcc,0xdd,0xee,0xff,
+                              0x00,0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88,0x99,0xaa,0xbb,0xcc,0xdd,0xee,0xff };
+      unsigned char iv[]  = { 0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x0b };
+      unsigned char valid_tag[]   = { 0xa3,0xe3,0xfd,0xf9,0xfb,0xa6,0x86,0x1b,0x5a,0xd2,0x60,0x7f,0x40,0xb7,0xf4,0x47 };
+      unsigned char invalid_tag[] = { 0xa2,0xe3,0xfd,0xf9,0xfb,0xa6,0x86,0x1b,0x5a,0xd2,0x60,0x7f,0x40,0xb7,0xf4,0x47 };
+      unsigned char waad[] = { 0x61,0x61,0x64 };
+      unsigned char wct[]  = { 0x00 };
+      unsigned char wpt[20] = { 0 };
+      unsigned char wtag[20] = { 0 };
+      unsigned long taglen;
+
+      /* encrypt */
+      taglen = sizeof(wtag);
+      err = chacha20poly1305_memory(key, sizeof(key), iv, sizeof(iv), waad, sizeof(waad),
+                                    wpt, 0, wct, wtag, &taglen, CHACHA20POLY1305_ENCRYPT);
+      if (err != CRYPT_OK) return CRYPT_FAIL_TESTVECTOR;
+      if (compare_testvector(wtag, taglen, valid_tag, sizeof(valid_tag), "WYCH", 1) != 0) return CRYPT_FAIL_TESTVECTOR;
+
+      /* VALID tag */
+      taglen = sizeof(valid_tag);
+      err = chacha20poly1305_memory(key, sizeof(key), iv, sizeof(iv), waad, sizeof(waad),
+                                    wpt, 0, wct, valid_tag, &taglen, CHACHA20POLY1305_DECRYPT);
+      if (err != CRYPT_OK) return CRYPT_FAIL_TESTVECTOR;
+
+      /* INVALID tag */
+      taglen = sizeof(invalid_tag);
+      err = chacha20poly1305_memory(key, sizeof(key), iv, sizeof(iv), waad, sizeof(waad),
+                                    wpt, 0, wct, invalid_tag, &taglen, CHACHA20POLY1305_DECRYPT);
+      if (err == CRYPT_OK) {
+         return CRYPT_FAIL_TESTVECTOR; /* should fail */
+      }
+   }
+
    return CRYPT_OK;
 #endif
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

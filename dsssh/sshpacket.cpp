@@ -146,7 +146,11 @@ quint32 AbstractSshPacket::minPacketSize() const
 void AbstractSshPacket::setLengthField(QByteArray &data)
 {
     const quint32 length = qToBigEndian(data.size() - 4);
-    data.replace(0, 4, reinterpret_cast<const char *>(&length), 4);
+    data.replace(
+      #if QT_VERSION >= 0x060000
+          (qsizetype)
+      #endif
+          0, 4, reinterpret_cast<const char *>(&length), 4);
 }
 
 } // namespace Internal

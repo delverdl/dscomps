@@ -1,26 +1,15 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /* Defines the LTC_ARGCHK macro used within the library */
 /* ARGTYPE is defined in tomcrypt_cfg.h */
+
+/* ARGTYPE is per default defined to 0  */
 #if ARGTYPE == 0
 
 #include <signal.h>
 
-/* this is the default LibTomCrypt macro  */
-#if defined(__clang__) || defined(__GNUC_MINOR__)
-#define NORETURN __attribute__ ((noreturn))
-#else
-#define NORETURN
-#endif
-
-void crypt_argchk(const char *v, const char *s, int d) NORETURN;
+LTC_NORETURN void crypt_argchk(const char *v, const char *s, int d);
 #define LTC_ARGCHK(x) do { if (!(x)) { crypt_argchk(#x, __FILE__, __LINE__); } }while(0)
 #define LTC_ARGCHKVD(x) do { if (!(x)) { crypt_argchk(#x, __FILE__, __LINE__); } }while(0)
 
@@ -37,7 +26,7 @@ void crypt_argchk(const char *v, const char *s, int d) NORETURN;
 
 #elif ARGTYPE == 3
 
-#define LTC_ARGCHK(x)
+#define LTC_ARGCHK(x) LTC_UNUSED_PARAM(x)
 #define LTC_ARGCHKVD(x) LTC_ARGCHK(x)
 
 #elif ARGTYPE == 4
@@ -47,7 +36,3 @@ void crypt_argchk(const char *v, const char *s, int d) NORETURN;
 
 #endif
 
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

@@ -5,8 +5,6 @@ QT                  -=  gui
 
 DEFINES             +=  CRYPT_LIBRARY  _LIB
 
-win32:RC_FILE       =   library.rc
-
 include($$PWD/crypt/crypt.pri)
 include($$PWD/math/math.pri)
 

@@ -82,7 +82,11 @@ CDisk::Map CCommonInfo::disks() const
   CConnector* cn;
 
   cn = CSysInfo::connector();
-  qDebug() << "CCommonInfo: Set class name -> " << hex << reinterpret_cast<uint64_t>(cn);
+  qDebug() << "CCommonInfo: Set class name -> " <<
+            #if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
+              Qt::
+            #endif
+              hex << reinterpret_cast<uint64_t>(cn);
   cn->setClassName(m_diskClass);
   qDebug() << "CCommonInfo: Query disks";
   if (cn->execQuery())

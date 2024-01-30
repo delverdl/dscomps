@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
  /**
    @file twofish.c
@@ -37,8 +31,12 @@ const struct ltc_cipher_descriptor twofish_desc =
 };
 
 /* the two polynomials */
+#ifndef LTC_TWOFISH_TABLES
 #define MDS_POLY          0x169
+#endif
+#ifndef LTC_TWOFISH_ALL_TABLES
 #define RS_POLY           0x14D
+#endif
 
 /* The 4x8 RS Linear Transform */
 static const unsigned char RS[4][8] = {
@@ -60,7 +58,7 @@ static const unsigned char qord[4][5] = {
 
 #ifdef LTC_TWOFISH_TABLES
 
-#define __LTC_TWOFISH_TAB_C__
+#define LTC_TWOFISH_TAB_C
 #include "twofish_tab.c"
 
 #define sbox(i, x) ((ulong32)SBOX[i][(x)&255])
@@ -85,7 +83,7 @@ static const unsigned char qbox[2][4][16] = {
 
 /* computes S_i[x] */
 #ifdef LTC_CLEAN_STACK
-static ulong32 _sbox(int i, ulong32 x)
+static ulong32 s_sbox(int i, ulong32 x)
 #else
 static ulong32 sbox(int i, ulong32 x)
 #endif
@@ -127,7 +125,7 @@ static ulong32 sbox(int i, ulong32 x)
 static ulong32 sbox(int i, ulong32 x)
 {
    ulong32 y;
-   y = _sbox(i, x);
+   y = s_sbox(i, x);
    burn_stack(sizeof(unsigned char) * 11);
    return y;
 }
@@ -278,13 +276,13 @@ static void h_func(const unsigned char *in, unsigned char *out, const unsigned c
 #endif
 
 /* the G function */
-#define g_func(x, dum)  (S1[byte(x,0)] ^ S2[byte(x,1)] ^ S3[byte(x,2)] ^ S4[byte(x,3)])
-#define g1_func(x, dum) (S2[byte(x,0)] ^ S3[byte(x,1)] ^ S4[byte(x,2)] ^ S1[byte(x,3)])
+#define g_func(x, dum)  (S1[LTC_BYTE(x,0)] ^ S2[LTC_BYTE(x,1)] ^ S3[LTC_BYTE(x,2)] ^ S4[LTC_BYTE(x,3)])
+#define g1_func(x, dum) (S2[LTC_BYTE(x,0)] ^ S3[LTC_BYTE(x,1)] ^ S4[LTC_BYTE(x,2)] ^ S1[LTC_BYTE(x,3)])
 
 #else
 
 #ifdef LTC_CLEAN_STACK
-static ulong32 _g_func(ulong32 x, const symmetric_key *key)
+static ulong32 s_g_func(ulong32 x, const symmetric_key *key)
 #else
 static ulong32 g_func(ulong32 x, const symmetric_key *key)
 #endif
@@ -320,7 +318,7 @@ static ulong32 g_func(ulong32 x, const symmetric_key *key)
 static ulong32 g_func(ulong32 x, const symmetric_key *key)
 {
     ulong32 y;
-    y = _g_func(x, key);
+    y = s_g_func(x, key);
     burn_stack(sizeof(unsigned char) * 4 + sizeof(ulong32));
     return y;
 }
@@ -337,7 +335,7 @@ static ulong32 g_func(ulong32 x, const symmetric_key *key)
     @return CRYPT_OK if successful
  */
 #ifdef LTC_CLEAN_STACK
-static int _twofish_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey)
+static int s_twofish_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey)
 #else
 int twofish_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey)
 #endif
@@ -450,7 +448,7 @@ int twofish_setup(const unsigned char *key, int keylen, int num_rounds, symmetri
 int twofish_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey)
 {
    int x;
-   x = _twofish_setup(key, keylen, num_rounds, skey);
+   x = s_twofish_setup(key, keylen, num_rounds, skey);
    burn_stack(sizeof(int) * 7 + sizeof(unsigned char) * 56 + sizeof(ulong32) * 2);
    return x;
 }
@@ -464,7 +462,7 @@ int twofish_setup(const unsigned char *key, int keylen, int num_rounds, symmetri
   @return CRYPT_OK if successful
 */
 #ifdef LTC_CLEAN_STACK
-static int _twofish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey)
+static int s_twofish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey)
 #else
 int twofish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey)
 #endif
@@ -524,7 +522,7 @@ int twofish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmet
 #ifdef LTC_CLEAN_STACK
 int twofish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey)
 {
-   int err = _twofish_ecb_encrypt(pt, ct, skey);
+   int err = s_twofish_ecb_encrypt(pt, ct, skey);
    burn_stack(sizeof(ulong32) * 10 + sizeof(int));
    return err;
 }
@@ -538,7 +536,7 @@ int twofish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmet
   @return CRYPT_OK if successful
 */
 #ifdef LTC_CLEAN_STACK
-static int _twofish_ecb_decrypt(const unsigned char *ct, unsigned char *pt, const symmetric_key *skey)
+static int s_twofish_ecb_decrypt(const unsigned char *ct, unsigned char *pt, const symmetric_key *skey)
 #else
 int twofish_ecb_decrypt(const unsigned char *ct, unsigned char *pt, const symmetric_key *skey)
 #endif
@@ -600,7 +598,7 @@ int twofish_ecb_decrypt(const unsigned char *ct, unsigned char *pt, const symmet
 #ifdef LTC_CLEAN_STACK
 int twofish_ecb_decrypt(const unsigned char *ct, unsigned char *pt, const symmetric_key *skey)
 {
-   int err =_twofish_ecb_decrypt(ct, pt, skey);
+   int err = s_twofish_ecb_decrypt(ct, pt, skey);
    burn_stack(sizeof(ulong32) * 10 + sizeof(int));
    return err;
 }
@@ -706,7 +704,3 @@ int twofish_keysize(int *keysize)
 
 #endif
 
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

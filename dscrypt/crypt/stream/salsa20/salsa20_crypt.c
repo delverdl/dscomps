@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /* The implementation is based on:
  * "Salsa20 specification", http://cr.yp.to/snuffle/spec.pdf
@@ -23,7 +17,7 @@
     x[d] ^= (ROL((x[c] + x[b]), 13)); \
     x[a] ^= (ROL((x[d] + x[c]), 18));
 
-static void _salsa20_block(unsigned char *output, const ulong32 *input, int rounds)
+static void s_salsa20_block(unsigned char *output, const ulong32 *input, int rounds)
 {
    ulong32 x[16];
    int i;
@@ -73,7 +67,7 @@ int salsa20_crypt(salsa20_state *st, const unsigned char *in, unsigned long inle
       in  += j;
    }
    for (;;) {
-     _salsa20_block(buf, st->input, st->rounds);
+     s_salsa20_block(buf, st->input, st->rounds);
      /* Salsa20: 64-bit IV, increment 64-bit counter */
      if (0 == ++st->input[8] && 0 == ++st->input[9]) return CRYPT_OVERFLOW;
      if (inlen <= 64) {
@@ -90,7 +84,3 @@ int salsa20_crypt(salsa20_state *st, const unsigned char *in, unsigned long inle
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

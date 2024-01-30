@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 #include "tomcrypt_private.h"
 
 /**
@@ -15,7 +9,7 @@
 
 #ifdef LTC_PELICAN
 
-#define __LTC_AES_TAB_C__
+#define LTC_AES_TAB_C
 #define ENCRYPT_ONLY
 #define PELI_TAB
 #include "../../ciphers/aes/aes_tab.c"
@@ -51,7 +45,7 @@ int pelican_init(pelican_state *pelmac, const unsigned char *key, unsigned long 
     return CRYPT_OK;
 }
 
-static void _four_rounds(pelican_state *pelmac)
+static void s_four_rounds(pelican_state *pelmac)
 {
     ulong32 s0, s1, s2, s3, t0, t1, t2, t3;
     int r;
@@ -62,25 +56,25 @@ static void _four_rounds(pelican_state *pelmac)
     LOAD32H(s3, pelmac->state  + 12);
     for (r = 0; r < 4; r++) {
         t0 =
-            Te0(byte(s0, 3)) ^
-            Te1(byte(s1, 2)) ^
-            Te2(byte(s2, 1)) ^
-            Te3(byte(s3, 0));
+            Te0(LTC_BYTE(s0, 3)) ^
+            Te1(LTC_BYTE(s1, 2)) ^
+            Te2(LTC_BYTE(s2, 1)) ^
+            Te3(LTC_BYTE(s3, 0));
         t1 =
-            Te0(byte(s1, 3)) ^
-            Te1(byte(s2, 2)) ^
-            Te2(byte(s3, 1)) ^
-            Te3(byte(s0, 0));
+            Te0(LTC_BYTE(s1, 3)) ^
+            Te1(LTC_BYTE(s2, 2)) ^
+            Te2(LTC_BYTE(s3, 1)) ^
+            Te3(LTC_BYTE(s0, 0));
         t2 =
-            Te0(byte(s2, 3)) ^
-            Te1(byte(s3, 2)) ^
-            Te2(byte(s0, 1)) ^
-            Te3(byte(s1, 0));
+            Te0(LTC_BYTE(s2, 3)) ^
+            Te1(LTC_BYTE(s3, 2)) ^
+            Te2(LTC_BYTE(s0, 1)) ^
+            Te3(LTC_BYTE(s1, 0));
         t3 =
-            Te0(byte(s3, 3)) ^
-            Te1(byte(s0, 2)) ^
-            Te2(byte(s1, 1)) ^
-            Te3(byte(s2, 0));
+            Te0(LTC_BYTE(s3, 3)) ^
+            Te1(LTC_BYTE(s0, 2)) ^
+            Te2(LTC_BYTE(s1, 1)) ^
+            Te3(LTC_BYTE(s2, 0));
         s0 = t0; s1 = t1; s2 = t2; s3 = t3;
     }
     STORE32H(s0, pelmac->state      );
@@ -114,7 +108,7 @@ int pelican_process(pelican_state *pelmac, const unsigned char *in, unsigned lon
          for (x = 0; x < 16; x += sizeof(LTC_FAST_TYPE)) {
             *(LTC_FAST_TYPE_PTR_CAST((unsigned char *)pelmac->state + x)) ^= *(LTC_FAST_TYPE_PTR_CAST((unsigned char *)in + x));
          }
-         _four_rounds(pelmac);
+         s_four_rounds(pelmac);
          in    += 16;
          inlen -= 16;
       }
@@ -124,7 +118,7 @@ int pelican_process(pelican_state *pelmac, const unsigned char *in, unsigned lon
    while (inlen--) {
        pelmac->state[pelmac->buflen++] ^= *in++;
        if (pelmac->buflen == 16) {
-          _four_rounds(pelmac);
+          s_four_rounds(pelmac);
           pelmac->buflen = 0;
        }
    }
@@ -148,7 +142,7 @@ int pelican_done(pelican_state *pelmac, unsigned char *out)
    }
 
    if  (pelmac->buflen == 16) {
-       _four_rounds(pelmac);
+       s_four_rounds(pelmac);
        pelmac->buflen = 0;
    }
    pelmac->state[pelmac->buflen++] ^= 0x80;
@@ -158,7 +152,3 @@ int pelican_done(pelican_state *pelmac, unsigned char *out)
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 #include "tomcrypt_private.h"
 
 /**
@@ -30,10 +24,6 @@ const struct ltc_cipher_descriptor khazad_desc = {
 };
 
 #define R      8
-#define KEYSIZE      128
-#define KEYSIZEB   (KEYSIZE/8)
-#define BLOCKSIZE   64
-#define BLOCKSIZEB   (BLOCKSIZE/8)
 
 static const ulong64 T0[256] = {
     CONST64(0xbad3d268bbb96a01), CONST64(0x54fc4d19e59a66b1), CONST64(0x2f71bc93e26514cd), CONST64(0x749ccdb925871b51),
@@ -848,7 +838,3 @@ int khazad_keysize(int *keysize)
 }
 
 #endif
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

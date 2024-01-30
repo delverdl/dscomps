@@ -107,8 +107,8 @@ QwwLed::~QwwLed() {
 QSize QwwLed::sizeHint() const {
     Q_D(const QwwLed);
     if (d->shape == Circular)
-        return QSize(25,25).expandedTo(QApplication::globalStrut());
-    else return QSize(25,15).expandedTo(QApplication::globalStrut());
+        return QSize(25,25);
+    else return QSize(25,15);
 }
 
 
@@ -168,7 +168,12 @@ void QwwLed::paintEvent(QPaintEvent * ) {
         p.drawEllipse(r.adjusted(d->width,d->width,-d->width,-d->width));
     } else { /*if (d->shape == Rectangular)*/
         QStyleOptionFrame opt;
-        opt.initFrom(this);
+        opt.
+    #if QT_VERSION >= 0x060000
+        initFrom(this);
+    #else
+        init(this);
+    #endif
         opt.lineWidth = d->width;
         opt.midLineWidth = d->width;
         if (d->shape==RectangularRaised)

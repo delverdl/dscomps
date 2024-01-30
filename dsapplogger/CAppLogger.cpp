@@ -2,7 +2,6 @@
 
 #include <QCoreApplication>
 #include <QDateTime>
-#include <QDebug>
 #include <QDir>
 #include <QStandardPaths>
 
@@ -25,11 +24,6 @@ void CAppLogger::activate()
   fLog = new QFile(sConfigFile);
   fLog->open(QIODevice::Append);
   qInstallMessageHandler(messageHandler);
-
-  QString s1 = QCoreApplication::applicationName(),
-          s2 = QCoreApplication::organizationName();
-
-  qDebug() << ":::appname: " << s1 << " :::apporg : " << s2 << " Log opened in " << sConfigFile;
 }
 
 void CAppLogger::messageHandler(QtMsgType type, const QMessageLogContext& context,

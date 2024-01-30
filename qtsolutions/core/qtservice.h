@@ -42,8 +42,8 @@
 #define QTSERVICE_H
 
 #include <QCoreApplication>
+#include <QStringList>
 
-class QStringList;
 class QtServiceControllerPrivate;
 
 #include "qtscore_global.h"

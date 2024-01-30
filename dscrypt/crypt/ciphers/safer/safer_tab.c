@@ -1,18 +1,12 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /**
   @file safer_tab.c
   Tables for LTC_SAFER block ciphers
 */
 
-#ifdef __LTC_SAFER_TAB_C__
+#ifdef LTC_SAFER_TAB_C
 
 /* This is the box defined by ebox[x] = 45^x mod 257.
  * Its assumed that the value "256" corresponds to zero. */
@@ -55,10 +49,6 @@ static const unsigned char safer_lbox[256] = {
 184,  64, 120,  45,  58, 233, 100,  31, 146, 144, 125,  57, 111, 224, 137,  48
 };
 
-#endif /* __LTC_SAFER_TAB_C__ */
+#endif /* LTC_SAFER_TAB_C */
 
 
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

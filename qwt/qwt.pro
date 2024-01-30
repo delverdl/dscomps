@@ -7,27 +7,41 @@
 # modify it under the terms of the Qwt License, Version 1.0
 ################################################################
 
-include( qwtconfig.pri )
+lessThan(QT_MAJOR_VERSION, 5) {
 
-TEMPLATE      =   subdirs
-CONFIG        +=  ordered
+    lessThan(QT_MINOR_VERSION, 8) {
+        error(Qt >= 4.8 required.)
+    }
+}
 
-SUBDIRS       =   src textengines doc
+include(qwtconfig.pri)
 
-contains(QWT_CONFIG, QwtDesigner ) {
-  SUBDIRS     +=  designer
+TEMPLATE = subdirs
+CONFIG   += ordered
+
+SUBDIRS = \
+    src \
+    classincludes \
+    doc
+
+!wasm:contains(QWT_CONFIG, QwtDesigner ) {
+    SUBDIRS += designer 
 }
 
 contains(QWT_CONFIG, QwtExamples ) {
-  SUBDIRS     +=  examples
+    SUBDIRS += examples 
 }
 
 contains(QWT_CONFIG, QwtPlayground ) {
-  SUBDIRS     +=  playground
+    SUBDIRS += playground 
+}
+ 
+contains(QWT_CONFIG, QwtTests ) {
+    SUBDIRS += tests 
 }
 
-qwtspec.files =   qwtconfig.pri qwt.prf
-qwtspec.path  =   $${QWT_INSTALL_FEATURES}
+qwtspec.files  = qwtconfig.pri qwtfunctions.pri qwt.prf
+qwtspec.path  = $${QWT_INSTALL_FEATURES}
 
-INSTALLS      +=  qwtspec
+INSTALLS += qwtspec
 

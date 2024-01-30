@@ -6,8 +6,6 @@ MOC_DIR                   =   $$OUT_PWD/moc
 UI_DIR                    =   $$OUT_PWD/ui
 RCC_DIR                   =   $$OUT_PWD/resources
 
-CONFIG                    +=  silent
-
 DEFINES                   +=  QT_DISABLE_DEPRECATED_BEFORE=0x060000 QT_DEPRECATED_WARNINGS
 
 DSDOCS                    =   $$[QT_INSTALL_DOCS]

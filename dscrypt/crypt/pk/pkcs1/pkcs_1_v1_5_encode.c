@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 #include "tomcrypt_private.h"
 
 /*! \file pkcs_1_v1_5_encode.c
@@ -40,6 +34,10 @@ int pkcs_1_v1_5_encode(const unsigned char *msg,
   unsigned long modulus_len, ps_len, i;
   unsigned char *ps;
   int result;
+
+  LTC_ARGCHK((msglen == 0) || (msg != NULL));
+  LTC_ARGCHK(out    != NULL);
+  LTC_ARGCHK(outlen != NULL);
 
   /* valid block_type? */
   if ((block_type != LTC_PKCS_1_EMSA) &&
@@ -94,7 +92,9 @@ int pkcs_1_v1_5_encode(const unsigned char *msg,
   out[0]          = 0x00;
   out[1]          = (unsigned char)block_type;  /* block_type 1 or 2 */
   out[2 + ps_len] = 0x00;
-  XMEMCPY(&out[2 + ps_len + 1], msg, msglen);
+  if (msglen != 0) {
+    XMEMCPY(&out[2 + ps_len + 1], msg, msglen);
+  }
   *outlen = modulus_len;
 
   result  = CRYPT_OK;
@@ -103,7 +103,3 @@ bail:
 } /* pkcs_1_v1_5_encode */
 
 #endif /* #ifdef LTC_PKCS_1 */
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

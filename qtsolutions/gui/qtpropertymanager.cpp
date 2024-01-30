@@ -386,9 +386,13 @@ static void setMaximumValue(PropertyManager *manager, PropertyManagerPrivate *ma
 class QtMetaEnumWrapper : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QSizePolicy::Policy policy READ policy)
+    Q_PROPERTY(QSizePolicy::Policy policy READ policy NOTIFY policyChanged)
 public:
     QSizePolicy::Policy policy() const { return QSizePolicy::Ignored; }
+
+signals:
+    void policyChanged();
+
 private:
     QtMetaEnumWrapper(QObject *parent) : QObject(parent) {}
 };
@@ -1229,11 +1233,17 @@ public:
 
     struct Data
     {
-        Data() : regExp(QString(QLatin1Char('*')),  Qt::CaseSensitive, QRegExp::Wildcard)
+        Data() : regExp(
+           #if QT_VERSION >= 0x050b00
+                   QRegularExpression::wildcardToRegularExpression("*"),
+           #else
+                   ".*",
+           #endif
+                   QRegularExpression::CaseInsensitiveOption)
         {
         }
         QString val;
-        QRegExp regExp;
+        QRegularExpression regExp;
     };
 
     typedef QMap<const QtProperty *, Data> PropertyValueMap;
@@ -1271,7 +1281,7 @@ public:
 */
 
 /*!
-    \fn void QtStringPropertyManager::regExpChanged(QtProperty *property, const QRegExp &regExp)
+    \fn void QtStringPropertyManager::regExpChanged(QtProperty *property, const QRegularExpression &regExp)
 
     This signal is emitted whenever a property created by this manager
     changes its currenlty set regular expression, passing a pointer to
@@ -1320,9 +1330,10 @@ QString QtStringPropertyManager::value(const QtProperty *property) const
 
     \sa setRegExp()
 */
-QRegExp QtStringPropertyManager::regExp(const QtProperty *property) const
+QRegularExpression QtStringPropertyManager::regExp(const QtProperty *property) const
 {
-    return getData<QRegExp>(d_ptr->m_values, &QtStringPropertyManagerPrivate::Data::regExp, property, QRegExp());
+    return getData<QRegularExpression>(d_ptr->m_values, &QtStringPropertyManagerPrivate::Data::regExp, property,
+                                       QRegularExpression());
 }
 
 /*!
@@ -1357,7 +1368,7 @@ void QtStringPropertyManager::setValue(QtProperty *property, const QString &val)
     if (data.val == val)
         return;
 
-    if (data.regExp.isValid() && !data.regExp.exactMatch(val))
+    if (data.regExp.isValid() && !data.regExp.match(val).hasMatch())
         return;
 
     data.val = val;
@@ -1373,7 +1384,7 @@ void QtStringPropertyManager::setValue(QtProperty *property, const QString &val)
 
     \sa regExp(), setValue(), regExpChanged()
 */
-void QtStringPropertyManager::setRegExp(QtProperty *property, const QRegExp &regExp)
+void QtStringPropertyManager::setRegExp(QtProperty *property, const QRegularExpression &regExp)
 {
     const QtStringPropertyManagerPrivate::PropertyValueMap::iterator it = d_ptr->m_values.find(property);
     if (it == d_ptr->m_values.end())
@@ -2344,11 +2355,11 @@ QtLocalePropertyManager::QtLocalePropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_enumPropertyManager = new QtEnumPropertyManager(this);
-    connect(d_ptr->m_enumPropertyManager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(slotEnumChanged(QtProperty *, int)));
+    connect(d_ptr->m_enumPropertyManager, SIGNAL(valueChanged(QtProperty*,int)),
+                this, SLOT(slotEnumChanged(QtProperty*,int)));
 
-    connect(d_ptr->m_enumPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_enumPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -2403,8 +2414,8 @@ QString QtLocalePropertyManager::valueText(const QtProperty *property) const
     int countryIdx = 0;
     metaEnumProvider()->localeToIndex(loc.language(), loc.country(), &langIdx, &countryIdx);
     QString str = tr("%1, %2")
-            .arg(metaEnumProvider()->languageEnumNames().at(langIdx))
-            .arg(metaEnumProvider()->countryEnumNames(loc.language()).at(countryIdx));
+            .arg(metaEnumProvider()->languageEnumNames().at(langIdx),
+                 metaEnumProvider()->countryEnumNames(loc.language()).at(countryIdx));
     return str;
 }
 
@@ -2580,10 +2591,10 @@ QtPointPropertyManager::QtPointPropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_intPropertyManager = new QtIntPropertyManager(this);
-    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(slotIntChanged(QtProperty *, int)));
-    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty*,int)),
+                this, SLOT(slotIntChanged(QtProperty*,int)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -2632,8 +2643,7 @@ QString QtPointPropertyManager::valueText(const QtProperty *property) const
     if (it == d_ptr->m_values.constEnd())
         return QString();
     const QPoint v = it.value();
-    return QString(tr("(%1, %2)").arg(QString::number(v.x()))
-                                 .arg(QString::number(v.y())));
+    return QString(tr("(%1, %2)").arg(QString::number(v.x()), QString::number(v.y())));
 }
 
 /*!
@@ -2809,10 +2819,10 @@ QtPointFPropertyManager::QtPointFPropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_doublePropertyManager = new QtDoublePropertyManager(this);
-    connect(d_ptr->m_doublePropertyManager, SIGNAL(valueChanged(QtProperty *, double)),
-                this, SLOT(slotDoubleChanged(QtProperty *, double)));
-    connect(d_ptr->m_doublePropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_doublePropertyManager, SIGNAL(valueChanged(QtProperty*,double)),
+                this, SLOT(slotDoubleChanged(QtProperty*,double)));
+    connect(d_ptr->m_doublePropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -2872,8 +2882,7 @@ QString QtPointFPropertyManager::valueText(const QtProperty *property) const
         return QString();
     const QPointF v = it.value().val;
     const int dec =  it.value().decimals;
-    return QString(tr("(%1, %2)").arg(QString::number(v.x(), 'f', dec))
-                                 .arg(QString::number(v.y(), 'f', dec)));
+    return QString(tr("(%1, %2)").arg(QString::number(v.x(), 'f', dec), QString::number(v.y(), 'f', dec)));
 }
 
 /*!
@@ -3119,10 +3128,10 @@ QtSizePropertyManager::QtSizePropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_intPropertyManager = new QtIntPropertyManager(this);
-    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(slotIntChanged(QtProperty *, int)));
-    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty*,int)),
+                this, SLOT(slotIntChanged(QtProperty*,int)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -3191,8 +3200,7 @@ QString QtSizePropertyManager::valueText(const QtProperty *property) const
     if (it == d_ptr->m_values.constEnd())
         return QString();
     const QSize v = it.value().val;
-    return QString(tr("%1 x %2").arg(QString::number(v.width()))
-                                .arg(QString::number(v.height())));
+    return QString(tr("%1 x %2").arg(QString::number(v.width()), QString::number(v.height())));
 }
 
 /*!
@@ -3472,10 +3480,10 @@ QtSizeFPropertyManager::QtSizeFPropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_doublePropertyManager = new QtDoublePropertyManager(this);
-    connect(d_ptr->m_doublePropertyManager, SIGNAL(valueChanged(QtProperty *, double)),
-                this, SLOT(slotDoubleChanged(QtProperty *, double)));
-    connect(d_ptr->m_doublePropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_doublePropertyManager, SIGNAL(valueChanged(QtProperty*,double)),
+                this, SLOT(slotDoubleChanged(QtProperty*,double)));
+    connect(d_ptr->m_doublePropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -3555,8 +3563,7 @@ QString QtSizeFPropertyManager::valueText(const QtProperty *property) const
         return QString();
     const QSizeF v = it.value().val;
     const int dec = it.value().decimals;
-    return QString(tr("%1 x %2").arg(QString::number(v.width(), 'f', dec))
-                                .arg(QString::number(v.height(), 'f', dec)));
+    return QString(tr("%1 x %2").arg(QString::number(v.width(), 'f', dec), QString::number(v.height(), 'f', dec)));
 }
 
 /*!
@@ -3885,10 +3892,10 @@ QtRectPropertyManager::QtRectPropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_intPropertyManager = new QtIntPropertyManager(this);
-    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(slotIntChanged(QtProperty *, int)));
-    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty*,int)),
+                this, SLOT(slotIntChanged(QtProperty*,int)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -3947,10 +3954,10 @@ QString QtRectPropertyManager::valueText(const QtProperty *property) const
     if (it == d_ptr->m_values.constEnd())
         return QString();
     const QRect v = it.value().val;
-    return QString(tr("[(%1, %2), %3 x %4]").arg(QString::number(v.x()))
-                                .arg(QString::number(v.y()))
-                                .arg(QString::number(v.width()))
-                                .arg(QString::number(v.height())));
+    return QString(tr("[(%1, %2), %3 x %4]").arg(QString::number(v.x()),
+                                                 QString::number(v.y()),
+                                                 QString::number(v.width()),
+                                                 QString::number(v.height())));
 }
 
 /*!
@@ -4304,10 +4311,10 @@ QtRectFPropertyManager::QtRectFPropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_doublePropertyManager = new QtDoublePropertyManager(this);
-    connect(d_ptr->m_doublePropertyManager, SIGNAL(valueChanged(QtProperty *, double)),
-                this, SLOT(slotDoubleChanged(QtProperty *, double)));
-    connect(d_ptr->m_doublePropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_doublePropertyManager, SIGNAL(valueChanged(QtProperty*,double)),
+                this, SLOT(slotDoubleChanged(QtProperty*,double)));
+    connect(d_ptr->m_doublePropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -4377,10 +4384,10 @@ QString QtRectFPropertyManager::valueText(const QtProperty *property) const
         return QString();
     const QRectF v = it.value().val;
     const int dec = it.value().decimals;
-    return QString(tr("[(%1, %2), %3 x %4]").arg(QString::number(v.x(), 'f', dec))
-                                .arg(QString::number(v.y(), 'f', dec))
-                                .arg(QString::number(v.width(), 'f', dec))
-                                .arg(QString::number(v.height(), 'f', dec)));
+    return QString(tr("[(%1, %2), %3 x %4]").arg(QString::number(v.x(), 'f', dec),
+                                                 QString::number(v.y(), 'f', dec),
+                                                 QString::number(v.width(), 'f', dec),
+                                                 QString::number(v.height(), 'f', dec)));
 }
 
 /*!
@@ -4995,10 +5002,10 @@ QtFlagPropertyManager::QtFlagPropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_boolPropertyManager = new QtBoolPropertyManager(this);
-    connect(d_ptr->m_boolPropertyManager, SIGNAL(valueChanged(QtProperty *, bool)),
-                this, SLOT(slotBoolChanged(QtProperty *, bool)));
-    connect(d_ptr->m_boolPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_boolPropertyManager, SIGNAL(valueChanged(QtProperty*,bool)),
+                this, SLOT(slotBoolChanged(QtProperty*,bool)));
+    connect(d_ptr->m_boolPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -5320,16 +5327,16 @@ QtSizePolicyPropertyManager::QtSizePolicyPropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_intPropertyManager = new QtIntPropertyManager(this);
-    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(slotIntChanged(QtProperty *, int)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty*,int)),
+                this, SLOT(slotIntChanged(QtProperty*,int)));
     d_ptr->m_enumPropertyManager = new QtEnumPropertyManager(this);
-    connect(d_ptr->m_enumPropertyManager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(slotEnumChanged(QtProperty *, int)));
+    connect(d_ptr->m_enumPropertyManager, SIGNAL(valueChanged(QtProperty*,int)),
+                this, SLOT(slotEnumChanged(QtProperty*,int)));
 
-    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
-    connect(d_ptr->m_enumPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
+    connect(d_ptr->m_enumPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -5524,7 +5531,9 @@ void QtSizePolicyPropertyManager::uninitializeProperty(QtProperty *property)
 // enumeration manager to re-set its strings and index values
 // for each property.
 
+#if QT_VERSION < 0x060000
 Q_GLOBAL_STATIC(QFontDatabase, fontDatabase)
+#endif
 
 class QtFontPropertyManagerPrivate
 {
@@ -5668,7 +5677,13 @@ void QtFontPropertyManagerPrivate::slotFontDatabaseDelayedChange()
     typedef QMap<const QtProperty *, QtProperty *> PropertyPropertyMap;
     // rescan available font names
     const QStringList oldFamilies = m_familyNames;
-    m_familyNames = fontDatabase()->families();
+    m_familyNames =
+#if QT_VERSION >= 0x060000
+        QFontDatabase::
+#else
+        fontDatabase()->
+#endif
+        families();
 
     // Adapt all existing properties
     if (!m_propertyToFamily.empty()) {
@@ -5732,21 +5747,21 @@ QtFontPropertyManager::QtFontPropertyManager(QObject *parent)
 #endif
 
     d_ptr->m_intPropertyManager = new QtIntPropertyManager(this);
-    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(slotIntChanged(QtProperty *, int)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty*,int)),
+                this, SLOT(slotIntChanged(QtProperty*,int)));
     d_ptr->m_enumPropertyManager = new QtEnumPropertyManager(this);
-    connect(d_ptr->m_enumPropertyManager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(slotEnumChanged(QtProperty *, int)));
+    connect(d_ptr->m_enumPropertyManager, SIGNAL(valueChanged(QtProperty*,int)),
+                this, SLOT(slotEnumChanged(QtProperty*,int)));
     d_ptr->m_boolPropertyManager = new QtBoolPropertyManager(this);
-    connect(d_ptr->m_boolPropertyManager, SIGNAL(valueChanged(QtProperty *, bool)),
-                this, SLOT(slotBoolChanged(QtProperty *, bool)));
+    connect(d_ptr->m_boolPropertyManager, SIGNAL(valueChanged(QtProperty*,bool)),
+                this, SLOT(slotBoolChanged(QtProperty*,bool)));
 
-    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
-    connect(d_ptr->m_enumPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
-    connect(d_ptr->m_boolPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
+    connect(d_ptr->m_enumPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
+    connect(d_ptr->m_boolPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!
@@ -5854,7 +5869,13 @@ void QtFontPropertyManager::setValue(QtProperty *property, const QFont &val)
         return;
 
     const QFont oldVal = it.value();
-    if (oldVal == val && oldVal.resolve() == val.resolve())
+    if (oldVal == val &&
+    #if QT_VERSION >= 0x060000
+        oldVal.resolveMask() == val.resolveMask()
+    #else
+        oldVal.resolve() == val.resolve()
+    #endif
+       )
         return;
 
     it.value() = val;
@@ -5888,7 +5909,13 @@ void QtFontPropertyManager::initializeProperty(QtProperty *property)
     QtProperty *familyProp = d_ptr->m_enumPropertyManager->addProperty();
     familyProp->setPropertyName(tr("Family"));
     if (d_ptr->m_familyNames.empty())
-        d_ptr->m_familyNames = fontDatabase()->families();
+        d_ptr->m_familyNames =
+    #if QT_VERSION >= 0x060000
+            QFontDatabase::
+    #else
+            fontDatabase()->
+    #endif
+            families();
     d_ptr->m_enumPropertyManager->setEnumNames(familyProp, d_ptr->m_familyNames);
     int idx = d_ptr->m_familyNames.indexOf(val.family());
     if (idx == -1)
@@ -6106,11 +6133,11 @@ QtColorPropertyManager::QtColorPropertyManager(QObject *parent)
     d_ptr->q_ptr = this;
 
     d_ptr->m_intPropertyManager = new QtIntPropertyManager(this);
-    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(slotIntChanged(QtProperty *, int)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(valueChanged(QtProperty*,int)),
+                this, SLOT(slotIntChanged(QtProperty*,int)));
 
-    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty *)),
-                this, SLOT(slotPropertyDestroyed(QtProperty *)));
+    connect(d_ptr->m_intPropertyManager, SIGNAL(propertyDestroyed(QtProperty*)),
+                this, SLOT(slotPropertyDestroyed(QtProperty*)));
 }
 
 /*!

@@ -1,6 +1,6 @@
 ################################################################
 # Sumplementary functions
-# Copyright (C) 2017   Delver Domingo
+# Copyright (C) 2023   Delver Domingo
 #
 # This library is free software; you can redistribute it and/or
 # modify it.

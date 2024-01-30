@@ -1,14 +1,15 @@
-################################################################
-# Qwt Widget Library
-# Copyright (C) 1997   Josef Wilgen
-# Copyright (C) 2002   Uwe Rathmann
-#
-# This library is free software; you can redistribute it and/or
-# modify it under the terms of the Qwt License, Version 1.0
-################################################################
-include( $$PWD/../playground.pri )
+######################################################################
+# Qwt Examples - Copyright (C) 2002 Uwe Rathmann
+# This file may be used under the terms of the 3-clause BSD License
+######################################################################
 
-TARGET      = plotmatrix
+include( $${PWD}/../playground.pri )
 
-HEADERS     = plotmatrix.h
-SOURCES     = plotmatrix.cpp main.cpp
+TARGET   = plotmatrix
+
+HEADERS = \
+     PlotMatrix.h 
+
+SOURCES = \
+    PlotMatrix.cpp \
+    main.cpp

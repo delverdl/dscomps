@@ -41,10 +41,10 @@ void CPosPrinter::openMedia(const QString& sDevice)
       if (port->open(QIODevice::ReadWrite))
       { isConnected = true;
         qCInfo(drvPos) << tr("Serial port opened").toUtf8().data();
-        QTimer::singleShot(0, [this] () { emitStatus(dsNoError); } );
+        QTimer::singleShot(0, this, [this] () { emitStatus(dsNoError); } );
       }
-      else QTimer::singleShot(0, [this] () { emitStatus(dsErrorOpen); } );
-    } else QTimer::singleShot(0, [this] () { emitStatus(dsErrorMemory); } );
+      else QTimer::singleShot(0, this, [this] () { emitStatus(dsErrorOpen); } );
+    } else QTimer::singleShot(0, this, [this] () { emitStatus(dsErrorMemory); } );
   }
   else
   { QTcpSocket* socket = new QTcpSocket(this);
@@ -55,7 +55,7 @@ void CPosPrinter::openMedia(const QString& sDevice)
       connect(socket, SIGNAL(connected()), SLOT(socketConnected()));
       connect(socket, SIGNAL(disconnected()), SLOT(socketDisconnected()));
       socket->connectToHost(m.device, m.portNumber);
-    } else QTimer::singleShot(0, [this] () { emitStatus(dsErrorMemory); } );
+    } else QTimer::singleShot(0, this, [this] () { emitStatus(dsErrorMemory); } );
   }
   connect(printer, SIGNAL(bytesWritten(qint64)), SLOT(bytesWritten(qint64)));
 }
@@ -140,7 +140,7 @@ void CPosPrinter::emitStatus(DeviceStatus de)
 void CPosPrinter::emitPrintDone(bool b)
 { if (printer && printer->bytesToWrite())
   { //If device's something to write already then wait a little bit
-    QTimer::singleShot(10, [this] () { emitPrintDone(); });
+    QTimer::singleShot(10, this, [this] () { emitPrintDone(); });
     return;
   }
   qCInfo(drvPos) << tr("Print done!").toUtf8().data();
@@ -184,8 +184,8 @@ void CPosPrinter::bytesWritten(qint64 bytes)
     //Start sending new packet if it's available, but waiting long enough for previous
     //to be properly sent
     if (!toSend.isEmpty()) QTimer::singleShot(static_cast<int>(nTime), this, SLOT(writePacket()));
-    else QTimer::singleShot(static_cast<int>(nTime), [this] () { emitPrintDone(); });
-  } else QTimer::singleShot(static_cast<int>(nTime), [this] () { emitPrintDone(); });
+    else QTimer::singleShot(static_cast<int>(nTime), this, [this] () { emitPrintDone(); });
+  } else QTimer::singleShot(static_cast<int>(nTime), this, [this] () { emitPrintDone(); });
 }
 
 void CPosPrinter::socketError(QAbstractSocket::SocketError error)

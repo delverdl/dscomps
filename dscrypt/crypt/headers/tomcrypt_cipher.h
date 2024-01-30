@@ -1,20 +1,11 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 /* ---- SYMMETRIC KEY STUFF -----
  *
  * We put each of the ciphers scheduled keys in their own structs then we put all of
  * the key formats in one union.  This makes the function prototypes easier to use.
  */
-
-#include <tomcrypt_custom.h>
-
 #ifdef LTC_BLOWFISH
 struct blowfish_key {
    ulong32 S[4][256];
@@ -44,7 +35,8 @@ struct saferp_key {
 
 #ifdef LTC_RIJNDAEL
 struct rijndael_key {
-   ulong32 eK[60], dK[60];
+   ulong32 eK[60] LTC_ALIGN(16);
+   ulong32 dK[60] LTC_ALIGN(16);
    int Nr;
 };
 #endif
@@ -174,6 +166,12 @@ struct serpent_key {
 };
 #endif
 
+#ifdef LTC_TEA
+struct tea_key {
+   ulong32 k[4];
+};
+#endif
+
 typedef union Symmetric_key {
 #ifdef LTC_DES
    struct des_key des;
@@ -238,6 +236,9 @@ typedef union Symmetric_key {
 #endif
 #ifdef LTC_SERPENT
    struct serpent_key  serpent;
+#endif
+#ifdef LTC_TEA
+   struct tea_key      tea;
 #endif
    void   *data;
 } symmetric_key;
@@ -318,9 +319,9 @@ typedef struct {
                        ctrlen;
 
    /** The counter */
-   unsigned char       ctr[MAXBLOCKSIZE],
+   unsigned char       ctr[MAXBLOCKSIZE];
    /** The pad used to encrypt/decrypt */
-                       pad[MAXBLOCKSIZE];
+   unsigned char       pad[MAXBLOCKSIZE] LTC_ALIGN(16);
    /** The scheduled key */
    symmetric_key       key;
 } symmetric_CTR;
@@ -688,18 +689,19 @@ extern const struct ltc_cipher_descriptor safer_k64_desc, safer_k128_desc, safer
 #endif
 
 #ifdef LTC_RIJNDAEL
-
-/* make aes an alias */
-#define aes_setup           rijndael_setup
-#define aes_ecb_encrypt     rijndael_ecb_encrypt
-#define aes_ecb_decrypt     rijndael_ecb_decrypt
-#define aes_test            rijndael_test
-#define aes_done            rijndael_done
-#define aes_keysize         rijndael_keysize
-
-#define aes_enc_setup           rijndael_enc_setup
-#define aes_enc_ecb_encrypt     rijndael_enc_ecb_encrypt
-#define aes_enc_keysize         rijndael_enc_keysize
+/* declare aes properly now */
+int aes_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+int aes_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey);
+int aes_ecb_decrypt(const unsigned char *ct, unsigned char *pt, const symmetric_key *skey);
+int aes_test(void);
+void aes_done(symmetric_key *skey);
+int aes_keysize(int *keysize);
+int aes_enc_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+int aes_enc_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey);
+void aes_enc_done(symmetric_key *skey);
+int aes_enc_keysize(int *keysize);
+extern const struct ltc_cipher_descriptor aes_desc;
+extern const struct ltc_cipher_descriptor aes_enc_desc;
 
 int rijndael_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
 int rijndael_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey);
@@ -711,8 +713,19 @@ int rijndael_enc_setup(const unsigned char *key, int keylen, int num_rounds, sym
 int rijndael_enc_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey);
 void rijndael_enc_done(symmetric_key *skey);
 int rijndael_enc_keysize(int *keysize);
-extern const struct ltc_cipher_descriptor rijndael_desc, aes_desc;
-extern const struct ltc_cipher_descriptor rijndael_enc_desc, aes_enc_desc;
+extern const struct ltc_cipher_descriptor rijndael_desc;
+extern const struct ltc_cipher_descriptor rijndael_enc_desc;
+#endif
+
+#if defined(LTC_AES_NI) && defined(LTC_AMD64_SSE4_1)
+int aesni_is_supported(void);
+int aesni_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+int aesni_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey);
+int aesni_ecb_decrypt(const unsigned char *ct, unsigned char *pt, const symmetric_key *skey);
+int aesni_test(void);
+void aesni_done(symmetric_key *skey);
+int aesni_keysize(int *keysize);
+extern const struct ltc_cipher_descriptor aesni_desc;
 #endif
 
 #ifdef LTC_XTEA
@@ -860,6 +873,16 @@ int serpent_test(void);
 void serpent_done(symmetric_key *skey);
 int serpent_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor serpent_desc;
+#endif
+
+#ifdef LTC_TEA
+int tea_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+int tea_ecb_encrypt(const unsigned char *pt, unsigned char *ct, const symmetric_key *skey);
+int tea_ecb_decrypt(const unsigned char *ct, unsigned char *pt, const symmetric_key *skey);
+int tea_test(void);
+void tea_done(symmetric_key *skey);
+int tea_keysize(int *keysize);
+extern const struct ltc_cipher_descriptor tea_desc;
 #endif
 
 #ifdef LTC_ECB_MODE
@@ -1012,6 +1035,9 @@ int chacha_crypt(chacha_state *st, const unsigned char *in, unsigned long inlen,
 int chacha_keystream(chacha_state *st, unsigned char *out, unsigned long outlen);
 int chacha_done(chacha_state *st);
 int chacha_test(void);
+int chacha_memory(const unsigned char *key,    unsigned long keylen,  unsigned long rounds,
+                  const unsigned char *iv,     unsigned long ivlen,   ulong64 counter,
+                  const unsigned char *datain, unsigned long datalen, unsigned char *dataout);
 
 #endif /* LTC_CHACHA */
 
@@ -1031,6 +1057,9 @@ int salsa20_crypt(salsa20_state *st, const unsigned char *in, unsigned long inle
 int salsa20_keystream(salsa20_state *st, unsigned char *out, unsigned long outlen);
 int salsa20_done(salsa20_state *st);
 int salsa20_test(void);
+int salsa20_memory(const unsigned char *key,    unsigned long keylen,  unsigned long rounds,
+                   const unsigned char *iv,     unsigned long ivlen,   ulong64 counter,
+                   const unsigned char *datain, unsigned long datalen, unsigned char *dataout);
 
 #endif /* LTC_SALSA20 */
 
@@ -1040,6 +1069,9 @@ int xsalsa20_setup(salsa20_state *st, const unsigned char *key,   unsigned long 
                                       const unsigned char *nonce, unsigned long noncelen,
                                       int rounds);
 int xsalsa20_test(void);
+int xsalsa20_memory(const unsigned char *key,    unsigned long keylen,   unsigned long rounds,
+                    const unsigned char *nonce,  unsigned long noncelen,
+                    const unsigned char *datain, unsigned long datalen,  unsigned char *dataout);
 
 #endif /* LTC_XSALSA20 */
 
@@ -1064,6 +1096,10 @@ int sosemanuk_crypt(sosemanuk_state *st, const unsigned char *in, unsigned long 
 int sosemanuk_keystream(sosemanuk_state *st, unsigned char *out, unsigned long outlen);
 int sosemanuk_done(sosemanuk_state *st);
 int sosemanuk_test(void);
+int sosemanuk_memory(const unsigned char *key,    unsigned long keylen,
+                     const unsigned char *iv,     unsigned long ivlen,
+                     const unsigned char *datain, unsigned long datalen,
+                     unsigned char *dataout);
 
 #endif /* LTC_SOSEMANUK */
 
@@ -1088,6 +1124,10 @@ int rabbit_crypt(rabbit_state* st, const unsigned char *in, unsigned long inlen,
 int rabbit_keystream(rabbit_state* st, unsigned char *out, unsigned long outlen);
 int rabbit_done(rabbit_state *st);
 int rabbit_test(void);
+int rabbit_memory(const unsigned char *key,    unsigned long keylen,
+                  const unsigned char *iv,     unsigned long ivlen,
+                  const unsigned char *datain, unsigned long datalen,
+                  unsigned char *dataout);
 
 #endif /* LTC_RABBIT */
 
@@ -1103,6 +1143,9 @@ int rc4_stream_crypt(rc4_state *st, const unsigned char *in, unsigned long inlen
 int rc4_stream_keystream(rc4_state *st, unsigned char *out, unsigned long outlen);
 int rc4_stream_done(rc4_state *st);
 int rc4_stream_test(void);
+int rc4_stream_memory(const unsigned char *key,    unsigned long keylen,
+                      const unsigned char *datain, unsigned long datalen,
+                      unsigned char *dataout);
 
 #endif /* LTC_RC4_STREAM */
 
@@ -1122,9 +1165,9 @@ int sober128_stream_crypt(sober128_state *st, const unsigned char *in, unsigned 
 int sober128_stream_keystream(sober128_state *st, unsigned char *out, unsigned long outlen);
 int sober128_stream_done(sober128_state *st);
 int sober128_stream_test(void);
+int sober128_stream_memory(const unsigned char *key,    unsigned long keylen,
+                           const unsigned char *iv,     unsigned long ivlen,
+                           const unsigned char *datain, unsigned long datalen,
+                           unsigned char *dataout);
 
 #endif /* LTC_SOBER128_STREAM */
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

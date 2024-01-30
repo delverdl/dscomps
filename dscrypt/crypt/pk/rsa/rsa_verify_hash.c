@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 #include "tomcrypt_private.h"
 
 /**
@@ -142,7 +136,7 @@ int rsa_verify_hash_ex(const unsigned char *sig,            unsigned long  sigle
       LTC_SET_ASN1(siginfo,    0, LTC_ASN1_SEQUENCE,          digestinfo,                    2);
       LTC_SET_ASN1(siginfo,    1, LTC_ASN1_OCTET_STRING,      tmpbuf,                        siglen);
 
-      if ((err = der_decode_sequence_strict(out, outlen, siginfo, 2)) != CRYPT_OK) {
+      if (der_decode_sequence_strict(out, outlen, siginfo, 2) != CRYPT_OK) {
          /* fallback to Legacy:missing NULL */
          LTC_SET_ASN1(siginfo, 0, LTC_ASN1_SEQUENCE,          digestinfo,                    1);
          if ((err = der_decode_sequence_strict(out, outlen, siginfo, 2)) != CRYPT_OK) {
@@ -187,7 +181,3 @@ bail_2:
 }
 
 #endif /* LTC_MRSA */
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */

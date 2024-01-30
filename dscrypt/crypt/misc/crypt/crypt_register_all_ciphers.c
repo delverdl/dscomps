@@ -1,11 +1,5 @@
-/* LibTomCrypt, modular cryptographic library -- Tom St Denis
- *
- * LibTomCrypt is a library that provides various cryptographic
- * algorithms in a highly modular and flexible manner.
- *
- * The library is free for all purposes without any express
- * guarantee it works.
- */
+/* LibTomCrypt, modular cryptographic library -- Tom St Denis */
+/* SPDX-License-Identifier: Unlicense */
 
 #include "tomcrypt_private.h"
 
@@ -22,6 +16,7 @@
 int register_all_ciphers(void)
 {
 #ifdef LTC_RIJNDAEL
+   /* `aesni_desc` is explicitely not registered, since it's handled from within the `aes_desc` */
 #ifdef ENCRYPT_ONLY
    /* alternative would be
     * register_cipher(&rijndael_enc_desc);
@@ -98,9 +93,8 @@ int register_all_ciphers(void)
 #ifdef LTC_SERPENT
    REGISTER_CIPHER(&serpent_desc);
 #endif
+#ifdef LTC_TEA
+   REGISTER_CIPHER(&tea_desc);
+#endif
    return CRYPT_OK;
 }
-
-/* ref:         HEAD -> develop, streams-enforce-call-policy */
-/* git commit:  c9c3c4273956ae945aecec7122cd0df71a210803 */
-/* commit time: 2018-07-10 07:11:39 +0200 */
